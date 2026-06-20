@@ -1319,9 +1319,9 @@
 
   
     /* =========================================================
-       EdX / IFrame One-Screen Fit
-       الهدف: عرض كل شريحة داخل شاشة واحدة قدر الإمكان دون تمرير رأسي مزعج
-       مناسب لإطار IFrame بارتفاع 900-920px
+       EdX IFrame Final Fit
+       الهدف: عرض كل شريحة في شاشة واحدة قدر الإمكان
+       الارتفاع المقترح للـ IFrame: 920px
        ========================================================= */
 
     html,
@@ -1337,13 +1337,13 @@
       width: 100% !important;
       max-width: 1120px !important;
       height: 100vh !important;
-      min-height: 820px !important;
+      min-height: 0 !important;
       max-height: 920px !important;
       margin: 0 auto !important;
-      padding: 12px 22px 58px !important;
+      padding: 12px 22px 56px !important;
       border-radius: 12px !important;
-      overflow: hidden !important;
       box-shadow: none !important;
+      overflow: hidden !important;
     }
 
     .brand-top {
@@ -1359,7 +1359,7 @@
     }
 
     .brand-divider {
-      height: 36px !important;
+      height: 34px !important;
     }
 
     .brand-bottom .brand-divider {
@@ -1368,8 +1368,8 @@
 
     .logo-institute,
     .logo-ministry {
-      max-height: 50px !important;
-      max-width: 160px !important;
+      max-height: 48px !important;
+      max-width: 158px !important;
     }
 
     .logo-madrasati {
@@ -1383,10 +1383,9 @@
     }
 
     .content {
-      height: calc(100vh - 70px) !important;
-      max-height: 840px !important;
       max-width: 990px !important;
-      margin: 60px auto 0 !important;
+      height: calc(100% - 64px) !important;
+      margin: 58px auto 0 !important;
       display: flex !important;
       flex-direction: column !important;
       min-height: 0 !important;
@@ -1452,7 +1451,7 @@
     .panel-title {
       flex: 0 0 auto !important;
       margin: 0 0 3px !important;
-      font-size: clamp(16px, 1.65vw, 19px) !important;
+      font-size: clamp(16px, 1.6vw, 19px) !important;
       line-height: 1.32 !important;
     }
 
@@ -1479,9 +1478,10 @@
 
     .intro-list {
       flex: 0 0 auto !important;
-      max-width: 760px !important;
+      max-width: 720px !important;
       gap: 7px !important;
       margin: 5px auto !important;
+      grid-template-columns: repeat(2, minmax(0,1fr)) !important;
     }
 
     .intro-box {
@@ -1511,14 +1511,6 @@
       margin-top: 5px !important;
     }
 
-    .grid-3,
-    .grid-4,
-    .zones-3,
-    .dnd-two {
-      flex: 1 1 auto !important;
-      min-height: 0 !important;
-    }
-
     .grid-3 {
       grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
     }
@@ -1534,6 +1526,8 @@
     .dnd-two {
       grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
       align-items: stretch !important;
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
     }
 
     .card {
@@ -1768,29 +1762,6 @@
       min-width: 96px !important;
       padding: 6px 12px !important;
       font-size: 11.5px !important;
-    }
-
-    .modal-card {
-      max-width: 420px !important;
-      padding: 18px !important;
-    }
-
-    .modal-icon {
-      width: 42px !important;
-      height: 42px !important;
-      margin-bottom: 6px !important;
-      font-size: 22px !important;
-    }
-
-    .modal-title {
-      margin-bottom: 4px !important;
-      font-size: 16px !important;
-      line-height: 1.35 !important;
-    }
-
-    .modal-text {
-      font-size: 12.2px !important;
-      line-height: 1.42 !important;
     }
 
     @media (max-width: 760px) {
@@ -2311,6 +2282,7 @@
     var pdSelectedDrag = null;
     var pdModalNextSlide = 0;
     var pdNextUrl = "";
+    var pdNextBlockId = "7aa0f684950441b5b12612d7d186e552";
 
     var pdExpected = {
       support:["s1","s2","s3","s4","s5","s6","s7"],
@@ -2725,14 +2697,42 @@
       }
     }
 
-    function pdFinish(){
-      if(pdNextUrl && pdNextUrl.trim() !== ""){
-        window.location.href=pdNextUrl;
-        return;
-      }
+    function pdBuildNextUrl(){
+      var id = pdNextBlockId || "7aa0f684950441b5b12612d7d186e552";
+      var ref = document.referrer || "";
 
-      pdShowFeedback("pdFinishMsg","تم إنهاء النشاط.",false);
-      pdOpenModal("تم إنهاء النشاط","أحسنت. أكملت نشاط كتابة الأوامر النصية لدعم التعلم المتمايز.","success",0);
+      try {
+        if(ref){
+          var url = new URL(ref);
+
+          if(url.pathname.indexOf("/jump_to_id/") !== -1){
+            return url.origin + url.pathname.replace(/\/jump_to_id\/[^\/?#]+.*/, "/jump_to_id/" + id);
+          }
+
+          var courseMatch = url.pathname.match(/\/courses\/([^\/]+)\//);
+          if(courseMatch && courseMatch[1]){
+            return url.origin + "/courses/" + courseMatch[1] + "/jump_to_id/" + id;
+          }
+        }
+      } catch(e) {}
+
+      return "jump_to_id/" + id;
+    }
+
+    function pdFinish(){
+      var nextUrl = pdNextUrl && pdNextUrl.trim() !== "" ? pdNextUrl : pdBuildNextUrl();
+
+      pdShowFeedback("pdFinishMsg","تم إنهاء النشاط. سيتم الانتقال إلى العنصر التالي.",false);
+
+      try {
+        if(window.top && window.top !== window.self){
+          window.top.location.href = nextUrl;
+        } else {
+          window.location.href = nextUrl;
+        }
+      } catch(e) {
+        window.location.href = nextUrl;
+      }
     }
   </script>
 
@@ -2747,12 +2747,12 @@
       }
 
       var oldGo = window.pdGo;
-      if (typeof oldGo === "function" && !window.__oneScreenGoWrapped) {
+      if (typeof oldGo === "function" && !window.__edxFrameGoWrapped) {
         window.pdGo = function (num) {
           oldGo(num);
           setTimeout(resetFrameScroll, 20);
         };
-        window.__oneScreenGoWrapped = true;
+        window.__edxFrameGoWrapped = true;
       }
     })();
   </script>
