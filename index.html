@@ -1317,6 +1317,531 @@
       }
     }
 
+  
+    /* =========================================================
+       EdX / IFrame One-Screen Fit
+       الهدف: عرض كل شريحة داخل شاشة واحدة قدر الإمكان دون تمرير رأسي مزعج
+       مناسب لإطار IFrame بارتفاع 900-920px
+       ========================================================= */
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      overflow: hidden !important;
+      background: #F7F9FB;
+    }
+
+    .activity {
+      width: 100% !important;
+      max-width: 1120px !important;
+      height: 100vh !important;
+      min-height: 820px !important;
+      max-height: 920px !important;
+      margin: 0 auto !important;
+      padding: 12px 22px 58px !important;
+      border-radius: 12px !important;
+      overflow: hidden !important;
+      box-shadow: none !important;
+    }
+
+    .brand-top {
+      top: 14px !important;
+      left: 28px !important;
+      gap: 10px !important;
+    }
+
+    .brand-bottom {
+      right: 28px !important;
+      bottom: 14px !important;
+      gap: 10px !important;
+    }
+
+    .brand-divider {
+      height: 36px !important;
+    }
+
+    .brand-bottom .brand-divider {
+      height: 30px !important;
+    }
+
+    .logo-institute,
+    .logo-ministry {
+      max-height: 50px !important;
+      max-width: 160px !important;
+    }
+
+    .logo-madrasati {
+      max-height: 34px !important;
+      max-width: 108px !important;
+    }
+
+    .logo-microsoft {
+      max-height: 34px !important;
+      max-width: 120px !important;
+    }
+
+    .content {
+      height: calc(100vh - 70px) !important;
+      max-height: 840px !important;
+      max-width: 990px !important;
+      margin: 60px auto 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: 0 !important;
+      overflow: hidden !important;
+    }
+
+    .axis-title-ribbon {
+      flex: 0 0 auto !important;
+      min-height: 42px !important;
+      margin-bottom: 4px !important;
+    }
+
+    .axis-ribbon-shadow {
+      top: 11px !important;
+      width: 190px !important;
+      height: 28px !important;
+    }
+
+    .axis-ribbon-main {
+      min-height: 39px !important;
+      padding: 6px 20px !important;
+      font-size: 15.5px !important;
+      line-height: 1.45 !important;
+    }
+
+    .objective {
+      flex: 0 0 auto !important;
+      max-width: 860px !important;
+      margin: 0 auto 5px !important;
+      font-size: 12px !important;
+      line-height: 1.42 !important;
+    }
+
+    .stepbar {
+      flex: 0 0 auto !important;
+      max-width: 830px !important;
+      gap: 5px !important;
+      margin: 0 auto 6px !important;
+    }
+
+    .step {
+      min-height: 26px !important;
+      font-size: 11px !important;
+      padding: 0 5px !important;
+    }
+
+    .panel {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      height: auto !important;
+      max-height: none !important;
+      padding: 12px !important;
+      border-radius: 16px !important;
+      overflow: hidden !important;
+    }
+
+    .panel.active {
+      display: flex !important;
+      flex-direction: column !important;
+      min-height: 0 !important;
+    }
+
+    .panel-title {
+      flex: 0 0 auto !important;
+      margin: 0 0 3px !important;
+      font-size: clamp(16px, 1.65vw, 19px) !important;
+      line-height: 1.32 !important;
+    }
+
+    .panel-text {
+      flex: 0 0 auto !important;
+      max-width: 810px !important;
+      margin: 0 auto 4px !important;
+      font-size: 12.2px !important;
+      line-height: 1.38 !important;
+    }
+
+    .hint,
+    .copilot-note,
+    .task-note,
+    .intro-status,
+    .feedback {
+      flex: 0 0 auto !important;
+      margin: 4px auto !important;
+      padding: 5px 9px !important;
+      font-size: 11.2px !important;
+      line-height: 1.35 !important;
+      border-radius: 12px !important;
+    }
+
+    .intro-list {
+      flex: 0 0 auto !important;
+      max-width: 760px !important;
+      gap: 7px !important;
+      margin: 5px auto !important;
+    }
+
+    .intro-box {
+      padding: 7px 9px !important;
+      border-radius: 12px !important;
+    }
+
+    .intro-box h3 {
+      margin-bottom: 2px !important;
+      font-size: 12px !important;
+      line-height: 1.28 !important;
+    }
+
+    .intro-box ul {
+      font-size: 11px !important;
+      line-height: 1.34 !important;
+    }
+
+    .grid-3,
+    .grid-4,
+    .zones-3,
+    .dnd-two,
+    .guide-strip,
+    .build-map,
+    .missing-row {
+      gap: 7px !important;
+      margin-top: 5px !important;
+    }
+
+    .grid-3,
+    .grid-4,
+    .zones-3,
+    .dnd-two {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+    }
+
+    .grid-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    .grid-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    .zones-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    }
+
+    .dnd-two {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+      align-items: stretch !important;
+    }
+
+    .card {
+      min-height: 0 !important;
+      padding: 9px !important;
+      border-radius: 13px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      overflow: hidden !important;
+    }
+
+    .card-title {
+      flex: 0 0 auto !important;
+      margin-bottom: 5px !important;
+      font-size: 11.8px !important;
+      line-height: 1.28 !important;
+    }
+
+    .pool,
+    .order-zone,
+    .drop-zone {
+      flex: 1 1 auto !important;
+      min-height: 0 !important;
+      max-height: none !important;
+      padding: 6px !important;
+      border-radius: 12px !important;
+      overflow: hidden !important;
+    }
+
+    .zone-title {
+      padding: 5px 7px !important;
+      margin-bottom: 5px !important;
+      font-size: 10.8px !important;
+      line-height: 1.32 !important;
+      border-radius: 11px !important;
+    }
+
+    .drag-card {
+      min-height: 28px !important;
+      padding: 5px 8px !important;
+      margin-bottom: 3px !important;
+      font-size: 10.8px !important;
+      line-height: 1.28 !important;
+      border-radius: 9px !important;
+    }
+
+    .drag-card::before {
+      font-size: 11px !important;
+      margin-left: 5px !important;
+    }
+
+    .order-zone .drag-card {
+      padding-right: 33px !important;
+    }
+
+    .order-zone .drag-card::after {
+      right: 7px !important;
+      width: 18px !important;
+      height: 18px !important;
+      font-size: 10px !important;
+    }
+
+    .order-status {
+      flex: 0 0 auto !important;
+      margin-top: 5px !important;
+      padding: 5px 7px !important;
+      font-size: 10.8px !important;
+      line-height: 1.28 !important;
+    }
+
+    .flip-card,
+    .flip-inner {
+      min-height: 138px !important;
+    }
+
+    .flip-face {
+      padding: 9px !important;
+      border-radius: 15px !important;
+    }
+
+    .flip-illustration {
+      width: 38px !important;
+      height: 38px !important;
+      margin: 0 auto 3px !important;
+    }
+
+    .flip-title {
+      font-size: 12.8px !important;
+      margin-bottom: 2px !important;
+      line-height: 1.25 !important;
+    }
+
+    .flip-text,
+    .flip-list {
+      font-size: 10.8px !important;
+      line-height: 1.3 !important;
+    }
+
+    .select-card {
+      min-height: 62px !important;
+      padding: 6px !important;
+      border-radius: 12px !important;
+    }
+
+    .select-num {
+      width: 20px !important;
+      height: 20px !important;
+      margin-bottom: 3px !important;
+      font-size: 10px !important;
+    }
+
+    .select-text {
+      font-size: 10.8px !important;
+      line-height: 1.28 !important;
+    }
+
+    .guide-strip,
+    .build-map {
+      flex: 0 0 auto !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    .guide-step,
+    .build-step {
+      padding: 5px !important;
+      border-radius: 12px !important;
+      font-size: 10.5px !important;
+      line-height: 1.28 !important;
+    }
+
+    .guide-step strong,
+    .build-num {
+      width: 20px !important;
+      height: 20px !important;
+      margin-bottom: 2px !important;
+      font-size: 10px !important;
+    }
+
+    .build-step strong {
+      font-size: 10.8px !important;
+      line-height: 1.25 !important;
+    }
+
+    .build-step p {
+      margin-top: 1px !important;
+      font-size: 10px !important;
+      line-height: 1.22 !important;
+    }
+
+    .weak-card {
+      flex: 0 0 auto !important;
+      padding: 7px !important;
+      margin: 0 auto 5px !important;
+      border-radius: 13px !important;
+    }
+
+    .weak-title {
+      padding: 3px 7px !important;
+      margin-bottom: 3px !important;
+      font-size: 10.8px !important;
+      line-height: 1.25 !important;
+    }
+
+    .weak-prompt {
+      padding: 6px 8px !important;
+      margin-bottom: 4px !important;
+      font-size: 12.5px !important;
+      line-height: 1.28 !important;
+    }
+
+    .missing-chip {
+      min-height: 26px !important;
+      padding: 4px 6px !important;
+      font-size: 10.3px !important;
+      line-height: 1.18 !important;
+    }
+
+    .missing-chip::before {
+      width: 16px !important;
+      height: 16px !important;
+      font-size: 9px !important;
+    }
+
+    .result-box,
+    .prompt-result,
+    .weak-box {
+      flex: 0 0 auto !important;
+      padding: 7px 9px !important;
+      margin-top: 5px !important;
+      border-radius: 12px !important;
+      font-size: 11px !important;
+      line-height: 1.35 !important;
+    }
+
+    .prompt-result .result-label {
+      padding: 3px 7px !important;
+      margin-bottom: 3px !important;
+      font-size: 10.7px !important;
+      line-height: 1.25 !important;
+    }
+
+    .prompt-result .result-text,
+    .result-text {
+      font-size: 11px !important;
+      line-height: 1.38 !important;
+    }
+
+    .final-card {
+      min-height: 72px !important;
+      padding: 8px !important;
+      border-radius: 13px !important;
+    }
+
+    .final-card h4 {
+      font-size: 12.6px !important;
+      margin-bottom: 2px !important;
+      line-height: 1.25 !important;
+    }
+
+    .final-card p {
+      font-size: 10.8px !important;
+      line-height: 1.3 !important;
+    }
+
+    .actions {
+      flex: 0 0 auto !important;
+      margin-top: 6px !important;
+      gap: 6px !important;
+    }
+
+    .btn {
+      min-width: 96px !important;
+      padding: 6px 12px !important;
+      font-size: 11.5px !important;
+    }
+
+    .modal-card {
+      max-width: 420px !important;
+      padding: 18px !important;
+    }
+
+    .modal-icon {
+      width: 42px !important;
+      height: 42px !important;
+      margin-bottom: 6px !important;
+      font-size: 22px !important;
+    }
+
+    .modal-title {
+      margin-bottom: 4px !important;
+      font-size: 16px !important;
+      line-height: 1.35 !important;
+    }
+
+    .modal-text {
+      font-size: 12.2px !important;
+      line-height: 1.42 !important;
+    }
+
+    @media (max-width: 760px) {
+      html,
+      body {
+        overflow-y: auto !important;
+      }
+
+      .activity {
+        height: auto !important;
+        min-height: auto !important;
+        max-height: none !important;
+        padding: 14px 10px 82px !important;
+      }
+
+      .content {
+        height: auto !important;
+        max-height: none !important;
+        margin-top: 0 !important;
+      }
+
+      .brand-top {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        justify-content: center !important;
+        margin-bottom: 12px !important;
+      }
+
+      .grid-3,
+      .grid-4,
+      .zones-3,
+      .guide-strip,
+      .intro-list,
+      .dnd-two,
+      .build-map,
+      .missing-row {
+        grid-template-columns: 1fr !important;
+      }
+
+      .panel {
+        overflow: visible !important;
+      }
+
+      .pool,
+      .order-zone,
+      .drop-zone {
+        min-height: 120px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -2210,5 +2735,27 @@
       pdOpenModal("تم إنهاء النشاط","أحسنت. أكملت نشاط كتابة الأوامر النصية لدعم التعلم المتمايز.","success",0);
     }
   </script>
+
+  <script>
+    (function () {
+      function resetFrameScroll() {
+        try {
+          window.scrollTo({ top: 0, behavior: "instant" });
+        } catch (e) {
+          window.scrollTo(0, 0);
+        }
+      }
+
+      var oldGo = window.pdGo;
+      if (typeof oldGo === "function" && !window.__oneScreenGoWrapped) {
+        window.pdGo = function (num) {
+          oldGo(num);
+          setTimeout(resetFrameScroll, 20);
+        };
+        window.__oneScreenGoWrapped = true;
+      }
+    })();
+  </script>
+
 </body>
 </html>
