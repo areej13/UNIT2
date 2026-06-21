@@ -2267,6 +2267,170 @@
       }
     }
 
+  
+    /* =========================================================
+       FIX: منع قص بقية الصفحة داخل IFrame
+       - لا يوجد overflow:hidden على جسم الصفحة أو النشاط
+       - ارتفاع الشريحة يتبع محتواها
+       - تقليل ارتفاع صناديق السحب في الشرائح الطويلة
+       ========================================================= */
+
+    html,
+    body {
+      width: 100% !important;
+      min-height: auto !important;
+      height: auto !important;
+      margin: 0 !important;
+      overflow-x: hidden !important;
+      overflow-y: auto !important;
+      background: #F7F9FB !important;
+    }
+
+    .activity {
+      width: 100% !important;
+      max-width: 1120px !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      margin: 0 auto !important;
+      padding: 18px 26px 76px !important;
+      overflow: visible !important;
+      box-shadow: none !important;
+    }
+
+    .content {
+      max-width: 990px !important;
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      margin: 70px auto 0 !important;
+      overflow: visible !important;
+    }
+
+    .panel {
+      height: auto !important;
+      min-height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      padding: 15px !important;
+    }
+
+    .panel.active {
+      display: block !important;
+      height: auto !important;
+      overflow: visible !important;
+    }
+
+    .dnd-two {
+      align-items: start !important;
+      gap: 10px !important;
+    }
+
+    .card {
+      overflow: visible !important;
+    }
+
+    .pool,
+    .order-zone,
+    .drop-zone {
+      height: auto !important;
+      max-height: none !important;
+      overflow: visible !important;
+      padding: 7px !important;
+    }
+
+    /* تقليل المساحة المهدرة في أنشطة الترتيب الطويلة */
+    .panel[data-slide="3"] .pool,
+    .panel[data-slide="3"] .order-zone,
+    .panel[data-slide="6"] .pool,
+    .panel[data-slide="6"] .order-zone {
+      min-height: 245px !important;
+    }
+
+    .panel[data-slide="4"] .drop-zone,
+    .panel[data-slide="5"] .drop-zone {
+      min-height: 112px !important;
+    }
+
+    .drag-card {
+      min-height: 28px !important;
+      padding: 5px 8px !important;
+      margin-bottom: 4px !important;
+      font-size: 10.9px !important;
+      line-height: 1.28 !important;
+      border-radius: 10px !important;
+    }
+
+    .zone-title {
+      padding: 5px 7px !important;
+      margin-bottom: 5px !important;
+      font-size: 10.9px !important;
+      line-height: 1.3 !important;
+    }
+
+    .order-status {
+      margin-top: 5px !important;
+      padding: 5px 8px !important;
+      font-size: 10.9px !important;
+      line-height: 1.3 !important;
+    }
+
+    .actions {
+      margin-top: 8px !important;
+      padding-bottom: 0 !important;
+      position: relative !important;
+      z-index: 30 !important;
+    }
+
+    .btn {
+      min-width: 100px !important;
+      padding: 6px 14px !important;
+      font-size: 11.8px !important;
+    }
+
+    /* في الشريحة السادسة يظهر صندوق الناتج بعد التحقق؛ لا يتم قصه */
+    .result-box,
+    .prompt-result,
+    .feedback {
+      overflow: visible !important;
+    }
+
+    @media (max-width: 760px) {
+      .activity {
+        padding: 14px 10px 82px !important;
+      }
+
+      .content {
+        margin-top: 0 !important;
+      }
+
+      .brand-top {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        justify-content: center !important;
+        margin-bottom: 12px !important;
+      }
+
+      .dnd-two,
+      .grid-3,
+      .grid-4,
+      .zones-3,
+      .guide-strip,
+      .intro-list,
+      .build-map,
+      .missing-row {
+        grid-template-columns: 1fr !important;
+      }
+
+      .panel[data-slide="3"] .pool,
+      .panel[data-slide="3"] .order-zone,
+      .panel[data-slide="6"] .pool,
+      .panel[data-slide="6"] .order-zone {
+        min-height: 150px !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -3153,19 +3317,27 @@
 
     function pdBuildNextUrl(){
       var id = pdNextBlockId || "7aa0f684950441b5b12612d7d186e552";
+      var raw = (pdNextUrl || "").trim();
+
+      if(raw){
+        return raw;
+      }
+
       var ref = document.referrer || "";
 
       try {
         if(ref){
           var url = new URL(ref);
 
-          if(url.pathname.indexOf("/jump_to_id/") !== -1){
-            return url.origin + url.pathname.replace(/\/jump_to_id\/[^\/?#]+.*/, "/jump_to_id/" + id);
+          var jumpIndex = url.pathname.indexOf("/jump_to_id/");
+          if(jumpIndex !== -1){
+            var prefix = url.pathname.substring(0, jumpIndex);
+            return url.origin + prefix + "/jump_to_id/" + encodeURIComponent(id);
           }
 
-          var courseMatch = url.pathname.match(/\/courses\/([^\/]+)\//);
+          var courseMatch = url.pathname.match(/^(\/courses\/[^\/]+)/);
           if(courseMatch && courseMatch[1]){
-            return url.origin + "/courses/" + courseMatch[1] + "/jump_to_id/" + id;
+            return url.origin + courseMatch[1] + "/jump_to_id/" + encodeURIComponent(id);
           }
         }
       } catch(e) {}
@@ -3174,19 +3346,25 @@
     }
 
     function pdFinish(){
-      var nextUrl = pdNextUrl && pdNextUrl.trim() !== "" ? pdNextUrl : pdBuildNextUrl();
+      var nextUrl = pdBuildNextUrl();
 
       pdShowFeedback("pdFinishMsg","تم إنهاء النشاط. سيتم الانتقال إلى العنصر التالي.",false);
 
-      try {
-        if(window.top && window.top !== window.self){
-          window.top.location.href = nextUrl;
-        } else {
-          window.location.href = nextUrl;
+      setTimeout(function(){
+        try {
+          window.open(nextUrl, "_top");
+        } catch(e) {
+          try {
+            if(window.top && window.top !== window.self){
+              window.top.location.href = nextUrl;
+            } else {
+              window.location.href = nextUrl;
+            }
+          } catch(err) {
+            window.location.href = nextUrl;
+          }
         }
-      } catch(e) {
-        window.location.href = nextUrl;
-      }
+      }, 250);
     }
   </script>
 
@@ -3256,6 +3434,57 @@
       if ("MutationObserver" in window) {
         var observer = new MutationObserver(function () {
           scheduleHeight();
+        });
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true,
+          attributes: true,
+          attributeFilter: ["class", "style"]
+        });
+      }
+    })();
+  </script>
+
+
+  <script>
+    (function () {
+      function sendUnit2Height() {
+        var activity = document.querySelector(".activity");
+        var height = activity ? Math.ceil(activity.getBoundingClientRect().height + 24) : document.documentElement.scrollHeight;
+        try {
+          window.parent.postMessage({
+            type: "unit2ActivityHeight",
+            height: height
+          }, "*");
+        } catch (e) {}
+      }
+
+      window.unit2SendHeight = sendUnit2Height;
+
+      function scheduleUnit2Height() {
+        requestAnimationFrame(function () {
+          requestAnimationFrame(sendUnit2Height);
+        });
+      }
+
+      var oldGo = window.pdGo;
+      if (typeof oldGo === "function" && !window.__unit2NoCutGoWrapped) {
+        window.pdGo = function (num) {
+          oldGo(num);
+          try { window.scrollTo(0, 0); } catch (e) {}
+          scheduleUnit2Height();
+        };
+        window.__unit2NoCutGoWrapped = true;
+      }
+
+      window.addEventListener("load", scheduleUnit2Height);
+      window.addEventListener("resize", scheduleUnit2Height);
+      document.addEventListener("click", function () { setTimeout(scheduleUnit2Height, 100); });
+      document.addEventListener("drop", function () { setTimeout(scheduleUnit2Height, 100); });
+
+      if ("MutationObserver" in window) {
+        var observer = new MutationObserver(function () {
+          scheduleUnit2Height();
         });
         observer.observe(document.body, {
           childList: true,
