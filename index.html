@@ -2431,6 +2431,11 @@
       }
     }
 
+  
+    #pdGo7Btn {
+      background: linear-gradient(135deg,var(--navy),var(--teal));
+    }
+
   </style>
 </head>
 
@@ -2840,6 +2845,7 @@
           <button class="btn secondary" type="button" onclick="pdPrev()">السابق</button>
           <button class="btn secondary" type="button" onclick="pdResetOrder('improvePool','improveOrder')">إعادة ترتيب</button>
           <button class="btn" type="button" onclick="pdCheckOrder('improve')">تحقق من الأمر المحسّن</button>
+          <button id="pdGo7Btn" class="btn" type="button" onclick="pdGo(7)" style="display:none;">التالي</button>
         </div>
       </section>
 
@@ -3175,9 +3181,11 @@
           pdMaxUnlocked=Math.max(pdMaxUnlocked,4);
           pdOpenModal("تركيب صحيح","أحسنت. في هذا النشاط قبلنا أكثر من ترتيب منطقي لتفاصيل المخرج ما دام بدأ الأمر بالدور ثم مستوى الطلبة ثم نوع الشرح.", "success", nextSlide);
         }else{
-          pdShowFeedback(feedbackId,"أصبح الأمر النصي أوضح؛ لأنه حدد الدور، ومستوى الطلبة، ونوع الدعم، وعناصر المخرج المطلوب.",false);
+          pdShowFeedback(feedbackId,"أصبح الأمر النصي أوضح؛ لأنه حدد الدور، ومستوى الطلبة، ونوع الدعم، وعناصر المخرج المطلوب. اقرأ الأمر النصي المحسّن في الصندوق، ثم اضغط التالي للمتابعة.",false);
           pdMaxUnlocked=Math.max(pdMaxUnlocked,7);
-          pdOpenModal("تحسين صحيح","تم تكوين الأمر النصي المحسّن. اقرأ الصياغة النهائية في الصندوق أسفل النشاط.", "success", nextSlide);
+          var nextBtn=document.getElementById("pdGo7Btn");
+          if(nextBtn){nextBtn.style.display="inline-flex";}
+          pdOpenModal("تحسين صحيح","تم تكوين الأمر النصي المحسّن. اقرأ الصياغة النهائية أولًا، ثم اضغط زر التالي للانتقال إلى ختام النشاط.", "success", 0);
         }
       }else{
         document.getElementById(resultId).style.display="none";
@@ -3315,72 +3323,22 @@
       }
     }
 
-    function pdGetQueryValue(name){
-      try {
-        var params = new URLSearchParams(window.location.search);
-        return params.get(name) || "";
-      } catch(e) {
-        return "";
-      }
-    }
-
-    function pdBuildNextUrl(){
-      var id = pdNextBlockId || "7aa0f684950441b5b12612d7d186e552";
-
-      var fromQuery = pdGetQueryValue("next");
-      if(fromQuery){
-        return fromQuery;
-      }
-
-      var raw = (pdNextUrl || "").trim();
-      if(raw){
-        return raw;
-      }
-
-      var ref = document.referrer || "";
-
-      try {
-        if(ref){
-          var url = new URL(ref);
-
-          var jumpIndex = url.pathname.indexOf("/jump_to_id/");
-          if(jumpIndex !== -1){
-            var prefix = url.pathname.substring(0, jumpIndex);
-            return url.origin + prefix + "/jump_to_id/" + encodeURIComponent(id);
-          }
-
-          var courseMatch = url.pathname.match(/^(\/courses\/[^\/]+)/);
-          if(courseMatch && courseMatch[1]){
-            return url.origin + courseMatch[1] + "/jump_to_id/" + encodeURIComponent(id);
-          }
-        }
-      } catch(e) {}
-
-      return "";
-    }
-
     function pdFinish(){
-      var nextUrl = pdBuildNextUrl();
-
-      if(!nextUrl){
-        pdShowFeedback("pdFinishMsg","تم إنهاء النشاط، لكن لم يتم تحديد رابط العنصر التالي. استخدم كود الفريم المحدث الذي يمرر الرابط عبر next=.",true);
-        pdOpenModal("تنبيه","تعذر تحديد رابط العنصر التالي من داخل GitHub. استخدم كود IFrame المحدث الذي يمرر رابط العنصر التالي إلى النشاط.","error",0);
-        return;
-      }
+      var nextPath = "/jump_to_id/7aa0f684950441b5b12612d7d186e552";
 
       pdShowFeedback("pdFinishMsg","تم إنهاء النشاط. سيتم الانتقال إلى العنصر التالي.",false);
 
+      try {
+        window.parent.postMessage({
+          type: "unit2ActivityDone",
+          url: nextPath,
+          blockId: "7aa0f684950441b5b12612d7d186e552"
+        }, "*");
+      } catch(e) {}
+
       setTimeout(function(){
-        try {
-          window.top.location.href = nextUrl;
-        } catch(e) {
-          try {
-            window.parent.location.href = nextUrl;
-          } catch(err) {
-            window.location.href = nextUrl;
-          }
-        }
-      }, 250);
+        pdOpenModal("تم إنهاء النشاط","إذا لم يتم الانتقال تلقائيًا، استخدم زر التالي الموجود خارج النشاط أو تأكد من استخدام كود الفريم المحدث.", "success", 0);
+      }, 900);
     }
   </script>
 
