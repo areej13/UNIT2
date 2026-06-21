@@ -3324,21 +3324,16 @@
     }
 
     function pdFinish(){
-      var nextPath = "/jump_to_id/7aa0f684950441b5b12612d7d186e552";
-
-      pdShowFeedback("pdFinishMsg","تم إنهاء النشاط. سيتم الانتقال إلى العنصر التالي.",false);
+      pdShowFeedback("pdFinishMsg","تم إنهاء النشاط بنجاح. يمكنك الآن المتابعة إلى العنصر التالي.",false);
 
       try {
         window.parent.postMessage({
           type: "unit2ActivityDone",
-          url: nextPath,
           blockId: "7aa0f684950441b5b12612d7d186e552"
         }, "*");
       } catch(e) {}
 
-      setTimeout(function(){
-        pdOpenModal("تم إنهاء النشاط","إذا لم يتم الانتقال تلقائيًا، استخدم زر التالي الموجود خارج النشاط أو تأكد من استخدام كود الفريم المحدث.", "success", 0);
-      }, 900);
+      pdOpenModal("تم إنهاء النشاط","أحسنت. يمكنك الآن المتابعة إلى العنصر التالي.", "success", 0);
     }
   </script>
 
