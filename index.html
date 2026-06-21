@@ -3315,10 +3315,24 @@
       }
     }
 
+    function pdGetQueryValue(name){
+      try {
+        var params = new URLSearchParams(window.location.search);
+        return params.get(name) || "";
+      } catch(e) {
+        return "";
+      }
+    }
+
     function pdBuildNextUrl(){
       var id = pdNextBlockId || "7aa0f684950441b5b12612d7d186e552";
-      var raw = (pdNextUrl || "").trim();
 
+      var fromQuery = pdGetQueryValue("next");
+      if(fromQuery){
+        return fromQuery;
+      }
+
+      var raw = (pdNextUrl || "").trim();
       if(raw){
         return raw;
       }
@@ -3342,24 +3356,26 @@
         }
       } catch(e) {}
 
-      return "jump_to_id/" + id;
+      return "";
     }
 
     function pdFinish(){
       var nextUrl = pdBuildNextUrl();
 
+      if(!nextUrl){
+        pdShowFeedback("pdFinishMsg","تم إنهاء النشاط، لكن لم يتم تحديد رابط العنصر التالي. استخدم كود الفريم المحدث الذي يمرر الرابط عبر next=.",true);
+        pdOpenModal("تنبيه","تعذر تحديد رابط العنصر التالي من داخل GitHub. استخدم كود IFrame المحدث الذي يمرر رابط العنصر التالي إلى النشاط.","error",0);
+        return;
+      }
+
       pdShowFeedback("pdFinishMsg","تم إنهاء النشاط. سيتم الانتقال إلى العنصر التالي.",false);
 
       setTimeout(function(){
         try {
-          window.open(nextUrl, "_top");
+          window.top.location.href = nextUrl;
         } catch(e) {
           try {
-            if(window.top && window.top !== window.self){
-              window.top.location.href = nextUrl;
-            } else {
-              window.location.href = nextUrl;
-            }
+            window.parent.location.href = nextUrl;
           } catch(err) {
             window.location.href = nextUrl;
           }
