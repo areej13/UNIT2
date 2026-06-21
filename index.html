@@ -2905,8 +2905,6 @@
     var pdDragged = null;
     var pdSelectedDrag = null;
     var pdModalNextSlide = 0;
-    var pdNextUrl = "";
-    var pdNextBlockId = "7aa0f684950441b5b12612d7d186e552";
 
     var pdExpected = {
       support:["s1","s2","s3","s4","s5","s6","s7"],
@@ -3324,16 +3322,8 @@
     }
 
     function pdFinish(){
-      pdShowFeedback("pdFinishMsg","تم إنهاء النشاط بنجاح. يمكنك الآن المتابعة إلى العنصر التالي.",false);
-
-      try {
-        window.parent.postMessage({
-          type: "unit2ActivityDone",
-          blockId: "7aa0f684950441b5b12612d7d186e552"
-        }, "*");
-      } catch(e) {}
-
-      pdOpenModal("تم إنهاء النشاط","أحسنت. يمكنك الآن المتابعة إلى العنصر التالي.", "success", 0);
+      pdShowFeedback("pdFinishMsg","تم إنهاء النشاط بنجاح.",false);
+      pdOpenModal("تم إنهاء النشاط","أحسنت. تم إكمال النشاط بنجاح.", "success", 0);
     }
   </script>
 
