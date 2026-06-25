@@ -1101,6 +1101,92 @@
       line-height: 1.55 !important;
     }
 
+  
+    /* تحسين شاشة 4: تقليل التمرير وجعل التصنيف أكثر ضغطًا */
+    .pd-lx-panel-compact-classify {
+      padding: 14px !important;
+    }
+
+    .pd-lx-panel-compact-classify .pd-lx-panel-title {
+      margin-bottom: 4px !important;
+      font-size: clamp(17px, 1.8vw, 21px) !important;
+    }
+
+    .pd-lx-panel-compact-classify .pd-lx-text,
+    .pd-lx-panel-compact-classify .pd-lx-hint {
+      margin: 6px auto !important;
+      padding: 7px 10px !important;
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+    }
+
+    .pd-lx-panel-compact-classify .pd-lx-card {
+      padding: 10px !important;
+      margin-top: 8px !important;
+    }
+
+    .pd-lx-panel-compact-classify .pd-lx-card-title {
+      margin-bottom: 7px !important;
+      font-size: 13.5px !important;
+      text-align: center !important;
+    }
+
+    .pd-lx-panel-compact-classify #classifyPool {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 8px !important;
+      min-height: auto !important;
+      padding: 8px !important;
+    }
+
+    .pd-lx-panel-compact-classify #classifyPool .pd-lx-drag {
+      min-height: 76px !important;
+      margin-bottom: 0 !important;
+      padding: 8px 10px !important;
+      font-size: 12px !important;
+      line-height: 1.5 !important;
+      align-items: center !important;
+    }
+
+    .pd-lx-panel-compact-classify .pd-lx-zones {
+      gap: 8px !important;
+      margin-top: 8px !important;
+    }
+
+    .pd-lx-panel-compact-classify .pd-lx-drop {
+      min-height: 106px !important;
+      padding: 9px !important;
+    }
+
+    .pd-lx-panel-compact-classify .pd-lx-zone-title {
+      padding: 6px 8px !important;
+      margin-bottom: 7px !important;
+      font-size: 12.5px !important;
+      line-height: 1.45 !important;
+    }
+
+    .pd-lx-panel-compact-classify .pd-lx-actions {
+      margin-top: 10px !important;
+    }
+
+    .pd-lx-btn[hidden],
+    a.pd-lx-btn[hidden],
+    button.pd-lx-btn[hidden] {
+      display: none !important;
+    }
+
+    .pd-lx-btn:not([hidden]),
+    a.pd-lx-btn:not([hidden]),
+    button.pd-lx-btn:not([hidden]) {
+      display: inline-flex !important;
+    }
+
+    @media(max-width:980px){
+      .pd-lx-panel-compact-classify #classifyPool {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
   </style>
 </head>
 
@@ -1334,7 +1420,7 @@
         </div>
       </section>
 
-      <section class="pd-lx-panel" data-slide="4">
+      <section class="pd-lx-panel pd-lx-panel-compact-classify" data-slide="4">
         <h2 class="pd-lx-panel-title">تمييز الأوامر النصية حسب مستوى الدعم</h2>
 
         <p class="pd-lx-text">
@@ -1507,6 +1593,18 @@
     var pdSelectedDrag = null;
     var pdModalAction = null;
     var pdBooted = false;
+
+
+    function pdRevealNextButton(buttonId){
+      var btn = document.getElementById(buttonId);
+      if(btn){
+        btn.hidden = false;
+        btn.removeAttribute("hidden");
+        btn.classList.remove("is-disabled");
+        btn.disabled = false;
+        btn.style.display = "inline-flex";
+      }
+    }
 
     function pdSendHeight(){
       try{
@@ -1741,11 +1839,9 @@
       if(allCorrect){
         pdCorrect("الشرح: الأمر النصي الجيد يوضح الدور، ومستوى الطلبة، ونوع الاستخدام، والموضوع، وشكل المخرج، ومعيار المراجعة. هذه العناصر تجعل المخرج أكثر دقة وقابلًا للمراجعة.");
         pdUnlock(3);
+        pdRevealNextButton("pdGo3Btn");
 
-        var nextBtn = document.getElementById("pdGo3Btn");
-        if(nextBtn){
-          nextBtn.hidden = false;
-        }
+        pdRevealNextButton("pdGo3Btn");
       }else{
         pdWrong("السبب: تم اختيار عنصر غير أساسي أو ترك عنصر أساسي. لون الواجهة وعدد الكلمات فقط لا يمثلان عناصر أساسية في بناء الأمر النصي، بينما الدور والمستوى ونوع الاستخدام والموضوع وشكل المخرج ومعيار المراجعة عناصر مهمة.");
       }
@@ -2082,13 +2178,16 @@
     function pdFinish(){
       pdCorrect(
         "تم إنهاء النشاط بنجاح. اضغط «التالي» للمتابعة.",
-        false
+        false,
+        "حسنًا",
+        function(){
+          pdRevealNextButton("pdFinalNextBtn");
+          pdScheduleHeight();
+        }
       );
 
-      var nextBtn = document.getElementById("pdFinalNextBtn");
-      if(nextBtn){
-        nextBtn.hidden = false;
-      }
+      pdRevealNextButton("pdFinalNextBtn");
+      pdScheduleHeight();
     }
 
     function pdGlobalEvents(){
