@@ -127,7 +127,7 @@
 
     .pd-lx-steps{
       display:grid !important;
-      grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+      grid-template-columns:repeat(6,minmax(0,1fr)) !important;
       gap:8px !important;
       max-width:860px !important;
       margin:0 auto 12px !important;
@@ -1069,6 +1069,38 @@
         font-size:14px !important;
       }
     }
+  
+    /* تخفيف الحمل المعرفي بصريًا */
+    .pd-lx-objective,
+    .pd-lx-text {
+      max-width: 780px !important;
+    }
+
+    .pd-lx-panel {
+      padding: 18px !important;
+    }
+
+    .pd-lx-hint,
+    .pd-lx-note,
+    .pd-lx-feedback,
+    .pd-lx-status {
+      padding: 9px 12px !important;
+      margin: 8px auto !important;
+    }
+
+    .pd-lx-info-box ul {
+      line-height: 1.7 !important;
+    }
+
+    .pd-lx-flip,
+    .pd-lx-flip-inner {
+      min-height: 172px !important;
+    }
+
+    .pd-lx-flip p {
+      line-height: 1.55 !important;
+    }
+
   </style>
 </head>
 
@@ -1082,7 +1114,7 @@
       </div>
 
       <p class="pd-lx-objective">
-        هدف التعلم: أن يكتب المتدرب أوامر نصية موجهة لدعم التعلم المتمايز، تراعي اختلاف مستويات الطلبة واحتياجاتهم، وتنتج أنشطة أو بدائل تعليمية قابلة للمراجعة والتكييف.
+        هدف التعلم: كتابة أوامر نصية تراعي مستويات الطلبة، وتنتج أنشطة تعليمية قابلة للمراجعة والتكييف.
       </p>
 
       <div class="pd-lx-steps" aria-label="مسار النشاط">
@@ -1092,16 +1124,13 @@
         <button class="pd-lx-step is-locked" type="button" onclick="pdGo(4)">4</button>
         <button class="pd-lx-step is-locked" type="button" onclick="pdGo(5)">5</button>
         <button class="pd-lx-step is-locked" type="button" onclick="pdGo(6)">6</button>
-        <button class="pd-lx-step is-locked" type="button" onclick="pdGo(7)">7</button>
       </div>
 
       <section class="pd-lx-panel is-active" data-slide="1">
         <h2 class="pd-lx-panel-title">اكتب أمرًا نصيًا يناسب مستوى الطلبة</h2>
 
         <p class="pd-lx-text">
-          في هذا النشاط سنطبق خطوات استخدام مساعد مايكروسوفت للذكاء الاصطناعي
-          <span class="pd-lx-en">(Microsoft Copilot Chat)</span>
-          بطريقة عملية. ستتعلم كيف تكتب أمرًا نصيًا مناسبًا يراعي مستوى الطلبة ونوع الاستخدام.
+          ستتدرّب على بناء أمر نصي يراعي مستوى الطلبة ونوع الدعم المطلوب.
         </p>
 
         <div class="pd-lx-info-grid">
@@ -1126,10 +1155,10 @@
         </div>
 
         <p class="pd-lx-text">
-          المطلوب منك أن تربط بين مستوى الطلبة ونوع الدعم، ثم تبني أمرًا نصيًا يمكن استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي.
+          ابدأ باختيار المستوى، ثم حدّد نوع الدعم المناسب.
         </p>
 
-        <div class="pd-lx-hint">اضغط على كل بطاقة لقلبها وقراءة التفاصيل، ثم ابدأ النشاط.</div>
+        <div class="pd-lx-hint">اقرأ البطاقات الثلاث، ثم ابدأ.</div>
 
         <div class="pd-lx-grid-3">
           <button class="pd-lx-flip" type="button" onclick="pdIntroSelect(this)">
@@ -1144,15 +1173,10 @@
                 </svg>
                 <h3>المستوى الداعم</h3>
                 <p>شرح مبسط + مثال محلول + تدريب قصير</p>
-                <p>اضغط لعرض التفاصيل</p>
               </div>
               <div class="pd-lx-flip-face pd-lx-flip-back">
                 <h3>متى أستخدمه؟</h3>
-                <ul>
-                  <li>عند الحاجة إلى تبسيط المفهوم.</li>
-                  <li>عند الحاجة إلى مثال محلول قبل التدريب.</li>
-                  <li>عند الرغبة في تدريب قصير للتحقق من الفهم.</li>
-                </ul>
+                <p>عند الحاجة إلى تبسيط المفهوم مع مثال محلول وتدريب قصير.</p>
               </div>
             </div>
           </button>
@@ -1169,15 +1193,10 @@
                 </svg>
                 <h3>المستوى الأساسي</h3>
                 <p>خطوات واضحة + تدريب متدرج + سؤال تحقق</p>
-                <p>اضغط لعرض التفاصيل</p>
               </div>
               <div class="pd-lx-flip-face pd-lx-flip-back">
                 <h3>متى أستخدمه؟</h3>
-                <ul>
-                  <li>عند الحاجة إلى تنظيم المهارة في خطوات.</li>
-                  <li>عند تقديم تدريب متدرج من السهل إلى المتوسط.</li>
-                  <li>عند إضافة سؤال تحقق بعد التدريب.</li>
-                </ul>
+                <p>عند الحاجة إلى خطوات واضحة وتدريب متدرج.</p>
               </div>
             </div>
           </button>
@@ -1192,15 +1211,10 @@
                 </svg>
                 <h3>المستوى الإثرائي</h3>
                 <p>موقف تطبيقي + تفسير + تحدٍّ أعلى</p>
-                <p>اضغط لعرض التفاصيل</p>
               </div>
               <div class="pd-lx-flip-face pd-lx-flip-back">
                 <h3>متى أستخدمه؟</h3>
-                <ul>
-                  <li>عند توظيف المفهوم في موقف تطبيقي.</li>
-                  <li>عند طلب تفسير أو تبرير لطريقة الحل.</li>
-                  <li>عند إضافة تحدٍّ أعلى يناسب مستوى الطلبة.</li>
-                </ul>
+                <p>عند الحاجة إلى موقف تطبيقي أو تحدٍّ أعلى.</p>
               </div>
             </div>
           </button>
@@ -1218,8 +1232,7 @@
         <h2 class="pd-lx-panel-title">ما الذي يجب أن يحتويه الأمر النصي؟</h2>
 
         <p class="pd-lx-text">
-          قبل كتابة الأمر النصي في مساعد مايكروسوفت للذكاء الاصطناعي، تأكد أنه يتضمن عناصر واضحة تساعد الأداة على إنتاج مخرج مناسب.
-          اقرأ العناصر التالية، ثم اختر العناصر التي يجب أن تظهر في الأمر النصي.
+          اختر العناصر الأساسية التي تجعل الأمر النصي واضحًا ومناسبًا.
         </p>
 
         <div class="pd-lx-grid-4">
@@ -1270,8 +1283,7 @@
         <h2 class="pd-lx-panel-title">اكتب أمرًا نصيًا للمستوى الداعم</h2>
 
         <p class="pd-lx-text">
-          المستوى الداعم يناسب الطلبة الذين يحتاجون إلى تبسيط المفهوم، ومثال محلول، وتدريب قصير.
-          اسحب أجزاء الأمر النصي إلى صندوق التركيب بالترتيب المناسب.
+          رتّب أجزاء الأمر النصي للمستوى الداعم.
         </p>
 
         <div class="pd-lx-guide">
@@ -1282,7 +1294,7 @@
         </div>
 
         <div class="pd-lx-note">
-          يمكن السحب والإفلات، أو النقر على البطاقة ثم النقر على صندوق الأمر النصي.
+          اسحب البطاقة أو اضغط عليها ثم اضغط على صندوق الإجابة.
         </div>
 
         <div class="pd-lx-two">
@@ -1326,10 +1338,10 @@
         <h2 class="pd-lx-panel-title">تمييز الأوامر النصية حسب مستوى الدعم</h2>
 
         <p class="pd-lx-text">
-          اقرأ كل أمر نصي، ثم اسحبه إلى مستوى الدعم المناسب: داعم، أساسي، أو إثرائي.
+          صنّف كل أمر نصي حسب مستوى الدعم المناسب.
         </p>
 
-        <div class="pd-lx-hint">يمكنك السحب والإفلات، أو النقر على البطاقة ثم النقر على منطقة الإفلات المناسبة.</div>
+        <div class="pd-lx-hint">اسحب البطاقة أو اضغط عليها ثم اختر منطقة الإجابة.</div>
 
         <div class="pd-lx-card">
           <div class="pd-lx-card-title">الأوامر النصية</div>
@@ -1357,44 +1369,10 @@
       </section>
 
       <section class="pd-lx-panel" data-slide="5">
-        <h2 class="pd-lx-panel-title">اختيار نوع الدعم المناسب</h2>
-
-        <p class="pd-lx-text">
-          اقرأ وصف كل مستوى، ثم اختر نوع الدعم الأنسب له داخل الأمر النصي.
-        </p>
-
-        <div class="pd-lx-hint">ضع كل بطاقة دعم داخل المستوى المناسب لها. يمكنك استخدام السحب أو النقر.</div>
-
-        <div class="pd-lx-card">
-          <div class="pd-lx-card-title">بطاقات السحب</div>
-          <div class="pd-lx-pool" id="matchPool">
-            <div class="pd-lx-drag" draggable="true" data-mode="match" data-answer="support">شرح المفهوم بخطوات قصيرة مع مثال محلول وتدريب قصير.</div>
-            <div class="pd-lx-drag" draggable="true" data-mode="match" data-answer="basic">تنظيم المهارة في خطوات واضحة مع تدريب متدرج وسؤال تحقق.</div>
-            <div class="pd-lx-drag" draggable="true" data-mode="match" data-answer="enrich">توظيف المفهوم في موقف تطبيقي يتطلب تفسيرًا أو تبريرًا.</div>
-          </div>
-        </div>
-
-        <div class="pd-lx-zones" data-activity="match">
-          <div class="pd-lx-drop" data-zone="support"><div class="pd-lx-zone-title">المستوى الداعم</div></div>
-          <div class="pd-lx-drop" data-zone="basic"><div class="pd-lx-zone-title">المستوى الأساسي</div></div>
-          <div class="pd-lx-drop" data-zone="enrich"><div class="pd-lx-zone-title">المستوى الإثرائي</div></div>
-        </div>
-
-        <div id="pdFeedback5" class="pd-lx-feedback"></div>
-
-        <div class="pd-lx-actions">
-          <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
-          <button class="pd-lx-btn is-secondary" type="button" onclick="pdResetMatch()">إعادة المحاولة</button>
-          <button class="pd-lx-btn" type="button" onclick="pdCheckMatch()">تحقق من الربط</button>
-          <button id="pdGo6Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(6)" hidden>التالي</button>
-        </div>
-      </section>
-
-      <section class="pd-lx-panel" data-slide="6">
         <h2 class="pd-lx-panel-title">تحقق من الأمر النصي قبل استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي</h2>
 
         <p class="pd-lx-text">
-          أمامك أمر نصي عام وغير مكتمل. المطلوب تحويله إلى أمر نصي محسّن يوضح الدور، والمهمة والموضوع، واحتياج الطلبة، وعناصر المخرج المطلوب.
+          حسّن الأمر النصي العام بإضافة العناصر الأساسية.
         </p>
 
         <section class="pd-lx-weak" aria-label="الأمر النصي العام قبل التحسين">
@@ -1408,7 +1386,7 @@
         </section>
 
         <div class="pd-lx-note">
-          مهمتك هي ترتيب بطاقات التحسين لتكوين أمر نصي كامل وقابل للاستخدام. اتبع خريطة البناء الآتية قبل السحب.
+          رتّب بطاقات التحسين لتكوين أمر نصي واضح.
         </div>
 
         <section class="pd-lx-build" aria-label="خريطة بناء الأمر النصي">
@@ -1419,8 +1397,8 @@
           </div>
           <div class="pd-lx-build-item">
             <span class="pd-lx-build-num">2</span>
-            <strong>المهمة والموضوع</strong>
-            <p>ماذا سيصمم؟ وعن أي موضوع؟</p>
+            <strong>المهمة</strong>
+            <p>ماذا سيصمم؟</p>
           </div>
           <div class="pd-lx-build-item">
             <span class="pd-lx-build-num">3</span>
@@ -1430,18 +1408,13 @@
           <div class="pd-lx-build-item">
             <span class="pd-lx-build-num">4</span>
             <strong>عناصر المخرج المطلوب</strong>
-            <p>هدف واضح، مثال محلول، مسائل متدرجة، وسؤال تحقق.</p>
+            <p>ما العناصر المطلوبة؟</p>
           </div>
         </section>
-
         <div class="pd-lx-review">
-          يُراعى الرجوع إلى الدليل الإرشادي لاستخدام الذكاء الاصطناعي التوليدي في التعليم العام بالمملكة عند مراجعة النشاط والتحقق من مناسبته للاستخدام التعليمي.
-          <br>
-          المرجع: وزارة التعليم. (2025). الدليل الإرشادي لاستخدام الذكاء الاصطناعي التوليدي في التعليم العام بالمملكة.
-          <a href="https://www.moe.gov.sa/ar/mediacenter/MOEnews/DocLib/Artificial_Intelligence_Guide.pdf" target="_blank" rel="noopener">فتح المرجع</a>
+          راجع الأمر النصي من حيث وضوح الدور، ومستوى الطلبة، ونوع الدعم، وشكل المخرج.
         </div>
-
-        <div class="pd-lx-note">
+<div class="pd-lx-note">
           يمكن السحب والإفلات، أو النقر على البطاقة ثم النقر على صندوق الأمر النصي المحسّن.
         </div>
 
@@ -1481,14 +1454,14 @@
           <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
           <button class="pd-lx-btn is-secondary" type="button" onclick="pdResetOrder('improvePool','improveOrder')">إعادة ترتيب</button>
           <button class="pd-lx-btn" type="button" onclick="pdCheckOrder('improve')">تحقق من الأمر المحسّن</button>
-          <button id="pdGo7Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(7)" hidden>التالي</button>
+          <button id="pdGo6Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(6)" hidden>التالي</button>
         </div>
       </section>
 
-      <section class="pd-lx-panel" data-slide="7">
+      <section class="pd-lx-panel" data-slide="6">
         <h2 class="pd-lx-panel-title">ماذا أنجزت؟</h2>
 
-        <p class="pd-lx-text">أصبحت الآن قادرًا على:</p>
+        <p class="pd-lx-text">أنجزت المهارات الأساسية في هذا النشاط:</p>
 
         <div class="pd-lx-grid-3">
           <div class="pd-lx-final-card">
@@ -1501,10 +1474,7 @@
           </div>
           <div class="pd-lx-final-card">
             <h4>حسّنت الأمر النصي</h4>
-            <p>
-              تحسين أمر نصي عام قبل استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي
-              <span class="pd-lx-en">(Microsoft Copilot Chat)</span>.
-            </p>
+            <p>تحسين أمر نصي عام ليصبح أوضح وأكثر مناسبة.</p>
           </div>
         </div>
 
@@ -1513,7 +1483,7 @@
         <div class="pd-lx-actions">
           <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
           <button class="pd-lx-btn" type="button" onclick="pdFinish()">إنهاء النشاط</button>
-          <a id="pdFinalNextBtn" class="pd-lx-btn is-next" href="https://niepd.futurex.sa/learning/course/course-v1:NIEPD+T122+2026/block-v1:NIEPD+T122+2026+type@vertical+block@7aa0f684950441b5b12612d7d186e552" hidden>التالي</a>
+          <a id="pdFinalNextBtn" class="pd-lx-btn is-next" href="https://niepd.futurex.sa/learning/course/course-v1:NIEPD+T122+2026/block-v1:NIEPD+T122+2026+type@sequential+block@1ee8be2eb79a446c95a35155005f45e4/block-v1:NIEPD+T122+2026+type@vertical+block@1e274856c253411b829802de84089d28" hidden>التالي</a>
         </div>
       </section>
 
@@ -1994,7 +1964,7 @@
       }
 
       if(zoneId === "improveOrder"){
-        var btn7 = document.getElementById("pdGo7Btn");
+        var btn7 = document.getElementById("pdGo6Btn");
         if(btn7){ btn7.hidden = true; }
       }
 
@@ -2065,7 +2035,6 @@
         "السبب: يوجد أمر نصي في مستوى غير مناسب. الأمر الداعم يركز على التبسيط والمثال، والأمر الأساسي يركز على خطوات وتدريب متدرج، والأمر الإثرائي يركز على تطبيق وتفسير أعمق."
       );
     }
-
     function pdCheckMatch(){
       pdCheckDropActivity(
         "match",
@@ -2112,16 +2081,14 @@
 
     function pdFinish(){
       pdCorrect(
-        "الشرح: تم إنهاء النشاط بنجاح. أصبحت الآن قادرًا على تحديد مستوى الطلبة، واختيار نوع الدعم المناسب، وتحسين الأمر النصي قبل استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي.",
+        "تم إنهاء النشاط بنجاح. اضغط «التالي» للمتابعة.",
         false
       );
 
-      var finalBtn = document.getElementById("pdFinalNextBtn");
-      if(finalBtn){
-        finalBtn.hidden = false;
+      var nextBtn = document.getElementById("pdFinalNextBtn");
+      if(nextBtn){
+        nextBtn.hidden = false;
       }
-
-      pdScheduleHeight();
     }
 
     function pdGlobalEvents(){
