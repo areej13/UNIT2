@@ -1818,16 +1818,8 @@
 
       var nextBtn = document.getElementById("pdGo3Btn");
       if(nextBtn){
-        if(item.next === "pdGo6Btn"){
-          nextBtn.hidden = false;
-          nextBtn.removeAttribute("hidden");
-          nextBtn.disabled = true;
-          nextBtn.setAttribute("aria-disabled","true");
-          nextBtn.classList.add("is-disabled");
-          nextBtn.style.display = "inline-flex";
-        }else{
-          nextBtn.hidden = true;
-        }
+        nextBtn.hidden = true;
+        nextBtn.setAttribute("hidden","hidden");
       }
     }
 
@@ -2143,7 +2135,7 @@
         pdCorrect(correctExplanation);
         pdUnlock(unlockNum);
 
-        pdRevealNextButton(item.next);
+        pdRevealNextButton(nextBtnId);
       }else{
         pdWrong(wrongReason);
       }
