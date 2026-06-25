@@ -11,2472 +11,1101 @@
 
   <style>
     :root{
-      --navy:#18356A;
-      --navy-dark:#102A57;
-      --teal:#118A99;
-      --teal-dark:#0D7582;
-      --ink:#16324F;
-      --muted:#607082;
-      --line:#D9E2EA;
-      --soft:#F4FBFC;
-      --soft2:#EEF6F8;
-      --white:#FFFFFF;
-      --danger:#D94841;
-      --danger-soft:#FFF7F7;
-      --success:#118A99;
-      --shadow:0 8px 22px rgba(20,47,86,.07);
+      --pd-navy:#18356A;
+      --pd-navy-dark:#102A57;
+      --pd-teal:#118A99;
+      --pd-teal-dark:#0D7582;
+      --pd-bg:#F7F9FB;
+      --pd-white:#FFFFFF;
+      --pd-line:#D9E2EA;
+      --pd-ink:#17324D;
+      --pd-muted:#5F7083;
+      --pd-soft:#EEF6F8;
+      --pd-soft-2:#F4FBFC;
+      --pd-danger:#D94841;
+      --pd-danger-soft:#FFF7F7;
+      --pd-shadow:0 10px 26px rgba(16,42,87,.08);
     }
 
     *{
-      box-sizing:border-box;
+      box-sizing:border-box !important;
       font-family:"Tajawal", Tahoma, Arial, sans-serif !important;
     }
 
-    html,body{
-      margin:0;
-      width:100%;
-      min-height:auto;
-      overflow-x:hidden;
-      background:#F7F9FB;
-      color:var(--ink);
-      direction:rtl;
+    html,
+    body{
+      margin:0 !important;
+      padding:0 !important;
+      width:100% !important;
+      min-height:auto !important;
+      background:var(--pd-bg) !important;
+      color:var(--pd-ink) !important;
+      direction:rtl !important;
+      overflow-x:hidden !important;
+      overflow-y:auto !important;
     }
 
-    button{
-      font-family:inherit;
+    button,
+    a{
+      font-family:"Tajawal", Tahoma, Arial, sans-serif !important;
     }
 
-    .activity{
-      position:relative;
-      width:100%;
-      max-width:1180px;
-      margin:0 auto;
-      padding:28px 38px 110px;
+    .pd-lx-wrap{
+      width:100% !important;
+      max-width:1120px !important;
+      margin:0 auto !important;
+      padding:18px 22px 24px !important;
       background:
-        radial-gradient(circle at 10% 8%, rgba(17,138,153,.07), transparent 28%),
-        radial-gradient(circle at 92% 14%, rgba(24,53,106,.06), transparent 28%),
-        var(--white);
-      border:1px solid #E3E8EE;
-      border-radius:14px;
-      overflow:hidden;
-      min-height:auto;
+        radial-gradient(circle at 8% 8%, rgba(17,138,153,.07), transparent 26%),
+        radial-gradient(circle at 92% 12%, rgba(24,53,106,.06), transparent 28%),
+        var(--pd-white) !important;
+      border:1px solid #E3E8EE !important;
+      border-radius:14px !important;
+      box-shadow:0 4px 18px rgba(16,42,87,.04) !important;
+      overflow:visible !important;
     }
 
-    .brand-top{
-      position:absolute;
-      top:26px;
-      left:48px;
-      display:flex;
-      direction:ltr;
-      align-items:center;
-      gap:16px;
-      z-index:20;
+    .pd-lx-content{
+      width:100% !important;
+      max-width:1000px !important;
+      margin:0 auto !important;
+      overflow:visible !important;
     }
 
-    .brand-bottom{
-      position:absolute;
-      right:48px;
-      bottom:28px;
-      display:flex;
-      direction:ltr;
-      align-items:center;
-      gap:16px;
-      z-index:20;
+    .pd-lx-title-ribbon{
+      position:relative !important;
+      width:min(780px,100%) !important;
+      min-height:50px !important;
+      margin:0 auto 10px !important;
     }
 
-    .brand-divider{
-      width:1px;
-      height:52px;
-      background:var(--line);
-      flex:0 0 auto;
+    .pd-lx-title-shadow{
+      position:absolute !important;
+      right:14px !important;
+      top:13px !important;
+      width:230px !important;
+      height:32px !important;
+      background:var(--pd-navy) !important;
+      clip-path:polygon(8% 0,100% 0,92% 100%,0 100%) !important;
+      z-index:1 !important;
     }
 
-    .brand-bottom .brand-divider{
-      height:42px;
+    .pd-lx-title-main{
+      position:relative !important;
+      z-index:2 !important;
+      min-height:44px !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      padding:8px 28px !important;
+      background:var(--pd-teal) !important;
+      color:#fff !important;
+      clip-path:polygon(4% 0,100% 0,96% 100%,0 100%) !important;
+      font-size:clamp(17px,2vw,22px) !important;
+      font-weight:800 !important;
+      line-height:1.6 !important;
+      text-align:center !important;
+      box-shadow:0 12px 24px rgba(17,138,153,.16) !important;
     }
 
-    .logo{
-      display:block;
-      object-fit:contain;
-      filter:contrast(1.03) saturate(1.03);
+    .pd-lx-objective{
+      max-width:880px !important;
+      margin:0 auto 10px !important;
+      color:var(--pd-muted) !important;
+      font-size:15px !important;
+      font-weight:500 !important;
+      line-height:1.85 !important;
+      text-align:center !important;
     }
 
-    .logo-institute,
-    .logo-ministry{
-      max-height:72px;
-      max-width:220px;
-      width:auto;
+    .pd-lx-en{
+      direction:ltr !important;
+      unicode-bidi:isolate !important;
+      display:inline-block !important;
+      font-family:"Tajawal", Tahoma, Arial, sans-serif !important;
     }
 
-    .logo-madrasati{
-      max-height:52px;
-      max-width:145px;
-      width:auto;
+    .pd-lx-steps{
+      display:grid !important;
+      grid-template-columns:repeat(7,minmax(0,1fr)) !important;
+      gap:8px !important;
+      max-width:860px !important;
+      margin:0 auto 12px !important;
     }
 
-    .logo-microsoft{
-      max-height:52px;
-      max-width:160px;
-      width:auto;
+    .pd-lx-step{
+      min-height:34px !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:999px !important;
+      background:#fff !important;
+      color:var(--pd-muted) !important;
+      font-size:13px !important;
+      font-weight:800 !important;
+      cursor:pointer !important;
+      transition:.18s ease !important;
     }
 
-    .content{
-      position:relative;
-      z-index:3;
-      max-width:1040px;
-      margin:96px auto 0;
+    .pd-lx-step:hover:not(.is-locked){
+      border-color:var(--pd-teal) !important;
+      color:var(--pd-teal) !important;
+      transform:translateY(-1px) !important;
     }
 
-    .axis-title-ribbon{
-      position:relative;
-      width:min(780px,100%);
-      min-height:64px;
-      margin:0 auto 12px;
+    .pd-lx-step.is-active{
+      background:linear-gradient(135deg,var(--pd-teal),var(--pd-teal-dark)) !important;
+      border-color:var(--pd-teal) !important;
+      color:#fff !important;
+      box-shadow:0 8px 18px rgba(17,138,153,.18) !important;
     }
 
-    .axis-ribbon-shadow{
-      position:absolute;
-      right:12px;
-      top:17px;
-      width:250px;
-      height:40px;
-      background:var(--navy);
-      clip-path:polygon(8% 0,100% 0,92% 100%,0% 100%);
-      z-index:1;
+    .pd-lx-step.is-done{
+      background:var(--pd-soft) !important;
+      border-color:rgba(17,138,153,.45) !important;
+      color:var(--pd-teal) !important;
     }
 
-    .axis-ribbon-main{
-      position:relative;
-      z-index:2;
-      width:100%;
-      min-height:52px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:10px 28px;
-      background:var(--teal);
-      color:#fff;
-      clip-path:polygon(4% 0,100% 0,96% 100%,0% 100%);
-      font-size:19px;
-      font-weight:800;
-      line-height:1.8;
-      text-align:center;
-      box-shadow:0 12px 24px rgba(17,138,153,.16);
+    .pd-lx-step.is-locked{
+      opacity:.45 !important;
+      cursor:not-allowed !important;
     }
 
-    .objective{
-      max-width:920px;
-      margin:0 auto 12px;
-      color:var(--muted);
-      font-size:15px;
-      line-height:1.9;
-      font-weight:500;
-      text-align:center;
-    }
-
-    .stepbar{
-      display:grid;
-      grid-template-columns:repeat(7,minmax(0,1fr));
-      gap:10px;
-      max-width:930px;
-      margin:0 auto 14px;
-    }
-
-    .step{
-      border:1px solid var(--line);
-      background:var(--white);
-      color:var(--muted);
-      border-radius:999px;
-      min-height:36px;
-      font-size:13px;
-      font-weight:800;
-      cursor:pointer;
-      transition:.18s ease;
-    }
-
-    .step:hover:not(.locked){
-      transform:translateY(-1px);
-      border-color:var(--teal);
-      color:var(--teal);
-    }
-
-    .step.active{
-      background:linear-gradient(135deg,var(--teal),var(--teal-dark));
-      color:#fff;
-      border-color:var(--teal);
-      box-shadow:0 8px 20px rgba(17,138,153,.18);
-    }
-
-    .step.done{
-      background:var(--soft);
-      color:var(--teal);
-      border-color:rgba(17,138,153,.55);
-    }
-
-    .step.locked{
-      opacity:.42;
-      cursor:not-allowed;
-    }
-
-    .panel{
-      display:none;
-      position:relative;
-      min-height:auto;
-      border:1px solid var(--line);
-      border-radius:22px;
+    .pd-lx-panel{
+      display:none !important;
+      position:relative !important;
+      padding:20px !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:22px !important;
       background:
-        linear-gradient(180deg,rgba(255,255,255,.99),rgba(255,255,255,.96)),
-        radial-gradient(circle at 6% 12%,rgba(17,138,153,.10),transparent 34%);
-      box-shadow:var(--shadow);
-      padding:22px;
-      overflow:hidden;
+        linear-gradient(180deg,rgba(255,255,255,.99),rgba(255,255,255,.97)),
+        radial-gradient(circle at 6% 10%,rgba(17,138,153,.09),transparent 34%) !important;
+      box-shadow:var(--pd-shadow) !important;
+      overflow:visible !important;
     }
 
-    .panel.active{
-      display:block;
-      animation:panelIn .28s ease both;
+    .pd-lx-panel.is-active{
+      display:block !important;
+      animation:pdLxFade .25s ease both !important;
     }
 
-    @keyframes panelIn{
+    .pd-lx-panel::before,
+    .pd-lx-card::before,
+    .pd-lx-final-card::before,
+    .pd-lx-drop::before{
+      content:"" !important;
+      position:absolute !important;
+      top:0 !important;
+      right:0 !important;
+      width:100% !important;
+      height:5px !important;
+      background:linear-gradient(90deg,var(--pd-navy),var(--pd-teal)) !important;
+    }
+
+    @keyframes pdLxFade{
       from{opacity:0;transform:translateY(8px);}
       to{opacity:1;transform:translateY(0);}
     }
 
-    .panel::before,
-    .card::before,
-    .drop-zone::before,
-    .final-card::before{
-      content:"";
-      position:absolute;
-      top:0;
-      right:0;
-      width:100%;
-      height:5px;
-      background:linear-gradient(90deg,var(--navy),var(--teal));
-    }
-
-    .panel-title{
-      margin:2px 0 8px;
-      text-align:center;
-      color:var(--navy-dark);
-      font-size:clamp(20px,2.1vw,25px);
-      line-height:1.6;
-      font-weight:800;
-    }
-
-    .panel-text{
-      max-width:860px;
-      margin:0 auto 10px;
-      text-align:center;
-      color:var(--ink);
-      font-size:15px;
-      line-height:1.9;
-      font-weight:500;
-    }
-
-    .hint{
-      max-width:860px;
-      margin:10px auto 14px;
-      padding:10px 16px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:rgba(244,251,252,.9);
-      color:var(--muted);
-      font-size:13.5px;
-      font-weight:700;
-      line-height:1.8;
-      text-align:center;
-    }
-
-    .intro-list{
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:12px;
-      max-width:850px;
-      margin:12px auto;
-    }
-
-    .intro-box{
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:14px;
-      box-shadow:0 6px 16px rgba(20,47,86,.04);
-    }
-
-    .intro-box h3{
-      margin:0 0 8px;
-      color:var(--teal);
-      font-size:15px;
-      line-height:1.7;
-      font-weight:800;
-      text-align:center;
-    }
-
-    .intro-box ul{
-      margin:0;
-      padding:0 22px 0 0;
-      color:var(--ink);
-      font-size:14px;
-      line-height:1.9;
-      font-weight:700;
-    }
-
-    .grid-3{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-
-    .grid-4{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:12px;
-      margin-top:14px;
-    }
-
-    .level-card{
-      position:relative;
-      min-height:118px;
-      background:#fff;
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:16px;
-      text-align:center;
-      cursor:pointer;
-      transition:.18s ease;
-      box-shadow:0 6px 18px rgba(20,47,86,.04);
-    }
-
-    .level-card:hover{
-      transform:translateY(-2px);
-      border-color:var(--teal);
-      box-shadow:0 10px 24px rgba(20,47,86,.08);
-    }
-
-    .level-card.active{
-      border-color:var(--teal);
-      background:var(--soft);
-      box-shadow:0 0 0 2px rgba(17,138,153,.12);
-    }
-
-    .level-icon{
-      width:42px;
-      height:42px;
-      margin:0 auto 8px;
-      border-radius:50%;
-      background:var(--soft2);
-      color:var(--teal);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-weight:800;
-      font-size:18px;
-    }
-
-    .level-card h3{
-      margin:0 0 6px;
-      color:var(--navy-dark);
-      font-size:16px;
-      font-weight:800;
-      line-height:1.6;
-    }
-
-    .level-card p{
-      margin:0;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.8;
-      font-weight:700;
-    }
-
-    .copilot-note{
-      margin:14px auto 0;
-      max-width:780px;
-      border:1px solid var(--line);
-      border-right:5px solid var(--teal);
-      background:var(--soft);
-      border-radius:18px;
-      padding:12px 14px;
-      color:var(--ink);
-      font-size:14px;
-      line-height:1.8;
-      font-weight:800;
-      text-align:center;
-    }
-
-    .intro-status{
-      max-width:760px;
-      margin:14px auto 0;
-      padding:9px 14px;
-      border-radius:999px;
-      border:1px solid var(--line);
-      background:#fff;
-      color:var(--muted);
-      font-size:13.5px;
-      font-weight:800;
-      line-height:1.7;
-      text-align:center;
-    }
-
-    .intro-status.ready{
-      background:var(--soft);
-      border-color:var(--teal);
-      color:var(--teal);
-    }
-
-    .select-card{
-      position:relative;
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:18px;
-      padding:13px 12px;
-      min-height:104px;
-      cursor:pointer;
-      transition:.18s ease;
-      text-align:center;
-      box-shadow:0 6px 18px rgba(20,47,86,.04);
-    }
-
-    .select-card:hover{
-      transform:translateY(-2px);
-      border-color:var(--teal);
-      box-shadow:0 10px 24px rgba(20,47,86,.09);
-    }
-
-    .select-card.selected,
-    .select-card.correct{
-      border-color:var(--teal);
-      background:var(--soft);
-      box-shadow:0 0 0 2px rgba(17,138,153,.12);
-    }
-
-    .select-card.wrong{
-      border-color:var(--danger);
-      background:var(--danger-soft);
-    }
-
-    .select-card.correct::after{
-      content:"✓";
-      position:absolute;
-      top:8px;
-      left:10px;
-      width:24px;
-      height:24px;
-      border-radius:50%;
-      background:var(--teal);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:13px;
-      font-weight:800;
-    }
-
-    .select-card.wrong::after{
-      content:"!";
-      position:absolute;
-      top:8px;
-      left:10px;
-      width:24px;
-      height:24px;
-      border-radius:50%;
-      background:var(--danger);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:13px;
-      font-weight:800;
-    }
-
-    .select-num{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      width:28px;
-      height:28px;
-      border-radius:50%;
-      background:var(--soft2);
-      color:var(--teal);
-      font-size:12px;
-      font-weight:800;
-      margin-bottom:8px;
-    }
-
-    .select-text{
-      margin:0;
-      color:var(--ink);
-      font-size:13.2px;
-      line-height:1.75;
-      font-weight:800;
-      text-align:center;
-    }
-
-    .card{
-      position:relative;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:#fff;
-      padding:16px;
-      box-shadow:0 8px 18px rgba(20,47,86,.05);
-      overflow:hidden;
-    }
-
-    .card-title{
-      margin:0 0 12px;
-      color:var(--navy-dark);
-      font-size:15px;
-      font-weight:800;
-      line-height:1.7;
-    }
-
-    .dnd-two{
-      display:grid;
-      grid-template-columns:minmax(0,1fr) minmax(0,1fr);
-      gap:16px;
-      margin-top:14px;
-      align-items:start;
-      direction:rtl;
-    }
-
-    .pool,
-    .order-zone,
-    .drop-zone{
-      min-height:220px;
-      border:1px dashed #BFD0DD;
-      background:#FBFEFE;
-      border-radius:18px;
-      padding:12px;
-      text-align:right;
-    }
-
-    .order-zone{
-      background:var(--soft);
-      border:2px dashed #BFD0DD;
-      counter-reset:orderStep;
-    }
-
-    .zone-title{
-      background:var(--soft2);
-      color:var(--navy-dark);
-      border:1px solid rgba(17,138,153,.18);
-      border-radius:18px;
-      padding:9px 12px;
-      margin:0 0 12px;
-      font-size:13.5px;
-      font-weight:800;
-      text-align:center;
-      line-height:1.8;
-    }
-
-    .drag-card{
-      display:flex;
-      align-items:center;
-      justify-content:flex-start;
-      width:100%;
-      min-height:44px;
-      border:1px solid var(--line);
-      background:#fff;
-      border-radius:14px;
-      padding:9px 12px;
-      color:var(--ink);
-      font-size:13.2px;
-      line-height:1.75;
-      font-weight:800;
-      text-align:right;
-      cursor:grab;
-      margin-bottom:7px;
-      transition:.18s ease;
-    }
-
-    .drag-card::before{
-      content:"☰";
-      color:var(--teal);
-      margin-left:8px;
-      font-size:15px;
-      flex:0 0 auto;
-    }
-
-    .drag-card:hover,
-    .drag-card.selected{
-      border-color:var(--teal);
-      background:var(--soft);
-      box-shadow:0 0 0 2px rgba(17,138,153,.10);
-    }
-
-    .order-zone .drag-card{
-      position:relative;
-      padding-right:46px;
-      border-color:rgba(17,138,153,.55);
-    }
-
-    .order-zone .drag-card::after{
-      counter-increment:orderStep;
-      content:counter(orderStep);
-      position:absolute;
-      right:12px;
-      top:50%;
-      transform:translateY(-50%);
-      width:24px;
-      height:24px;
-      border-radius:50%;
-      background:var(--teal);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:12px;
-      font-weight:800;
-    }
-
-    .order-status{
-      margin-top:10px;
-      padding:9px 12px;
-      border:1px solid var(--line);
-      border-radius:999px;
-      background:#fff;
-      color:var(--muted);
-      font-size:13px;
-      line-height:1.7;
-      font-weight:800;
-      text-align:center;
-    }
-
-    .order-status.complete{
-      background:var(--soft);
-      border-color:var(--teal);
-      color:var(--teal);
-    }
-
-    .guide-strip{
-      display:grid;
-      grid-template-columns:repeat(4,minmax(0,1fr));
-      gap:10px;
-      margin:12px 0 14px;
-    }
-
-    .guide-step{
-      border:1px solid rgba(17,138,153,.26);
-      background:#fff;
-      border-radius:16px;
-      padding:10px;
-      text-align:center;
-      box-shadow:0 6px 16px rgba(20,47,86,.04);
-      color:var(--ink);
-      font-size:12.5px;
-      line-height:1.8;
-      font-weight:800;
-    }
-
-    .guide-step strong{
-      display:flex;
-      width:28px;
-      height:28px;
-      margin:0 auto 5px;
-      border-radius:50%;
-      background:var(--teal);
-      color:#fff;
-      align-items:center;
-      justify-content:center;
-      font-size:13px;
-      font-weight:800;
-    }
-
-    .weak-box,
-    .result-box{
-      position:relative;
-      background:var(--soft);
-      border:1px solid var(--line);
-      border-right:5px solid var(--teal);
-      border-radius:18px;
-      padding:13px 16px;
-      margin-top:14px;
-      text-align:right;
-      color:var(--ink);
-      font-size:14px;
-      line-height:1.9;
-      font-weight:800;
-    }
-
-    .weak-box{
-      border-right-color:#9CA3AF;
-      background:#FAFAFA;
-      text-align:center;
-    }
-
-    .zones-3{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:14px;
-      margin-top:14px;
-    }
-
-    .drop-zone{
-      position:relative;
-      min-height:140px;
-    }
-
-    .drop-zone.good{
-      border-color:var(--teal);
-      background:var(--soft);
-    }
-
-    .drop-zone.bad{
-      border-color:var(--danger);
-      background:var(--danger-soft);
-    }
-
-    .drop-zone.good::after{
-      content:"✓";
-      position:absolute;
-      bottom:10px;
-      left:10px;
-      width:26px;
-      height:26px;
-      border-radius:50%;
-      background:var(--teal);
-      color:#fff;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:14px;
-      font-weight:800;
-    }
-
-    .feedback{
-      display:none;
-      max-width:900px;
-      margin:12px auto 0;
-      border:1px solid var(--line);
-      border-right:5px solid var(--teal);
-      background:var(--soft);
-      border-radius:14px;
-      padding:12px 14px;
-      color:var(--ink);
-      font-size:13.8px;
-      line-height:1.85;
-      text-align:center;
-      font-weight:800;
-    }
-
-    .feedback.show{
-      display:block;
-    }
-
-    .feedback.error{
-      border-right-color:var(--danger);
-      background:var(--danger-soft);
-    }
-
-    .actions{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:10px;
-      margin-top:14px;
-      flex-wrap:wrap;
-    }
-
-    .btn{
-      border:0;
-      border-radius:999px;
-      background:linear-gradient(135deg,var(--teal),var(--teal-dark));
-      color:#fff;
-      padding:10px 22px;
-      font-size:14px;
-      font-weight:800;
-      cursor:pointer;
-      transition:.18s ease;
-      min-width:128px;
-      box-shadow:0 10px 22px rgba(17,138,153,.18);
-    }
-
-    .btn:hover{
-      transform:translateY(-1px);
-      box-shadow:0 14px 26px rgba(17,138,153,.23);
-    }
-
-    .btn.secondary{
-      background:#fff;
-      color:var(--ink);
-      border:1px solid var(--line);
-      box-shadow:none;
-    }
-
-    .btn.disabled,
-    .btn:disabled{
-      opacity:.55;
-      cursor:not-allowed;
-      transform:none;
-      box-shadow:none;
-    }
-
-    .final-card{
-      position:relative;
-      min-height:108px;
-      border:1px solid var(--line);
-      border-radius:18px;
-      background:#fff;
-      padding:16px;
-      text-align:center;
-      overflow:hidden;
-      box-shadow:0 8px 22px rgba(20,47,86,.06);
-    }
-
-    .final-card h4{
-      margin:0 0 8px;
-      color:var(--teal);
-      font-size:17px;
-      line-height:1.7;
-      font-weight:800;
-      text-align:center;
-    }
-
-    .final-card p{
-      margin:0;
-      color:var(--ink);
-      font-size:13.5px;
-      line-height:1.85;
-      font-weight:800;
-      text-align:center;
-    }
-
-    .modal{
-      display:none;
-      position:fixed;
-      inset:0;
-      z-index:999999;
-      background:rgba(15,23,42,.38);
-      align-items:center;
-      justify-content:center;
-      padding:18px;
-    }
-
-    .modal.show{
-      display:flex;
-    }
-
-    .modal-card{
-      width:100%;
-      max-width:500px;
-      background:#fff;
-      border-radius:24px;
-      border:1px solid var(--line);
-      box-shadow:0 22px 60px rgba(15,23,42,.22);
-      padding:26px;
-      text-align:center;
-      position:relative;
-      overflow:hidden;
-      animation:modalIn .22s ease both;
-    }
-
-    @keyframes modalIn{
-      from{transform:translateY(12px) scale(.98);opacity:0;}
-      to{transform:translateY(0) scale(1);opacity:1;}
-    }
-
-    .modal-card::before{
-      content:"";
-      position:absolute;
-      top:0;
-      right:0;
-      width:100%;
-      height:6px;
-      background:linear-gradient(90deg,var(--navy),var(--teal));
-    }
-
-    .modal-card.error::before{
-      background:linear-gradient(90deg,#7F1D1D,var(--danger));
-    }
-
-    .modal-icon{
-      width:58px;
-      height:58px;
-      margin:0 auto 12px;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:var(--soft);
-      color:var(--teal);
-      font-size:30px;
-      font-weight:800;
-    }
-
-    .modal-card.error .modal-icon{
-      background:var(--danger-soft);
-      color:var(--danger);
-    }
-
-    .modal-title{
-      margin:0 0 8px;
-      color:var(--navy-dark);
-      font-size:21px;
-      line-height:1.6;
-      font-weight:800;
-      text-align:center;
-    }
-
-    .modal-text{
-      margin:0;
-      color:var(--muted);
-      font-size:14.5px;
-      line-height:1.9;
-      font-weight:700;
-      text-align:center;
-    }
-
-    .modal-actions{
-      margin-top:18px;
-      display:flex;
-      justify-content:center;
-      gap:10px;
-    }
-
-    @media(max-width:1040px){
-      .activity{
-        padding:24px 22px 110px;
+    .pd-lx-panel-title{
+      margin:0 0 8px !important;
+      color:var(--pd-navy-dark) !important;
+      font-size:clamp(19px,2.1vw,25px) !important;
+      font-weight:800 !important;
+      line-height:1.55 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-text{
+      max-width:870px !important;
+      margin:0 auto 10px !important;
+      color:var(--pd-ink) !important;
+      font-size:15px !important;
+      font-weight:500 !important;
+      line-height:1.9 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-hint,
+    .pd-lx-note,
+    .pd-lx-feedback,
+    .pd-lx-status{
+      max-width:900px !important;
+      margin:10px auto !important;
+      padding:10px 14px !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:16px !important;
+      background:var(--pd-soft-2) !important;
+      color:var(--pd-muted) !important;
+      font-size:14px !important;
+      font-weight:700 !important;
+      line-height:1.75 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-note{
+      border-right:5px solid var(--pd-teal) !important;
+      color:var(--pd-ink) !important;
+      font-weight:800 !important;
+    }
+
+    .pd-lx-feedback{
+      display:none !important;
+    }
+
+    .pd-lx-status.is-ready{
+      border-color:rgba(17,138,153,.45) !important;
+      background:var(--pd-soft) !important;
+      color:var(--pd-teal) !important;
+    }
+
+    .pd-lx-info-grid{
+      display:grid !important;
+      grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+      gap:12px !important;
+      max-width:820px !important;
+      margin:12px auto !important;
+    }
+
+    .pd-lx-info-box,
+    .pd-lx-card,
+    .pd-lx-final-card{
+      position:relative !important;
+      background:#fff !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:18px !important;
+      box-shadow:0 8px 20px rgba(16,42,87,.05) !important;
+      overflow:hidden !important;
+    }
+
+    .pd-lx-info-box{
+      padding:14px 16px !important;
+    }
+
+    .pd-lx-info-box h3{
+      margin:0 0 8px !important;
+      color:var(--pd-teal) !important;
+      font-size:16px !important;
+      font-weight:800 !important;
+      line-height:1.5 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-info-box ul{
+      margin:0 !important;
+      padding:0 22px 0 0 !important;
+      color:var(--pd-ink) !important;
+      font-size:14.5px !important;
+      font-weight:700 !important;
+      line-height:1.85 !important;
+    }
+
+    .pd-lx-grid-3{
+      display:grid !important;
+      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+      gap:14px !important;
+      margin-top:14px !important;
+    }
+
+    .pd-lx-grid-4{
+      display:grid !important;
+      grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+      gap:12px !important;
+      margin-top:14px !important;
+    }
+
+    .pd-lx-flip{
+      position:relative !important;
+      min-height:196px !important;
+      border:0 !important;
+      background:transparent !important;
+      padding:0 !important;
+      cursor:pointer !important;
+      perspective:1000px !important;
+    }
+
+    .pd-lx-flip-inner{
+      position:relative !important;
+      width:100% !important;
+      min-height:196px !important;
+      transition:transform .55s ease !important;
+      transform-style:preserve-3d !important;
+    }
+
+    .pd-lx-flip.is-active .pd-lx-flip-inner{
+      transform:rotateY(180deg) !important;
+    }
+
+    .pd-lx-flip-face{
+      position:absolute !important;
+      inset:0 !important;
+      backface-visibility:hidden !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:20px !important;
+      background:#fff !important;
+      padding:16px !important;
+      text-align:center !important;
+      overflow:hidden !important;
+      box-shadow:0 8px 22px rgba(16,42,87,.06) !important;
+    }
+
+    .pd-lx-flip-face::before{
+      content:"" !important;
+      position:absolute !important;
+      top:0 !important;
+      right:0 !important;
+      width:100% !important;
+      height:5px !important;
+      background:linear-gradient(90deg,var(--pd-navy),var(--pd-teal)) !important;
+    }
+
+    .pd-lx-flip-back{
+      transform:rotateY(180deg) !important;
+      background:linear-gradient(180deg,#F8FBFC,#F1FAFB) !important;
+      border-color:rgba(17,138,153,.42) !important;
+    }
+
+    .pd-lx-mini-visual{
+      width:54px !important;
+      height:54px !important;
+      margin:2px auto 8px !important;
+      display:block !important;
+    }
+
+    .pd-lx-flip h3{
+      margin:0 0 8px !important;
+      color:var(--pd-navy-dark) !important;
+      font-size:17px !important;
+      font-weight:800 !important;
+      line-height:1.45 !important;
+    }
+
+    .pd-lx-flip p{
+      margin:0 0 7px !important;
+      color:var(--pd-muted) !important;
+      font-size:14px !important;
+      font-weight:700 !important;
+      line-height:1.65 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-flip ul{
+      margin:0 !important;
+      padding:0 22px 0 0 !important;
+      color:var(--pd-ink) !important;
+      font-size:13.6px !important;
+      font-weight:700 !important;
+      line-height:1.75 !important;
+      text-align:right !important;
+    }
+
+    .pd-lx-select{
+      position:relative !important;
+      min-height:112px !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:18px !important;
+      background:#fff !important;
+      padding:14px 12px !important;
+      box-shadow:0 8px 20px rgba(16,42,87,.05) !important;
+      cursor:pointer !important;
+      transition:.18s ease !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-select:hover{
+      transform:translateY(-2px) !important;
+      border-color:var(--pd-teal) !important;
+    }
+
+    .pd-lx-select.is-selected,
+    .pd-lx-select.is-correct{
+      border-color:var(--pd-teal) !important;
+      background:var(--pd-soft) !important;
+      box-shadow:0 0 0 2px rgba(17,138,153,.12) !important;
+    }
+
+    .pd-lx-select.is-wrong{
+      border-color:var(--pd-danger) !important;
+      background:var(--pd-danger-soft) !important;
+    }
+
+    .pd-lx-num{
+      display:inline-flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      width:30px !important;
+      height:30px !important;
+      margin-bottom:8px !important;
+      border-radius:50% !important;
+      background:var(--pd-soft) !important;
+      color:var(--pd-teal) !important;
+      font-size:13px !important;
+      font-weight:800 !important;
+    }
+
+    .pd-lx-select p{
+      margin:0 !important;
+      color:var(--pd-ink) !important;
+      font-size:13.6px !important;
+      font-weight:800 !important;
+      line-height:1.7 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-guide{
+      display:grid !important;
+      grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+      gap:10px !important;
+      margin:12px 0 14px !important;
+    }
+
+    .pd-lx-guide-item,
+    .pd-lx-build-item{
+      border:1px solid rgba(17,138,153,.26) !important;
+      border-radius:16px !important;
+      background:#fff !important;
+      padding:10px !important;
+      color:var(--pd-ink) !important;
+      font-size:13px !important;
+      font-weight:800 !important;
+      line-height:1.7 !important;
+      text-align:center !important;
+      box-shadow:0 8px 18px rgba(16,42,87,.04) !important;
+    }
+
+    .pd-lx-guide-item strong,
+    .pd-lx-build-num{
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      width:28px !important;
+      height:28px !important;
+      margin:0 auto 6px !important;
+      border-radius:50% !important;
+      background:var(--pd-teal) !important;
+      color:#fff !important;
+      font-size:13px !important;
+      font-weight:800 !important;
+    }
+
+    .pd-lx-two{
+      display:grid !important;
+      grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+      gap:14px !important;
+      margin-top:12px !important;
+      align-items:start !important;
+    }
+
+    .pd-lx-card{
+      padding:16px !important;
+    }
+
+    .pd-lx-card-title{
+      margin:0 0 10px !important;
+      color:var(--pd-navy-dark) !important;
+      font-size:15px !important;
+      font-weight:800 !important;
+      line-height:1.6 !important;
+      text-align:right !important;
+    }
+
+    .pd-lx-pool,
+    .pd-lx-order,
+    .pd-lx-drop{
+      min-height:170px !important;
+      border:1px dashed #BFD0DD !important;
+      border-radius:16px !important;
+      background:#FBFEFE !important;
+      padding:10px !important;
+      overflow:visible !important;
+      text-align:right !important;
+    }
+
+    .pd-lx-order{
+      background:var(--pd-soft-2) !important;
+      border:2px dashed #BFD0DD !important;
+      counter-reset:pdOrder !important;
+    }
+
+    .pd-lx-drop.is-hover,
+    .pd-lx-order.is-hover,
+    .pd-lx-pool.is-hover{
+      border-color:var(--pd-teal) !important;
+      background:var(--pd-soft) !important;
+      box-shadow:0 0 0 2px rgba(17,138,153,.12) inset !important;
+    }
+
+    .pd-lx-zone-title{
+      margin:0 0 9px !important;
+      padding:8px 10px !important;
+      border:1px solid rgba(17,138,153,.18) !important;
+      border-radius:14px !important;
+      background:var(--pd-soft) !important;
+      color:var(--pd-navy-dark) !important;
+      font-size:13px !important;
+      font-weight:800 !important;
+      line-height:1.65 !important;
+      text-align:center !important;
+      pointer-events:none !important;
+    }
+
+    .pd-lx-drag{
+      display:flex !important;
+      align-items:center !important;
+      justify-content:flex-start !important;
+      width:100% !important;
+      min-height:42px !important;
+      margin-bottom:7px !important;
+      padding:9px 12px !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:13px !important;
+      background:#fff !important;
+      color:var(--pd-ink) !important;
+      font-size:13.4px !important;
+      font-weight:800 !important;
+      line-height:1.65 !important;
+      text-align:right !important;
+      cursor:grab !important;
+      transition:.18s ease !important;
+      user-select:none !important;
+      -webkit-user-select:none !important;
+      touch-action:manipulation !important;
+    }
+
+    .pd-lx-drag::before{
+      content:"☰" !important;
+      color:var(--pd-teal) !important;
+      margin-left:8px !important;
+      font-size:15px !important;
+      flex:0 0 auto !important;
+    }
+
+    .pd-lx-drag:hover,
+    .pd-lx-drag.is-selected{
+      border-color:var(--pd-teal) !important;
+      background:var(--pd-soft) !important;
+      box-shadow:0 0 0 2px rgba(17,138,153,.10) !important;
+    }
+
+    .pd-lx-drag.is-selected::before{
+      content:"✓" !important;
+    }
+
+    .pd-lx-drag.is-dragging{
+      opacity:.55 !important;
+      transform:scale(.98) !important;
+    }
+
+    .pd-lx-order .pd-lx-drag{
+      position:relative !important;
+      padding-right:46px !important;
+      border-color:rgba(17,138,153,.50) !important;
+    }
+
+    .pd-lx-order .pd-lx-drag::after{
+      counter-increment:pdOrder !important;
+      content:counter(pdOrder) !important;
+      position:absolute !important;
+      right:12px !important;
+      top:50% !important;
+      transform:translateY(-50%) !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      width:24px !important;
+      height:24px !important;
+      border-radius:50% !important;
+      background:var(--pd-teal) !important;
+      color:#fff !important;
+      font-size:12px !important;
+      font-weight:800 !important;
+    }
+
+    .pd-lx-order-status{
+      margin-top:9px !important;
+      padding:9px 12px !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:999px !important;
+      background:#fff !important;
+      color:var(--pd-muted) !important;
+      font-size:13px !important;
+      font-weight:800 !important;
+      line-height:1.6 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-order-status.is-complete{
+      border-color:rgba(17,138,153,.45) !important;
+      background:var(--pd-soft) !important;
+      color:var(--pd-teal) !important;
+    }
+
+    .pd-lx-result{
+      display:none !important;
+    }
+
+    .pd-lx-zones{
+      display:grid !important;
+      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+      gap:14px !important;
+      margin-top:14px !important;
+    }
+
+    .pd-lx-drop{
+      position:relative !important;
+      min-height:135px !important;
+      padding-top:12px !important;
+    }
+
+    .pd-lx-drop.is-good{
+      border-color:var(--pd-teal) !important;
+      background:var(--pd-soft) !important;
+    }
+
+    .pd-lx-drop.is-bad{
+      border-color:var(--pd-danger) !important;
+      background:var(--pd-danger-soft) !important;
+    }
+
+    .pd-lx-weak{
+      max-width:900px !important;
+      margin:0 auto 12px !important;
+      padding:14px !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:18px !important;
+      background:#FAFAFA !important;
+      box-shadow:0 8px 18px rgba(16,42,87,.04) !important;
+    }
+
+    .pd-lx-weak-title{
+      display:block !important;
+      width:max-content !important;
+      max-width:100% !important;
+      margin:0 auto 8px !important;
+      padding:5px 12px !important;
+      border-radius:999px !important;
+      background:#F1F5F9 !important;
+      color:#64748B !important;
+      font-size:13px !important;
+      font-weight:800 !important;
+      line-height:1.6 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-weak-prompt{
+      padding:12px 14px !important;
+      border:1px solid #E2E8F0 !important;
+      border-radius:16px !important;
+      background:#fff !important;
+      color:var(--pd-navy-dark) !important;
+      font-size:17px !important;
+      font-weight:800 !important;
+      line-height:1.8 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-missing{
+      display:grid !important;
+      grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+      gap:10px !important;
+      margin-top:10px !important;
+    }
+
+    .pd-lx-missing span{
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      gap:7px !important;
+      min-height:40px !important;
+      padding:8px 10px !important;
+      border:1px solid rgba(217,72,65,.25) !important;
+      border-radius:999px !important;
+      background:var(--pd-danger-soft) !important;
+      color:var(--pd-danger) !important;
+      font-size:13px !important;
+      font-weight:800 !important;
+      line-height:1.5 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-missing span::before{
+      content:"!" !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      width:22px !important;
+      height:22px !important;
+      border-radius:50% !important;
+      background:var(--pd-danger) !important;
+      color:#fff !important;
+      font-size:12px !important;
+      font-weight:800 !important;
+      flex:0 0 auto !important;
+    }
+
+    .pd-lx-build{
+      display:grid !important;
+      grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+      gap:10px !important;
+      max-width:900px !important;
+      margin:12px auto !important;
+    }
+
+    .pd-lx-build-item strong{
+      display:block !important;
+      color:var(--pd-navy-dark) !important;
+      font-size:13.5px !important;
+      font-weight:800 !important;
+      line-height:1.6 !important;
+    }
+
+    .pd-lx-build-item p{
+      margin:4px 0 0 !important;
+      color:var(--pd-muted) !important;
+      font-size:12.6px !important;
+      font-weight:700 !important;
+      line-height:1.6 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-review{
+      margin:12px auto 0 !important;
+      padding:10px 14px !important;
+      border:1px solid rgba(17,138,153,.25) !important;
+      border-right:5px solid var(--pd-teal) !important;
+      border-radius:16px !important;
+      background:#fff !important;
+      color:var(--pd-ink) !important;
+      font-size:13.6px !important;
+      font-weight:700 !important;
+      line-height:1.75 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-review a{
+      color:var(--pd-teal) !important;
+      font-weight:800 !important;
+      text-decoration:none !important;
+    }
+
+    .pd-lx-final-card{
+      padding:18px 14px !important;
+      min-height:112px !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-final-card h4{
+      margin:0 0 8px !important;
+      color:var(--pd-teal) !important;
+      font-size:17px !important;
+      font-weight:800 !important;
+      line-height:1.5 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-final-card p{
+      margin:0 !important;
+      color:var(--pd-ink) !important;
+      font-size:14px !important;
+      font-weight:800 !important;
+      line-height:1.75 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-actions{
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      gap:10px !important;
+      margin-top:14px !important;
+      flex-wrap:wrap !important;
+    }
+
+    .pd-lx-btn{
+      display:inline-flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      min-width:126px !important;
+      min-height:42px !important;
+      padding:9px 22px !important;
+      border:0 !important;
+      border-radius:999px !important;
+      background:linear-gradient(135deg,var(--pd-teal),var(--pd-teal-dark)) !important;
+      color:#fff !important;
+      font-size:14px !important;
+      font-weight:800 !important;
+      line-height:1.5 !important;
+      text-align:center !important;
+      text-decoration:none !important;
+      cursor:pointer !important;
+      box-shadow:0 10px 22px rgba(17,138,153,.18) !important;
+      transition:.18s ease !important;
+    }
+
+    .pd-lx-btn:hover{
+      transform:translateY(-1px) !important;
+      box-shadow:0 14px 26px rgba(17,138,153,.22) !important;
+    }
+
+    .pd-lx-btn.is-secondary{
+      background:#fff !important;
+      color:var(--pd-ink) !important;
+      border:1px solid var(--pd-line) !important;
+      box-shadow:none !important;
+    }
+
+    .pd-lx-btn.is-next{
+      background:linear-gradient(135deg,var(--pd-navy),var(--pd-teal)) !important;
+    }
+
+    .pd-lx-btn:disabled,
+    .pd-lx-btn.is-disabled{
+      opacity:.55 !important;
+      cursor:not-allowed !important;
+      transform:none !important;
+      box-shadow:none !important;
+    }
+
+    .pd-lx-modal{
+      display:none !important;
+      position:fixed !important;
+      inset:0 !important;
+      z-index:999999 !important;
+      background:rgba(15,23,42,.42) !important;
+      align-items:center !important;
+      justify-content:center !important;
+      padding:18px !important;
+      direction:rtl !important;
+    }
+
+    .pd-lx-modal.is-show{
+      display:flex !important;
+    }
+
+    .pd-lx-modal-card{
+      position:relative !important;
+      width:100% !important;
+      max-width:580px !important;
+      max-height:86vh !important;
+      overflow-y:auto !important;
+      background:#FFFFFF !important;
+      border:1px solid var(--pd-line) !important;
+      border-radius:24px !important;
+      box-shadow:0 24px 70px rgba(15,23,42,.26) !important;
+      padding:26px 24px 22px !important;
+      text-align:center !important;
+      animation:pdModalIn .22s ease both !important;
+    }
+
+    .pd-lx-modal-card::before{
+      content:"" !important;
+      position:absolute !important;
+      top:0 !important;
+      right:0 !important;
+      width:100% !important;
+      height:6px !important;
+      background:linear-gradient(90deg,var(--pd-navy),var(--pd-teal)) !important;
+    }
+
+    .pd-lx-modal-card.is-error::before{
+      background:linear-gradient(90deg,#7F1D1D,var(--pd-danger)) !important;
+    }
+
+    @keyframes pdModalIn{
+      from{opacity:0;transform:translateY(12px) scale(.98);}
+      to{opacity:1;transform:translateY(0) scale(1);}
+    }
+
+    .pd-lx-modal-icon{
+      width:58px !important;
+      height:58px !important;
+      margin:0 auto 12px !important;
+      border-radius:50% !important;
+      display:flex !important;
+      align-items:center !important;
+      justify-content:center !important;
+      background:var(--pd-soft) !important;
+      color:var(--pd-teal) !important;
+      font-size:30px !important;
+      font-weight:800 !important;
+    }
+
+    .pd-lx-modal-card.is-error .pd-lx-modal-icon{
+      background:var(--pd-danger-soft) !important;
+      color:var(--pd-danger) !important;
+    }
+
+    .pd-lx-modal-title{
+      margin:0 0 8px !important;
+      color:var(--pd-navy-dark) !important;
+      font-size:21px !important;
+      font-weight:800 !important;
+      line-height:1.6 !important;
+      text-align:center !important;
+    }
+
+    .pd-lx-modal-text{
+      margin:0 !important;
+      color:var(--pd-ink) !important;
+      font-size:15px !important;
+      font-weight:700 !important;
+      line-height:1.9 !important;
+      text-align:center !important;
+      white-space:pre-line !important;
+    }
+
+    .pd-lx-modal-text.is-prompt{
+      text-align:right !important;
+      background:var(--pd-soft-2) !important;
+      border:1px solid var(--pd-line) !important;
+      border-right:5px solid var(--pd-teal) !important;
+      border-radius:16px !important;
+      padding:12px 14px !important;
+      margin-top:10px !important;
+      font-weight:800 !important;
+    }
+
+    .pd-lx-modal-actions{
+      display:flex !important;
+      justify-content:center !important;
+      gap:10px !important;
+      margin-top:18px !important;
+      flex-wrap:wrap !important;
+    }
+
+    [hidden]{
+      display:none !important;
+    }
+
+    @media(max-width:980px){
+      .pd-lx-wrap{
+        padding:16px 14px 22px !important;
       }
 
-      .brand-top{
-        position:relative;
-        top:auto;
-        left:auto;
-        justify-content:center;
-        margin-bottom:24px;
-        flex-wrap:wrap;
+      .pd-lx-grid-4{
+        grid-template-columns:repeat(2,minmax(0,1fr)) !important;
       }
 
-      .content{
-        margin-top:0;
+      .pd-lx-two,
+      .pd-lx-info-grid,
+      .pd-lx-build,
+      .pd-lx-guide{
+        grid-template-columns:1fr 1fr !important;
       }
 
-      .grid-4{
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-
-      .grid-3,
-      .zones-3,
-      .guide-strip,
-      .intro-list{
-        grid-template-columns:1fr;
-      }
-
-      .dnd-two{
-        grid-template-columns:1fr;
-      }
-    }
-
-    @media(max-width:760px){
-      .activity{
-        padding:18px 14px 112px;
-      }
-
-      .brand-divider{
-        display:none;
-      }
-
-      .logo-institute,
-      .logo-ministry{
-        max-height:52px;
-        max-width:150px;
-      }
-
-      .brand-bottom{
-        right:18px;
-        bottom:24px;
-        gap:10px;
-      }
-
-      .logo-madrasati,
-      .logo-microsoft{
-        max-height:42px;
-        max-width:120px;
-      }
-
-      .axis-title-ribbon{
-        width:100%;
-      }
-
-      .axis-ribbon-shadow{
-        width:145px;
-        height:36px;
-      }
-
-      .axis-ribbon-main{
-        min-height:52px;
-        padding:10px 18px;
-        font-size:16px;
-      }
-
-      .stepbar{
-        grid-template-columns:repeat(4,minmax(0,1fr));
-      }
-
-      .panel{
-        padding:18px;
-      }
-
-      .grid-4{
-        grid-template-columns:1fr;
-      }
-
-      .pool,
-      .order-zone,
-      .drop-zone{
-        min-height:170px;
-      }
-
-      .drag-card{
-        align-items:flex-start;
-      }
-    }
-
-    /* تصميم الشاشة الأولى: بطاقات تقلب عند النقر */
-    .flip-card{
-      position:relative;
-      min-height:210px;
-      perspective:1000px;
-      border:0;
-      background:transparent;
-      cursor:pointer;
-      padding:0;
-    }
-
-    .flip-inner{
-      position:relative;
-      width:100%;
-      min-height:210px;
-      transition:transform .55s ease;
-      transform-style:preserve-3d;
-    }
-
-    .flip-card.active .flip-inner{
-      transform:rotateY(180deg);
-    }
-
-    .flip-face{
-      position:absolute;
-      inset:0;
-      backface-visibility:hidden;
-      border:1px solid var(--line);
-      border-radius:22px;
-      background:#fff;
-      padding:18px 16px;
-      text-align:center;
-      overflow:hidden;
-      box-shadow:0 8px 24px rgba(20,47,86,.06);
-    }
-
-    .flip-face::before{
-      content:"";
-      position:absolute;
-      top:0;
-      right:0;
-      width:100%;
-      height:5px;
-      background:linear-gradient(90deg,var(--navy),var(--teal));
-    }
-
-    .flip-back{
-      transform:rotateY(180deg);
-      background:linear-gradient(180deg,#F8FBFC,#F4FBFC);
-      border-color:rgba(17,138,153,.42);
-    }
-
-    .flip-illustration{
-      width:64px;
-      height:64px;
-      margin:2px auto 10px;
-      display:block;
-    }
-
-    .flip-title{
-      margin:0 0 8px;
-      color:var(--navy-dark);
-      font-size:17px;
-      line-height:1.55;
-      font-weight:800;
-    }
-
-    .flip-text{
-      margin:0 0 7px;
-      color:var(--muted);
-      font-size:13.5px;
-      line-height:1.8;
-      font-weight:700;
-      text-align:center;
-    }
-
-    .flip-list{
-      margin:0;
-      padding:0 21px 0 0;
-      color:var(--ink);
-      font-size:13.2px;
-      line-height:1.9;
-      font-weight:700;
-      text-align:right;
-    }
-
-
-    /* تحسين الشريحة 6: خريطة بناء الأمر النصي */
-    .weak-card {
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: #FAFAFA;
-      padding: 14px;
-      margin: 0 auto 14px;
-      max-width: 880px;
-      box-shadow: 0 6px 16px rgba(20,47,86,.04);
-    }
-
-    .weak-title-wrap {
-      text-align: center;
-    }
-
-    .weak-title {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: #F1F5F9;
-      color: #64748B;
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.7;
-      margin: 0 auto 8px;
-    }
-
-    .weak-prompt {
-      color: var(--navy-dark);
-      background: #FFFFFF;
-      border: 1px solid #E2E8F0;
-      border-radius: 16px;
-      padding: 12px 14px;
-      font-size: 17px;
-      font-weight: 800;
-      line-height: 1.8;
-      text-align: center;
-      margin-bottom: 10px;
-    }
-
-    .missing-row {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .missing-chip {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 7px;
-      min-height: 40px;
-      border: 1px solid rgba(217,72,65,.25);
-      border-radius: 999px;
-      background: var(--danger-soft);
-      color: var(--danger);
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.6;
-      text-align: center;
-      padding: 8px 10px;
-    }
-
-    .missing-chip::before {
-      content: "!";
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: var(--danger);
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: 800;
-      flex: 0 0 auto;
-    }
-
-    .task-note {
-      max-width: 880px;
-      margin: 0 auto 14px;
-      border: 1px solid rgba(17,138,153,.22);
-      border-right: 5px solid var(--teal);
-      border-radius: 18px;
-      background: var(--soft);
-      padding: 11px 14px;
-      color: var(--ink);
-      font-size: 14px;
-      font-weight: 800;
-      line-height: 1.9;
-      text-align: center;
-    }
-
-    .build-map {
-      max-width: 880px;
-      margin: 0 auto 14px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-    }
-
-    .build-step {
-      position: relative;
-      background: #FFFFFF;
-      border: 1px solid rgba(17,138,153,.28);
-      border-radius: 18px;
-      padding: 12px 10px;
-      text-align: center;
-      box-shadow: 0 6px 16px rgba(20,47,86,.05);
-    }
-
-    .build-num {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: var(--teal);
-      color: #FFFFFF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 7px;
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .build-step strong {
-      display: block;
-      color: var(--navy-dark);
-      font-size: 13.5px;
-      font-weight: 800;
-      line-height: 1.7;
-    }
-
-    .build-step p {
-      margin: 4px 0 0;
-      color: var(--muted);
-      font-size: 12.5px;
-      font-weight: 700;
-      line-height: 1.7;
-    }
-
-    .prompt-result {
-      background: #FFFFFF;
-      border: 1px solid rgba(17,138,153,.35);
-      border-right: 6px solid var(--teal);
-      box-shadow: 0 10px 24px rgba(20,47,86,.07);
-    }
-
-    .prompt-result .result-label {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 8px;
-      padding: 5px 12px;
-      border-radius: 999px;
-      background: var(--soft2);
-      color: var(--teal);
-      font-size: 13px;
-      font-weight: 800;
-      line-height: 1.7;
-    }
-
-    .prompt-result .result-text {
-      color: var(--ink);
-      font-size: 14px;
-      line-height: 2;
-      font-weight: 800;
-      text-align: right;
-    }
-
-    .improved-layout .order-zone .zone-title {
-      background: #EEF6F8;
-      border-color: rgba(17,138,153,.28);
-      color: var(--navy-dark);
-    }
-
-    @media (max-width: 1040px) {
-      .build-map,
-      .missing-row {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .pd-lx-zones,
+      .pd-lx-grid-3{
+        grid-template-columns:1fr !important;
       }
     }
 
-    @media (max-width: 760px) {
-      .build-map,
-      .missing-row {
-        grid-template-columns: 1fr;
+    @media(max-width:680px){
+      .pd-lx-wrap{
+        padding:12px 10px 18px !important;
+        border-radius:12px !important;
       }
 
-      .missing-chip {
-        border-radius: 18px;
-      }
-    }
-
-  
-    /* =========================================================
-       GitHub + IFrame Auto Height Version
-       كل شريحة تأخذ ارتفاع محتواها بدل إجبار جميع الشرائح على ارتفاع واحد
-       ========================================================= */
-
-    html,
-    body {
-      width: 100%;
-      min-height: auto;
-      margin: 0;
-      overflow-x: hidden;
-      background: #F7F9FB;
-    }
-
-    body {
-      padding: 0;
-    }
-
-    .activity {
-      width: 100%;
-      max-width: 1120px;
-      min-height: auto;
-      height: auto;
-      margin: 0 auto;
-      padding: 18px 26px 76px;
-      border-radius: 12px;
-      box-shadow: none;
-      overflow: visible;
-    }
-
-    .brand-top {
-      top: 18px;
-      left: 30px;
-      gap: 10px;
-    }
-
-    .brand-bottom {
-      right: 30px;
-      bottom: 18px;
-      gap: 10px;
-    }
-
-    .brand-divider {
-      height: 38px;
-    }
-
-    .brand-bottom .brand-divider {
-      height: 32px;
-    }
-
-    .logo-institute,
-    .logo-ministry {
-      max-height: 50px;
-      max-width: 165px;
-    }
-
-    .logo-madrasati {
-      max-height: 36px;
-      max-width: 112px;
-    }
-
-    .logo-microsoft {
-      max-height: 36px;
-      max-width: 124px;
-    }
-
-    .content {
-      max-width: 990px;
-      margin: 70px auto 0;
-      min-height: auto;
-      height: auto;
-      overflow: visible;
-    }
-
-    .axis-title-ribbon {
-      min-height: 44px;
-      margin-bottom: 5px;
-    }
-
-    .axis-ribbon-shadow {
-      top: 12px;
-      width: 198px;
-      height: 29px;
-    }
-
-    .axis-ribbon-main {
-      min-height: 40px;
-      padding: 6px 22px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .objective {
-      max-width: 880px;
-      margin: 0 auto 6px;
-      font-size: 12.5px;
-      line-height: 1.45;
-    }
-
-    .stepbar {
-      max-width: 840px;
-      gap: 6px;
-      margin: 0 auto 7px;
-    }
-
-    .step {
-      min-height: 28px;
-      font-size: 11.5px;
-      padding: 0 6px;
-    }
-
-    .panel {
-      min-height: auto !important;
-      height: auto !important;
-      padding: 15px;
-      border-radius: 18px;
-      overflow: visible;
-    }
-
-    .panel.active {
-      display: block;
-    }
-
-    .panel-title {
-      margin: 0 0 4px;
-      font-size: clamp(17px, 1.7vw, 20px);
-      line-height: 1.35;
-    }
-
-    .panel-text {
-      max-width: 820px;
-      margin: 0 auto 6px;
-      font-size: 12.8px;
-      line-height: 1.48;
-    }
-
-    .hint,
-    .copilot-note,
-    .task-note,
-    .intro-status,
-    .feedback {
-      margin: 6px auto;
-      padding: 6px 10px;
-      font-size: 11.8px;
-      line-height: 1.45;
-      border-radius: 13px;
-    }
-
-    .intro-list {
-      max-width: 720px;
-      gap: 8px;
-      margin: 6px auto;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .intro-box {
-      padding: 8px 10px;
-      border-radius: 13px;
-    }
-
-    .intro-box h3 {
-      margin-bottom: 3px;
-      font-size: 12.5px;
-      line-height: 1.3;
-    }
-
-    .intro-box ul {
-      font-size: 11.5px;
-      line-height: 1.4;
-    }
-
-    .grid-3,
-    .grid-4,
-    .zones-3,
-    .dnd-two,
-    .guide-strip,
-    .build-map,
-    .missing-row {
-      gap: 8px;
-      margin-top: 7px;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .zones-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .dnd-two {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      align-items: start;
-    }
-
-    .card {
-      padding: 10px;
-      border-radius: 14px;
-      overflow: visible;
-    }
-
-    .card-title {
-      margin-bottom: 6px;
-      font-size: 12.2px;
-      line-height: 1.35;
-    }
-
-    .pool,
-    .order-zone,
-    .drop-zone {
-      min-height: auto;
-      padding: 7px;
-      border-radius: 13px;
-      overflow: visible;
-    }
-
-    .panel[data-slide="3"] .pool,
-    .panel[data-slide="3"] .order-zone,
-    .panel[data-slide="6"] .pool,
-    .panel[data-slide="6"] .order-zone {
-      min-height: 300px;
-    }
-
-    .panel[data-slide="4"] .pool,
-    .panel[data-slide="5"] .pool {
-      min-height: auto;
-    }
-
-    .panel[data-slide="4"] .drop-zone,
-    .panel[data-slide="5"] .drop-zone {
-      min-height: 120px;
-    }
-
-    .zone-title {
-      padding: 6px 8px;
-      margin-bottom: 6px;
-      font-size: 11.3px;
-      line-height: 1.35;
-      border-radius: 12px;
-    }
-
-    .drag-card {
-      min-height: 30px;
-      padding: 5px 9px;
-      margin-bottom: 4px;
-      font-size: 11.2px;
-      line-height: 1.35;
-      border-radius: 10px;
-    }
-
-    .drag-card::before {
-      font-size: 12px;
-      margin-left: 5px;
-    }
-
-    .order-zone .drag-card {
-      padding-right: 35px;
-    }
-
-    .order-zone .drag-card::after {
-      right: 8px;
-      width: 19px;
-      height: 19px;
-      font-size: 10px;
-    }
-
-    .order-status {
-      margin-top: 6px;
-      padding: 6px 8px;
-      font-size: 11.4px;
-      line-height: 1.35;
-    }
-
-    .flip-card,
-    .flip-inner {
-      min-height: 150px;
-    }
-
-    .flip-face {
-      padding: 10px;
-      border-radius: 16px;
-    }
-
-    .flip-illustration {
-      width: 40px;
-      height: 40px;
-      margin: 0 auto 4px;
-    }
-
-    .flip-title {
-      font-size: 13.2px;
-      margin-bottom: 3px;
-      line-height: 1.25;
-    }
-
-    .flip-text,
-    .flip-list {
-      font-size: 11px;
-      line-height: 1.35;
-    }
-
-    .select-card {
-      min-height: 66px;
-      padding: 7px;
-      border-radius: 13px;
-    }
-
-    .select-num {
-      width: 20px;
-      height: 20px;
-      margin-bottom: 3px;
-      font-size: 10px;
-    }
-
-    .select-text {
-      font-size: 11px;
-      line-height: 1.32;
-    }
-
-    .guide-strip,
-    .build-map {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .guide-step,
-    .build-step {
-      padding: 6px;
-      border-radius: 12px;
-      font-size: 10.8px;
-      line-height: 1.32;
-    }
-
-    .guide-step strong,
-    .build-num {
-      width: 21px;
-      height: 21px;
-      margin-bottom: 3px;
-      font-size: 10px;
-    }
-
-    .build-step strong {
-      font-size: 11px;
-      line-height: 1.25;
-    }
-
-    .build-step p {
-      margin-top: 1px;
-      font-size: 10px;
-      line-height: 1.25;
-    }
-
-    .weak-card {
-      padding: 8px;
-      margin: 0 auto 6px;
-      border-radius: 13px;
-    }
-
-    .weak-title {
-      padding: 3px 8px;
-      margin-bottom: 4px;
-      font-size: 11px;
-      line-height: 1.25;
-    }
-
-    .weak-prompt {
-      padding: 7px 9px;
-      margin-bottom: 5px;
-      font-size: 12.8px;
-      line-height: 1.3;
-    }
-
-    .missing-chip {
-      min-height: 27px;
-      padding: 4px 6px;
-      font-size: 10.5px;
-      line-height: 1.2;
-    }
-
-    .missing-chip::before {
-      width: 16px;
-      height: 16px;
-      font-size: 9px;
-    }
-
-    .result-box,
-    .prompt-result,
-    .weak-box {
-      padding: 8px 10px;
-      margin-top: 6px;
-      border-radius: 13px;
-      font-size: 11.5px;
-      line-height: 1.42;
-    }
-
-    .prompt-result .result-label {
-      padding: 3px 8px;
-      margin-bottom: 4px;
-      font-size: 11px;
-      line-height: 1.25;
-    }
-
-    .prompt-result .result-text,
-    .result-text {
-      font-size: 11.5px;
-      line-height: 1.45;
-    }
-
-    .final-card {
-      min-height: 76px;
-      padding: 9px;
-      border-radius: 13px;
-    }
-
-    .final-card h4 {
-      font-size: 13px;
-      margin-bottom: 2px;
-      line-height: 1.25;
-    }
-
-    .final-card p {
-      font-size: 11px;
-      line-height: 1.32;
-    }
-
-    .actions {
-      margin-top: 7px;
-      gap: 7px;
-    }
-
-    .btn {
-      min-width: 100px;
-      padding: 6px 14px;
-      font-size: 11.8px;
-    }
-
-    @media (max-width: 760px) {
-      .activity {
-        padding: 14px 10px 82px;
+      .pd-lx-title-main{
+        font-size:16px !important;
+        padding:8px 18px !important;
+        clip-path:polygon(6% 0,100% 0,94% 100%,0 100%) !important;
       }
 
-      .content {
-        margin-top: 0;
+      .pd-lx-title-shadow{
+        width:150px !important;
       }
 
-      .brand-top {
-        position: relative;
-        top: auto;
-        left: auto;
-        justify-content: center;
-        margin-bottom: 12px;
+      .pd-lx-objective,
+      .pd-lx-text{
+        font-size:14px !important;
+        line-height:1.75 !important;
       }
 
-      .grid-3,
-      .grid-4,
-      .zones-3,
-      .guide-strip,
-      .intro-list,
-      .dnd-two,
-      .build-map,
-      .missing-row {
-        grid-template-columns: 1fr;
+      .pd-lx-steps{
+        grid-template-columns:repeat(4,minmax(0,1fr)) !important;
+        gap:6px !important;
       }
 
-      .panel[data-slide="3"] .pool,
-      .panel[data-slide="3"] .order-zone,
-      .panel[data-slide="6"] .pool,
-      .panel[data-slide="6"] .order-zone {
-        min-height: 150px;
-      }
-    }
-
-  
-    /* =========================================================
-       Applied Learning Activity Theme + IFrame Auto Height
-       نسخة مطبقة على النشاط السابق بنفس الثيم والهوية
-       ========================================================= */
-
-    html,
-    body {
-      width: 100%;
-      min-height: auto;
-      margin: 0;
-      overflow-x: hidden;
-      background: #F7F9FB;
-      color: var(--ink);
-      direction: rtl;
-    }
-
-    .activity {
-      width: 100%;
-      max-width: 1120px;
-      height: auto;
-      min-height: auto;
-      margin: 0 auto;
-      padding: 18px 26px 76px;
-      border-radius: 12px;
-      box-shadow: none;
-      overflow: visible;
-      background:
-        radial-gradient(circle at 10% 8%, rgba(17,138,153,.06), transparent 26%),
-        radial-gradient(circle at 92% 14%, rgba(24,53,106,.05), transparent 26%),
-        #FFFFFF;
-    }
-
-    .brand-top {
-      top: 18px;
-      left: 30px;
-      gap: 10px;
-    }
-
-    .brand-bottom {
-      right: 30px;
-      bottom: 18px;
-      gap: 10px;
-    }
-
-    .brand-divider {
-      height: 38px;
-    }
-
-    .brand-bottom .brand-divider {
-      height: 32px;
-    }
-
-    .logo-institute,
-    .logo-ministry {
-      max-height: 50px;
-      max-width: 165px;
-    }
-
-    .logo-madrasati {
-      max-height: 36px;
-      max-width: 112px;
-    }
-
-    .logo-microsoft {
-      max-height: 36px;
-      max-width: 124px;
-    }
-
-    .content {
-      max-width: 990px;
-      margin: 70px auto 0;
-      min-height: auto;
-      height: auto;
-      overflow: visible;
-    }
-
-    .axis-title-ribbon {
-      min-height: 44px;
-      margin-bottom: 5px;
-    }
-
-    .axis-ribbon-shadow {
-      top: 12px;
-      width: 198px;
-      height: 29px;
-    }
-
-    .axis-ribbon-main {
-      min-height: 40px;
-      padding: 6px 22px;
-      font-size: 16px;
-      line-height: 1.5;
-    }
-
-    .objective {
-      max-width: 880px;
-      margin: 0 auto 6px;
-      font-size: 12.5px;
-      line-height: 1.45;
-    }
-
-    .stepbar {
-      max-width: 840px;
-      gap: 6px;
-      margin: 0 auto 7px;
-    }
-
-    .step {
-      min-height: 28px;
-      font-size: 11.5px;
-      padding: 0 6px;
-    }
-
-    .panel {
-      min-height: auto !important;
-      height: auto !important;
-      padding: 15px;
-      border-radius: 18px;
-      overflow: visible;
-    }
-
-    .panel.active {
-      display: block;
-      animation: panelIn .24s ease both;
-    }
-
-    .panel-title {
-      margin: 0 0 4px;
-      font-size: clamp(17px, 1.7vw, 20px);
-      line-height: 1.35;
-    }
-
-    .panel-text {
-      max-width: 820px;
-      margin: 0 auto 6px;
-      font-size: 12.8px;
-      line-height: 1.48;
-    }
-
-    .hint,
-    .copilot-note,
-    .task-note,
-    .intro-status,
-    .feedback {
-      margin: 6px auto;
-      padding: 6px 10px;
-      font-size: 11.8px;
-      line-height: 1.45;
-      border-radius: 13px;
-    }
-
-    .intro-list {
-      max-width: 720px;
-      gap: 8px;
-      margin: 6px auto;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .intro-box {
-      padding: 8px 10px;
-      border-radius: 13px;
-    }
-
-    .intro-box h3 {
-      margin-bottom: 3px;
-      font-size: 12.5px;
-      line-height: 1.3;
-    }
-
-    .intro-box ul {
-      font-size: 11.5px;
-      line-height: 1.4;
-    }
-
-    .grid-3,
-    .grid-4,
-    .zones-3,
-    .dnd-two,
-    .guide-strip,
-    .build-map,
-    .missing-row {
-      gap: 8px;
-      margin-top: 7px;
-    }
-
-    .grid-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .grid-4 {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .zones-3 {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-
-    .dnd-two {
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      align-items: start;
-    }
-
-    .card {
-      padding: 10px;
-      border-radius: 14px;
-      overflow: visible;
-    }
-
-    .card-title {
-      margin-bottom: 6px;
-      font-size: 12.2px;
-      line-height: 1.35;
-    }
-
-    .pool,
-    .order-zone,
-    .drop-zone {
-      min-height: auto;
-      padding: 7px;
-      border-radius: 13px;
-      overflow: visible;
-    }
-
-    .panel[data-slide="3"] .pool,
-    .panel[data-slide="3"] .order-zone,
-    .panel[data-slide="6"] .pool,
-    .panel[data-slide="6"] .order-zone {
-      min-height: 300px;
-    }
-
-    .panel[data-slide="4"] .drop-zone,
-    .panel[data-slide="5"] .drop-zone {
-      min-height: 120px;
-    }
-
-    .zone-title {
-      padding: 6px 8px;
-      margin-bottom: 6px;
-      font-size: 11.3px;
-      line-height: 1.35;
-      border-radius: 12px;
-    }
-
-    .drag-card {
-      min-height: 30px;
-      padding: 5px 9px;
-      margin-bottom: 4px;
-      font-size: 11.2px;
-      line-height: 1.35;
-      border-radius: 10px;
-    }
-
-    .drag-card::before {
-      font-size: 12px;
-      margin-left: 5px;
-    }
-
-    .order-zone .drag-card {
-      padding-right: 35px;
-    }
-
-    .order-zone .drag-card::after {
-      right: 8px;
-      width: 19px;
-      height: 19px;
-      font-size: 10px;
-    }
-
-    .order-status {
-      margin-top: 6px;
-      padding: 6px 8px;
-      font-size: 11.4px;
-      line-height: 1.35;
-    }
-
-    .flip-card,
-    .flip-inner {
-      min-height: 150px;
-    }
-
-    .flip-face {
-      padding: 10px;
-      border-radius: 16px;
-    }
-
-    .flip-illustration {
-      width: 40px;
-      height: 40px;
-      margin: 0 auto 4px;
-    }
-
-    .flip-title {
-      font-size: 13.2px;
-      margin-bottom: 3px;
-      line-height: 1.25;
-    }
-
-    .flip-text,
-    .flip-list {
-      font-size: 11px;
-      line-height: 1.35;
-    }
-
-    .select-card {
-      min-height: 66px;
-      padding: 7px;
-      border-radius: 13px;
-    }
-
-    .select-num {
-      width: 20px;
-      height: 20px;
-      margin-bottom: 3px;
-      font-size: 10px;
-    }
-
-    .select-text {
-      font-size: 11px;
-      line-height: 1.32;
-    }
-
-    .guide-strip,
-    .build-map {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .guide-step,
-    .build-step {
-      padding: 6px;
-      border-radius: 12px;
-      font-size: 10.8px;
-      line-height: 1.32;
-    }
-
-    .guide-step strong,
-    .build-num {
-      width: 21px;
-      height: 21px;
-      margin-bottom: 3px;
-      font-size: 10px;
-    }
-
-    .build-step strong {
-      font-size: 11px;
-      line-height: 1.25;
-    }
-
-    .build-step p {
-      margin-top: 1px;
-      font-size: 10px;
-      line-height: 1.25;
-    }
-
-    .weak-card {
-      padding: 8px;
-      margin: 0 auto 6px;
-      border-radius: 13px;
-    }
-
-    .weak-title {
-      padding: 3px 8px;
-      margin-bottom: 4px;
-      font-size: 11px;
-      line-height: 1.25;
-    }
-
-    .weak-prompt {
-      padding: 7px 9px;
-      margin-bottom: 5px;
-      font-size: 12.8px;
-      line-height: 1.3;
-    }
-
-    .missing-chip {
-      min-height: 27px;
-      padding: 4px 6px;
-      font-size: 10.5px;
-      line-height: 1.2;
-    }
-
-    .missing-chip::before {
-      width: 16px;
-      height: 16px;
-      font-size: 9px;
-    }
-
-    .result-box,
-    .prompt-result,
-    .weak-box {
-      padding: 8px 10px;
-      margin-top: 6px;
-      border-radius: 13px;
-      font-size: 11.5px;
-      line-height: 1.42;
-    }
-
-    .prompt-result .result-label {
-      padding: 3px 8px;
-      margin-bottom: 4px;
-      font-size: 11px;
-      line-height: 1.25;
-    }
-
-    .prompt-result .result-text,
-    .result-text {
-      font-size: 11.5px;
-      line-height: 1.45;
-    }
-
-    .final-card {
-      min-height: 76px;
-      padding: 9px;
-      border-radius: 13px;
-    }
-
-    .final-card h4 {
-      font-size: 13px;
-      margin-bottom: 2px;
-      line-height: 1.25;
-    }
-
-    .final-card p {
-      font-size: 11px;
-      line-height: 1.32;
-    }
-
-    .actions {
-      margin-top: 7px;
-      gap: 7px;
-    }
-
-    .btn {
-      min-width: 100px;
-      padding: 6px 14px;
-      font-size: 11.8px;
-    }
-
-    @media (max-width: 760px) {
-      .activity {
-        padding: 14px 10px 82px;
+      .pd-lx-panel{
+        padding:16px 12px !important;
       }
 
-      .content {
-        margin-top: 0;
+      .pd-lx-grid-4,
+      .pd-lx-two,
+      .pd-lx-info-grid,
+      .pd-lx-build,
+      .pd-lx-guide,
+      .pd-lx-missing{
+        grid-template-columns:1fr !important;
       }
 
-      .brand-top {
-        position: relative;
-        top: auto;
-        left: auto;
-        justify-content: center;
-        margin-bottom: 12px;
+      .pd-lx-select{
+        min-height:auto !important;
       }
 
-      .grid-3,
-      .grid-4,
-      .zones-3,
-      .guide-strip,
-      .intro-list,
-      .dnd-two,
-      .build-map,
-      .missing-row {
-        grid-template-columns: 1fr;
+      .pd-lx-pool,
+      .pd-lx-order,
+      .pd-lx-drop{
+        min-height:120px !important;
       }
 
-      .panel[data-slide="3"] .pool,
-      .panel[data-slide="3"] .order-zone,
-      .panel[data-slide="6"] .pool,
-      .panel[data-slide="6"] .order-zone {
-        min-height: 150px;
-      }
-    }
-
-  
-    /* =========================================================
-       FIX: منع قص بقية الصفحة داخل IFrame
-       - لا يوجد overflow:hidden على جسم الصفحة أو النشاط
-       - ارتفاع الشريحة يتبع محتواها
-       - تقليل ارتفاع صناديق السحب في الشرائح الطويلة
-       ========================================================= */
-
-    html,
-    body {
-      width: 100% !important;
-      min-height: auto !important;
-      height: auto !important;
-      margin: 0 !important;
-      overflow-x: hidden !important;
-      overflow-y: auto !important;
-      background: #F7F9FB !important;
-    }
-
-    .activity {
-      width: 100% !important;
-      max-width: 1120px !important;
-      height: auto !important;
-      min-height: auto !important;
-      max-height: none !important;
-      margin: 0 auto !important;
-      padding: 18px 26px 76px !important;
-      overflow: visible !important;
-      box-shadow: none !important;
-    }
-
-    .content {
-      max-width: 990px !important;
-      height: auto !important;
-      min-height: auto !important;
-      max-height: none !important;
-      margin: 70px auto 0 !important;
-      overflow: visible !important;
-    }
-
-    .panel {
-      height: auto !important;
-      min-height: auto !important;
-      max-height: none !important;
-      overflow: visible !important;
-      padding: 15px !important;
-    }
-
-    .panel.active {
-      display: block !important;
-      height: auto !important;
-      overflow: visible !important;
-    }
-
-    .dnd-two {
-      align-items: start !important;
-      gap: 10px !important;
-    }
-
-    .card {
-      overflow: visible !important;
-    }
-
-    .pool,
-    .order-zone,
-    .drop-zone {
-      height: auto !important;
-      max-height: none !important;
-      overflow: visible !important;
-      padding: 7px !important;
-    }
-
-    /* تقليل المساحة المهدرة في أنشطة الترتيب الطويلة */
-    .panel[data-slide="3"] .pool,
-    .panel[data-slide="3"] .order-zone,
-    .panel[data-slide="6"] .pool,
-    .panel[data-slide="6"] .order-zone {
-      min-height: 245px !important;
-    }
-
-    .panel[data-slide="4"] .drop-zone,
-    .panel[data-slide="5"] .drop-zone {
-      min-height: 112px !important;
-    }
-
-    .drag-card {
-      min-height: 28px !important;
-      padding: 5px 8px !important;
-      margin-bottom: 4px !important;
-      font-size: 10.9px !important;
-      line-height: 1.28 !important;
-      border-radius: 10px !important;
-    }
-
-    .zone-title {
-      padding: 5px 7px !important;
-      margin-bottom: 5px !important;
-      font-size: 10.9px !important;
-      line-height: 1.3 !important;
-    }
-
-    .order-status {
-      margin-top: 5px !important;
-      padding: 5px 8px !important;
-      font-size: 10.9px !important;
-      line-height: 1.3 !important;
-    }
-
-    .actions {
-      margin-top: 8px !important;
-      padding-bottom: 0 !important;
-      position: relative !important;
-      z-index: 30 !important;
-    }
-
-    .btn {
-      min-width: 100px !important;
-      padding: 6px 14px !important;
-      font-size: 11.8px !important;
-    }
-
-    /* في الشريحة السادسة يظهر صندوق الناتج بعد التحقق؛ لا يتم قصه */
-    .result-box,
-    .prompt-result,
-    .feedback {
-      overflow: visible !important;
-    }
-
-    @media (max-width: 760px) {
-      .activity {
-        padding: 14px 10px 82px !important;
+      .pd-lx-flip,
+      .pd-lx-flip-inner{
+        min-height:180px !important;
       }
 
-      .content {
-        margin-top: 0 !important;
+      .pd-lx-btn{
+        width:100% !important;
       }
 
-      .brand-top {
-        position: relative !important;
-        top: auto !important;
-        left: auto !important;
-        justify-content: center !important;
-        margin-bottom: 12px !important;
+      .pd-lx-modal-card{
+        padding:24px 16px 18px !important;
+        border-radius:20px !important;
       }
 
-      .dnd-two,
-      .grid-3,
-      .grid-4,
-      .zones-3,
-      .guide-strip,
-      .intro-list,
-      .build-map,
-      .missing-row {
-        grid-template-columns: 1fr !important;
+      .pd-lx-modal-title{
+        font-size:18px !important;
       }
 
-      .panel[data-slide="3"] .pool,
-      .panel[data-slide="3"] .order-zone,
-      .panel[data-slide="6"] .pool,
-      .panel[data-slide="6"] .order-zone {
-        min-height: 150px !important;
+      .pd-lx-modal-text{
+        font-size:14px !important;
       }
     }
-
-  
-    #pdGo7Btn {
-      background: linear-gradient(135deg,var(--navy),var(--teal));
-    }
-
   </style>
 </head>
 
 <body>
-  <main class="activity">
-    <div class="brand-top" aria-label="شعارات الجهات">
-      <img class="logo logo-institute" src="https://lms.futurex.sa/asset-v1:NIEPD+T122+2026+type@asset+block@المعهد_الوطني.png" alt="شعار المعهد الوطني" />
-      <div class="brand-divider"></div>
-      <img class="logo logo-ministry" src="https://lms.futurex.sa/asset-v1:NIEPD+T122+2026+type@asset+block@شعار_وزارة_التعليم_الجديد_بدقة_عالية__SVG_-_PNG__1_.png" alt="شعار وزارة التعليم" />
-    </div>
+  <main class="pd-lx-wrap" aria-label="نشاط تطبيقي: كتابة أوامر نصية لدعم التعلم المتمايز">
+    <div class="pd-lx-content">
 
-    <div class="content">
-      <div class="axis-title-ribbon">
-        <div class="axis-ribbon-shadow"></div>
-        <div class="axis-ribbon-main">نشاط تطبيقي: كتابة أوامر نصية لدعم التعلم المتمايز</div>
+      <div class="pd-lx-title-ribbon">
+        <div class="pd-lx-title-shadow"></div>
+        <div class="pd-lx-title-main">نشاط تطبيقي: كتابة أوامر نصية لدعم التعلم المتمايز</div>
       </div>
 
-      <p class="objective">
+      <p class="pd-lx-objective">
         هدف التعلم: أن يكتب المتدرب أوامر نصية موجهة لدعم التعلم المتمايز، تراعي اختلاف مستويات الطلبة واحتياجاتهم، وتنتج أنشطة أو بدائل تعليمية قابلة للمراجعة والتكييف.
       </p>
 
-      <div class="stepbar" aria-label="مسار النشاط">
-        <button class="step active" type="button" onclick="pdGo(1)">1</button>
-        <button class="step locked" type="button" onclick="pdGo(2)">2</button>
-        <button class="step locked" type="button" onclick="pdGo(3)">3</button>
-        <button class="step locked" type="button" onclick="pdGo(4)">4</button>
-        <button class="step locked" type="button" onclick="pdGo(5)">5</button>
-        <button class="step locked" type="button" onclick="pdGo(6)">6</button>
-        <button class="step locked" type="button" onclick="pdGo(7)">7</button>
+      <div class="pd-lx-steps" aria-label="مسار النشاط">
+        <button class="pd-lx-step is-active" type="button" onclick="pdGo(1)">1</button>
+        <button class="pd-lx-step is-locked" type="button" onclick="pdGo(2)">2</button>
+        <button class="pd-lx-step is-locked" type="button" onclick="pdGo(3)">3</button>
+        <button class="pd-lx-step is-locked" type="button" onclick="pdGo(4)">4</button>
+        <button class="pd-lx-step is-locked" type="button" onclick="pdGo(5)">5</button>
+        <button class="pd-lx-step is-locked" type="button" onclick="pdGo(6)">6</button>
+        <button class="pd-lx-step is-locked" type="button" onclick="pdGo(7)">7</button>
       </div>
 
-      <section class="panel active" data-slide="1">
-        <h2 class="panel-title">اكتب أمرًا نصيًا يناسب مستوى الطلبة</h2>
+      <section class="pd-lx-panel is-active" data-slide="1">
+        <h2 class="pd-lx-panel-title">اكتب أمرًا نصيًا يناسب مستوى الطلبة</h2>
 
-        <p class="panel-text">
-          في هذا النشاط سنطبق خطوات استخدام مساعد مايكروسوفت للذكاء الاصطناعي بطريقة عملية.
-          ستتعلم كيف تكتب أمرًا نصيًا مناسبًا يراعي مستوى الطلبة ونوع الاستخدام.
+        <p class="pd-lx-text">
+          في هذا النشاط سنطبق خطوات استخدام مساعد مايكروسوفت للذكاء الاصطناعي
+          <span class="pd-lx-en">(Microsoft Copilot Chat)</span>
+          بطريقة عملية. ستتعلم كيف تكتب أمرًا نصيًا مناسبًا يراعي مستوى الطلبة ونوع الاستخدام.
         </p>
 
-        <div class="intro-list">
-          <div class="intro-box">
+        <div class="pd-lx-info-grid">
+          <div class="pd-lx-info-box">
             <h3>مستوى الطلبة</h3>
             <ul>
               <li>داعم.</li>
@@ -2484,7 +1113,8 @@
               <li>إثرائي.</li>
             </ul>
           </div>
-          <div class="intro-box">
+
+          <div class="pd-lx-info-box">
             <h3>نوع الاستخدام</h3>
             <ul>
               <li>شرح.</li>
@@ -2495,30 +1125,30 @@
           </div>
         </div>
 
-        <p class="panel-text">
+        <p class="pd-lx-text">
           المطلوب منك أن تربط بين مستوى الطلبة ونوع الدعم، ثم تبني أمرًا نصيًا يمكن استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي.
         </p>
 
-        <div class="hint">اضغط على كل بطاقة لقلبها وقراءة التفاصيل، ثم ابدأ النشاط.</div>
+        <div class="pd-lx-hint">اضغط على كل بطاقة لقلبها وقراءة التفاصيل، ثم ابدأ النشاط.</div>
 
-        <div class="grid-3">
-          <button class="flip-card" type="button" onclick="pdIntroSelect(this)">
-            <div class="flip-inner">
-              <div class="flip-face">
-                <svg class="flip-illustration" viewBox="0 0 100 100" aria-hidden="true">
+        <div class="pd-lx-grid-3">
+          <button class="pd-lx-flip" type="button" onclick="pdIntroSelect(this)">
+            <div class="pd-lx-flip-inner">
+              <div class="pd-lx-flip-face">
+                <svg class="pd-lx-mini-visual" viewBox="0 0 100 100" aria-hidden="true">
                   <circle cx="50" cy="50" r="42" fill="#EEF6F8"/>
                   <path d="M30 64c9-18 31-18 40 0" fill="none" stroke="#118A99" stroke-width="6" stroke-linecap="round"/>
                   <circle cx="38" cy="40" r="7" fill="#18356A"/>
                   <circle cx="62" cy="40" r="7" fill="#18356A"/>
                   <path d="M28 76h44" stroke="#118A99" stroke-width="6" stroke-linecap="round"/>
                 </svg>
-                <h3 class="flip-title">المستوى الداعم</h3>
-                <p class="flip-text">شرح مبسط + مثال محلول + تدريب قصير</p>
-                <p class="flip-text">اضغط لعرض التفاصيل</p>
+                <h3>المستوى الداعم</h3>
+                <p>شرح مبسط + مثال محلول + تدريب قصير</p>
+                <p>اضغط لعرض التفاصيل</p>
               </div>
-              <div class="flip-face flip-back">
-                <h3 class="flip-title">متى أستخدمه؟</h3>
-                <ul class="flip-list">
+              <div class="pd-lx-flip-face pd-lx-flip-back">
+                <h3>متى أستخدمه؟</h3>
+                <ul>
                   <li>عند الحاجة إلى تبسيط المفهوم.</li>
                   <li>عند الحاجة إلى مثال محلول قبل التدريب.</li>
                   <li>عند الرغبة في تدريب قصير للتحقق من الفهم.</li>
@@ -2527,23 +1157,23 @@
             </div>
           </button>
 
-          <button class="flip-card" type="button" onclick="pdIntroSelect(this)">
-            <div class="flip-inner">
-              <div class="flip-face">
-                <svg class="flip-illustration" viewBox="0 0 100 100" aria-hidden="true">
+          <button class="pd-lx-flip" type="button" onclick="pdIntroSelect(this)">
+            <div class="pd-lx-flip-inner">
+              <div class="pd-lx-flip-face">
+                <svg class="pd-lx-mini-visual" viewBox="0 0 100 100" aria-hidden="true">
                   <rect x="20" y="22" width="60" height="56" rx="14" fill="#EEF6F8"/>
                   <path d="M34 38h32M34 52h32M34 66h20" stroke="#118A99" stroke-width="6" stroke-linecap="round"/>
                   <circle cx="27" cy="38" r="4" fill="#18356A"/>
                   <circle cx="27" cy="52" r="4" fill="#18356A"/>
                   <circle cx="27" cy="66" r="4" fill="#18356A"/>
                 </svg>
-                <h3 class="flip-title">المستوى الأساسي</h3>
-                <p class="flip-text">خطوات واضحة + تدريب متدرج + سؤال تحقق</p>
-                <p class="flip-text">اضغط لعرض التفاصيل</p>
+                <h3>المستوى الأساسي</h3>
+                <p>خطوات واضحة + تدريب متدرج + سؤال تحقق</p>
+                <p>اضغط لعرض التفاصيل</p>
               </div>
-              <div class="flip-face flip-back">
-                <h3 class="flip-title">متى أستخدمه؟</h3>
-                <ul class="flip-list">
+              <div class="pd-lx-flip-face pd-lx-flip-back">
+                <h3>متى أستخدمه؟</h3>
+                <ul>
                   <li>عند الحاجة إلى تنظيم المهارة في خطوات.</li>
                   <li>عند تقديم تدريب متدرج من السهل إلى المتوسط.</li>
                   <li>عند إضافة سؤال تحقق بعد التدريب.</li>
@@ -2552,21 +1182,21 @@
             </div>
           </button>
 
-          <button class="flip-card" type="button" onclick="pdIntroSelect(this)">
-            <div class="flip-inner">
-              <div class="flip-face">
-                <svg class="flip-illustration" viewBox="0 0 100 100" aria-hidden="true">
+          <button class="pd-lx-flip" type="button" onclick="pdIntroSelect(this)">
+            <div class="pd-lx-flip-inner">
+              <div class="pd-lx-flip-face">
+                <svg class="pd-lx-mini-visual" viewBox="0 0 100 100" aria-hidden="true">
                   <circle cx="50" cy="50" r="40" fill="#EEF6F8"/>
                   <path d="M50 24l8 17 18 2-13 13 3 18-16-9-16 9 3-18-13-13 18-2 8-17z" fill="#118A99"/>
                   <circle cx="50" cy="50" r="10" fill="#18356A" opacity=".86"/>
                 </svg>
-                <h3 class="flip-title">المستوى الإثرائي</h3>
-                <p class="flip-text">موقف تطبيقي + تفسير + تحدٍّ أعلى</p>
-                <p class="flip-text">اضغط لعرض التفاصيل</p>
+                <h3>المستوى الإثرائي</h3>
+                <p>موقف تطبيقي + تفسير + تحدٍّ أعلى</p>
+                <p>اضغط لعرض التفاصيل</p>
               </div>
-              <div class="flip-face flip-back">
-                <h3 class="flip-title">متى أستخدمه؟</h3>
-                <ul class="flip-list">
+              <div class="pd-lx-flip-face pd-lx-flip-back">
+                <h3>متى أستخدمه؟</h3>
+                <ul>
                   <li>عند توظيف المفهوم في موقف تطبيقي.</li>
                   <li>عند طلب تفسير أو تبرير لطريقة الحل.</li>
                   <li>عند إضافة تحدٍّ أعلى يناسب مستوى الطلبة.</li>
@@ -2576,884 +1206,985 @@
           </button>
         </div>
 
-        <div id="pdIntroStatus" class="intro-status">تم الاطلاع على 0 من 3 بطاقات.</div>
+        <div id="pdIntroStatus" class="pd-lx-status">تم الاطلاع على 0 من 3 بطاقات.</div>
+        <div class="pd-lx-note">الأمر النصي الجيد يبدأ من فهم مستوى الطلبة.</div>
 
-        <div class="copilot-note">الأمر النصي الجيد يبدأ من فهم مستوى الطلبة.</div>
-
-        <div class="actions">
-          <button id="pdStartBtn" class="btn disabled" type="button" onclick="pdStartActivity()" disabled>ابدأ النشاط</button>
+        <div class="pd-lx-actions">
+          <button id="pdStartBtn" class="pd-lx-btn is-disabled" type="button" onclick="pdStartActivity()" disabled>ابدأ النشاط</button>
         </div>
       </section>
 
-      <section class="panel" data-slide="2">
-        <h2 class="panel-title">ما الذي يجب أن يحتويه الأمر النصي؟</h2>
+      <section class="pd-lx-panel" data-slide="2">
+        <h2 class="pd-lx-panel-title">ما الذي يجب أن يحتويه الأمر النصي؟</h2>
 
-        <p class="panel-text">
+        <p class="pd-lx-text">
           قبل كتابة الأمر النصي في مساعد مايكروسوفت للذكاء الاصطناعي، تأكد أنه يتضمن عناصر واضحة تساعد الأداة على إنتاج مخرج مناسب.
           اقرأ العناصر التالية، ثم اختر العناصر التي يجب أن تظهر في الأمر النصي.
         </p>
 
-        <div class="grid-4">
-          <button class="select-card" type="button" data-correct="true" onclick="pdToggleSelect(this)">
-            <span class="select-num">1</span>
-            <p class="select-text">الدور: تصرف كمعلم رياضيات.</p>
+        <div class="pd-lx-grid-4">
+          <button class="pd-lx-select" type="button" data-correct="true" onclick="pdToggleSelect(this)">
+            <span class="pd-lx-num">1</span>
+            <p>الدور: تصرف كمعلم رياضيات.</p>
           </button>
-          <button class="select-card" type="button" data-correct="true" onclick="pdToggleSelect(this)">
-            <span class="select-num">2</span>
-            <p class="select-text">مستوى الطلبة: داعم، أساسي، أو إثرائي.</p>
+          <button class="pd-lx-select" type="button" data-correct="true" onclick="pdToggleSelect(this)">
+            <span class="pd-lx-num">2</span>
+            <p>مستوى الطلبة: داعم، أساسي، أو إثرائي.</p>
           </button>
-          <button class="select-card" type="button" data-correct="true" onclick="pdToggleSelect(this)">
-            <span class="select-num">3</span>
-            <p class="select-text">نوع الاستخدام: شرح، نشاط، اختبار، أو تغذية راجعة.</p>
+          <button class="pd-lx-select" type="button" data-correct="true" onclick="pdToggleSelect(this)">
+            <span class="pd-lx-num">3</span>
+            <p>نوع الاستخدام: شرح، نشاط، اختبار، أو تغذية راجعة.</p>
           </button>
-          <button class="select-card" type="button" data-correct="true" onclick="pdToggleSelect(this)">
-            <span class="select-num">4</span>
-            <p class="select-text">الموضوع أو المهارة: مفهوم الضرب أو ضرب الأعداد.</p>
+          <button class="pd-lx-select" type="button" data-correct="true" onclick="pdToggleSelect(this)">
+            <span class="pd-lx-num">4</span>
+            <p>الموضوع أو المهارة: مفهوم الضرب أو ضرب الأعداد.</p>
           </button>
-          <button class="select-card" type="button" data-correct="true" onclick="pdToggleSelect(this)">
-            <span class="select-num">5</span>
-            <p class="select-text">شكل المخرج المطلوب: مثال محلول، خطوات، أسئلة، تغذية راجعة.</p>
+          <button class="pd-lx-select" type="button" data-correct="true" onclick="pdToggleSelect(this)">
+            <span class="pd-lx-num">5</span>
+            <p>شكل المخرج المطلوب: مثال محلول، خطوات، أسئلة، تغذية راجعة.</p>
           </button>
-          <button class="select-card" type="button" data-correct="true" onclick="pdToggleSelect(this)">
-            <span class="select-num">6</span>
-            <p class="select-text">معيار مراجعة المخرج: الوضوح، الدقة، مناسبة المستوى.</p>
+          <button class="pd-lx-select" type="button" data-correct="true" onclick="pdToggleSelect(this)">
+            <span class="pd-lx-num">6</span>
+            <p>معيار مراجعة المخرج: الوضوح، الدقة، مناسبة المستوى.</p>
           </button>
-          <button class="select-card" type="button" data-correct="false" onclick="pdToggleSelect(this)">
-            <span class="select-num">7</span>
-            <p class="select-text">لون واجهة مساعد مايكروسوفت للذكاء الاصطناعي.</p>
+          <button class="pd-lx-select" type="button" data-correct="false" onclick="pdToggleSelect(this)">
+            <span class="pd-lx-num">7</span>
+            <p>لون واجهة مساعد مايكروسوفت للذكاء الاصطناعي.</p>
           </button>
-          <button class="select-card" type="button" data-correct="false" onclick="pdToggleSelect(this)">
-            <span class="select-num">8</span>
-            <p class="select-text">عدد الكلمات في الأمر النصي فقط.</p>
+          <button class="pd-lx-select" type="button" data-correct="false" onclick="pdToggleSelect(this)">
+            <span class="pd-lx-num">8</span>
+            <p>عدد الكلمات في الأمر النصي فقط.</p>
           </button>
         </div>
 
-        <div id="pdFeedback2" class="feedback"></div>
+        <div id="pdFeedback2" class="pd-lx-feedback"></div>
 
-        <div class="actions">
-          <button class="btn secondary" type="button" onclick="pdPrev()">السابق</button>
-          <button class="btn" type="button" onclick="pdCheckElements()">تحقق من الاختيار</button>
+        <div class="pd-lx-actions">
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
+          <button class="pd-lx-btn" type="button" onclick="pdCheckElements()">تحقق من الاختيار</button>
+          <button id="pdGo3Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(3)" hidden>التالي</button>
         </div>
       </section>
 
-      <section class="panel" data-slide="3">
-        <h2 class="panel-title">اكتب أمرًا نصيًا للمستوى الداعم</h2>
+      <section class="pd-lx-panel" data-slide="3">
+        <h2 class="pd-lx-panel-title">اكتب أمرًا نصيًا للمستوى الداعم</h2>
 
-        <p class="panel-text">
+        <p class="pd-lx-text">
           المستوى الداعم يناسب الطلبة الذين يحتاجون إلى تبسيط المفهوم، ومثال محلول، وتدريب قصير.
           اسحب أجزاء الأمر النصي إلى صندوق التركيب بالترتيب المناسب.
         </p>
 
-        <div class="guide-strip">
-          <div class="guide-step"><strong>1</strong> ابدأ بالدور.</div>
-          <div class="guide-step"><strong>2</strong> حدّد مستوى الطلبة.</div>
-          <div class="guide-step"><strong>3</strong> وضّح نوع الشرح.</div>
-          <div class="guide-step"><strong>4</strong> أضف تفاصيل المخرج، ويمكن ترتيبها منطقيًا بأكثر من طريقة.</div>
+        <div class="pd-lx-guide">
+          <div class="pd-lx-guide-item"><strong>1</strong> ابدأ بالدور.</div>
+          <div class="pd-lx-guide-item"><strong>2</strong> حدّد مستوى الطلبة.</div>
+          <div class="pd-lx-guide-item"><strong>3</strong> وضّح نوع الشرح.</div>
+          <div class="pd-lx-guide-item"><strong>4</strong> أضف تفاصيل المخرج، ويمكن ترتيبها منطقيًا بأكثر من طريقة.</div>
         </div>
 
-        <div class="dnd-two">
-          <div class="card">
-            <div class="card-title">أجزاء الأمر النصي</div>
-            <div class="pool" id="supportPool">
-              <div class="drag-card" draggable="true" data-mode="order" data-key="s1">تصرف كمعلم رياضيات للمرحلة الابتدائية.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="s2">اشرح مفهوم الضرب لطلبة يحتاجون إلى دعم في فهم معنى الضرب.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="s3">استخدم تمثيل المجموعات المتساوية.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="s4">قدم مثالًا بصريًا بسيطًا مثل 3 × 4.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="s5">أضف تدريبين قصيرين بأعداد بسيطة.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="s6">اختم بسؤال قصير للتحقق من الفهم.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="s7">اجعل اللغة مباشرة ومناسبة للطلبة.</div>
+        <div class="pd-lx-note">
+          يمكن السحب والإفلات، أو النقر على البطاقة ثم النقر على صندوق الأمر النصي.
+        </div>
+
+        <div class="pd-lx-two">
+          <div class="pd-lx-card">
+            <div class="pd-lx-card-title">أجزاء الأمر النصي</div>
+            <div class="pd-lx-pool" id="supportPool">
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="s1">تصرف كمعلم رياضيات للمرحلة الابتدائية.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="s2">اشرح مفهوم الضرب لطلبة يحتاجون إلى دعم في فهم معنى الضرب.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="s3">استخدم تمثيل المجموعات المتساوية.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="s4">قدم مثالًا بصريًا بسيطًا مثل 3 × 4.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="s5">أضف تدريبين قصيرين بأعداد بسيطة.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="s6">اختم بسؤال قصير للتحقق من الفهم.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="s7">اجعل اللغة مباشرة ومناسبة للطلبة.</div>
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-title">صندوق الأمر النصي</div>
-            <div class="order-zone" id="supportOrder">
-              <div class="zone-title">رتّب الأجزاء هنا: ابدأ بالدور، ثم مستوى الطلبة، ثم نوع الشرح. بعد ذلك ضع تفاصيل المخرج المطلوبة بترتيب منطقي.</div>
+          <div class="pd-lx-card">
+            <div class="pd-lx-card-title">صندوق الأمر النصي</div>
+            <div class="pd-lx-order" id="supportOrder">
+              <div class="pd-lx-zone-title">رتّب الأجزاء هنا: ابدأ بالدور، ثم مستوى الطلبة، ثم نوع الشرح. بعد ذلك ضع تفاصيل المخرج المطلوبة بترتيب منطقي.</div>
             </div>
-            <div class="order-status" id="supportOrderStatus">تم وضع 0 من 7 بطاقات.</div>
+            <div class="pd-lx-order-status" id="supportOrderStatus">تم وضع 0 من 7 بطاقات.</div>
           </div>
         </div>
 
-        <div id="pdSupportResult" class="result-box" style="display:none;">
+        <div id="pdSupportResult" class="pd-lx-result">
           تصرف كمعلم رياضيات للمرحلة الابتدائية. اشرح مفهوم الضرب لطلبة يحتاجون إلى دعم في فهم معنى الضرب. استخدم تمثيل المجموعات المتساوية، وقدم مثالًا بصريًا بسيطًا مثل 3 × 4. أضف تدريبين قصيرين بأعداد بسيطة، ثم اختم بسؤال قصير للتحقق من الفهم. اجعل اللغة مباشرة ومناسبة للطلبة.
         </div>
 
-        <div id="pdFeedback3" class="feedback"></div>
+        <div id="pdFeedback3" class="pd-lx-feedback"></div>
 
-        <div class="actions">
-          <button class="btn secondary" type="button" onclick="pdPrev()">السابق</button>
-          <button class="btn secondary" type="button" onclick="pdResetOrder('supportPool','supportOrder')">إعادة ترتيب</button>
-          <button class="btn" type="button" onclick="pdCheckOrder('support')">اعرض الأمر النصي كاملًا</button>
+        <div class="pd-lx-actions">
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdResetOrder('supportPool','supportOrder')">إعادة ترتيب</button>
+          <button class="pd-lx-btn" type="button" onclick="pdCheckOrder('support')">اعرض الأمر النصي كاملًا</button>
+          <button id="pdGo4Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(4)" hidden>التالي</button>
         </div>
       </section>
 
-      <section class="panel" data-slide="4">
-        <h2 class="panel-title">تمييز الأوامر النصية حسب مستوى الدعم</h2>
+      <section class="pd-lx-panel" data-slide="4">
+        <h2 class="pd-lx-panel-title">تمييز الأوامر النصية حسب مستوى الدعم</h2>
 
-        <p class="panel-text">
+        <p class="pd-lx-text">
           اقرأ كل أمر نصي، ثم اسحبه إلى مستوى الدعم المناسب: داعم، أساسي، أو إثرائي.
         </p>
 
-        <div class="hint">يمكنك السحب والإفلات، أو النقر على البطاقة ثم النقر على منطقة الإفلات المناسبة.</div>
+        <div class="pd-lx-hint">يمكنك السحب والإفلات، أو النقر على البطاقة ثم النقر على منطقة الإفلات المناسبة.</div>
 
-        <div class="card">
-          <div class="card-title">الأوامر النصية</div>
-          <div class="pool" id="classifyPool">
-            <div class="drag-card" draggable="true" data-mode="classify" data-answer="support">تصرف كمعلم رياضيات. اشرح مفهوم الضرب باستخدام مجموعات متساوية، ومثال بصري، وتدريب قصير.</div>
-            <div class="drag-card" draggable="true" data-mode="classify" data-answer="basic">تصرف كمعلم رياضيات. صمم نشاطًا أساسيًا حول ضرب الأعداد يتضمن خطوات واضحة، مثالًا محلولًا، وثلاث مسائل متدرجة.</div>
-            <div class="drag-card" draggable="true" data-mode="classify" data-answer="enrich">تصرف كمعلم رياضيات. صمم نشاطًا إثرائيًا يتضمن مسألة حياتية، واطلب من الطالب تفسير طريقة الحل.</div>
+        <div class="pd-lx-card">
+          <div class="pd-lx-card-title">الأوامر النصية</div>
+          <div class="pd-lx-pool" id="classifyPool">
+            <div class="pd-lx-drag" draggable="true" data-mode="classify" data-answer="support">تصرف كمعلم رياضيات. اشرح مفهوم الضرب باستخدام مجموعات متساوية، ومثال بصري، وتدريب قصير.</div>
+            <div class="pd-lx-drag" draggable="true" data-mode="classify" data-answer="basic">تصرف كمعلم رياضيات. صمم نشاطًا أساسيًا حول ضرب الأعداد يتضمن خطوات واضحة، مثالًا محلولًا، وثلاث مسائل متدرجة.</div>
+            <div class="pd-lx-drag" draggable="true" data-mode="classify" data-answer="enrich">تصرف كمعلم رياضيات. صمم نشاطًا إثرائيًا يتضمن مسألة حياتية، واطلب من الطالب تفسير طريقة الحل.</div>
           </div>
         </div>
 
-        <div class="zones-3" data-activity="classify">
-          <div class="drop-zone" data-zone="support"><div class="zone-title">المستوى الداعم</div></div>
-          <div class="drop-zone" data-zone="basic"><div class="zone-title">المستوى الأساسي</div></div>
-          <div class="drop-zone" data-zone="enrich"><div class="zone-title">المستوى الإثرائي</div></div>
+        <div class="pd-lx-zones" data-activity="classify">
+          <div class="pd-lx-drop" data-zone="support"><div class="pd-lx-zone-title">المستوى الداعم</div></div>
+          <div class="pd-lx-drop" data-zone="basic"><div class="pd-lx-zone-title">المستوى الأساسي</div></div>
+          <div class="pd-lx-drop" data-zone="enrich"><div class="pd-lx-zone-title">المستوى الإثرائي</div></div>
         </div>
 
-        <div id="pdFeedback4" class="feedback"></div>
+        <div id="pdFeedback4" class="pd-lx-feedback"></div>
 
-        <div class="actions">
-          <button class="btn secondary" type="button" onclick="pdPrev()">السابق</button>
-          <button class="btn secondary" type="button" onclick="pdResetClassify()">إعادة المحاولة</button>
-          <button class="btn" type="button" onclick="pdCheckClassify()">تحقق من التصنيف</button>
+        <div class="pd-lx-actions">
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdResetClassify()">إعادة المحاولة</button>
+          <button class="pd-lx-btn" type="button" onclick="pdCheckClassify()">تحقق من التصنيف</button>
+          <button id="pdGo5Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(5)" hidden>التالي</button>
         </div>
       </section>
 
-      <section class="panel" data-slide="5">
-        <h2 class="panel-title">اختيار نوع الدعم المناسب</h2>
+      <section class="pd-lx-panel" data-slide="5">
+        <h2 class="pd-lx-panel-title">اختيار نوع الدعم المناسب</h2>
 
-        <p class="panel-text">
+        <p class="pd-lx-text">
           اقرأ وصف كل مستوى، ثم اختر نوع الدعم الأنسب له داخل الأمر النصي.
         </p>
 
-        <div class="hint">ضع كل بطاقة دعم داخل المستوى المناسب لها.</div>
+        <div class="pd-lx-hint">ضع كل بطاقة دعم داخل المستوى المناسب لها. يمكنك استخدام السحب أو النقر.</div>
 
-        <div class="card">
-          <div class="card-title">بطاقات السحب</div>
-          <div class="pool" id="matchPool">
-            <div class="drag-card" draggable="true" data-mode="match" data-answer="support">شرح المفهوم بخطوات قصيرة مع مثال محلول وتدريب قصير.</div>
-            <div class="drag-card" draggable="true" data-mode="match" data-answer="basic">تنظيم المهارة في خطوات واضحة مع تدريب متدرج وسؤال تحقق.</div>
-            <div class="drag-card" draggable="true" data-mode="match" data-answer="enrich">توظيف المفهوم في موقف تطبيقي يتطلب تفسيرًا أو تبريرًا.</div>
+        <div class="pd-lx-card">
+          <div class="pd-lx-card-title">بطاقات السحب</div>
+          <div class="pd-lx-pool" id="matchPool">
+            <div class="pd-lx-drag" draggable="true" data-mode="match" data-answer="support">شرح المفهوم بخطوات قصيرة مع مثال محلول وتدريب قصير.</div>
+            <div class="pd-lx-drag" draggable="true" data-mode="match" data-answer="basic">تنظيم المهارة في خطوات واضحة مع تدريب متدرج وسؤال تحقق.</div>
+            <div class="pd-lx-drag" draggable="true" data-mode="match" data-answer="enrich">توظيف المفهوم في موقف تطبيقي يتطلب تفسيرًا أو تبريرًا.</div>
           </div>
         </div>
 
-        <div class="zones-3" data-activity="match">
-          <div class="drop-zone" data-zone="support"><div class="zone-title">المستوى الداعم</div></div>
-          <div class="drop-zone" data-zone="basic"><div class="zone-title">المستوى الأساسي</div></div>
-          <div class="drop-zone" data-zone="enrich"><div class="zone-title">المستوى الإثرائي</div></div>
+        <div class="pd-lx-zones" data-activity="match">
+          <div class="pd-lx-drop" data-zone="support"><div class="pd-lx-zone-title">المستوى الداعم</div></div>
+          <div class="pd-lx-drop" data-zone="basic"><div class="pd-lx-zone-title">المستوى الأساسي</div></div>
+          <div class="pd-lx-drop" data-zone="enrich"><div class="pd-lx-zone-title">المستوى الإثرائي</div></div>
         </div>
 
-        <div id="pdFeedback5" class="feedback"></div>
+        <div id="pdFeedback5" class="pd-lx-feedback"></div>
 
-        <div class="actions">
-          <button class="btn secondary" type="button" onclick="pdPrev()">السابق</button>
-          <button class="btn secondary" type="button" onclick="pdResetMatch()">إعادة المحاولة</button>
-          <button class="btn" type="button" onclick="pdCheckMatch()">تحقق من الربط</button>
+        <div class="pd-lx-actions">
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdResetMatch()">إعادة المحاولة</button>
+          <button class="pd-lx-btn" type="button" onclick="pdCheckMatch()">تحقق من الربط</button>
+          <button id="pdGo6Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(6)" hidden>التالي</button>
         </div>
       </section>
 
-      <section class="panel" data-slide="6">
-        <h2 class="panel-title">تحقق من الأمر النصي قبل استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي</h2>
+      <section class="pd-lx-panel" data-slide="6">
+        <h2 class="pd-lx-panel-title">تحقق من الأمر النصي قبل استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي</h2>
 
-        <p class="panel-text">
+        <p class="pd-lx-text">
           أمامك أمر نصي عام وغير مكتمل. المطلوب تحويله إلى أمر نصي محسّن يوضح الدور، والمهمة والموضوع، واحتياج الطلبة، وعناصر المخرج المطلوب.
         </p>
 
-        <section class="weak-card" aria-label="الأمر النصي العام قبل التحسين">
-          <div class="weak-title-wrap">
-            <div class="weak-title">الأمر النصي العام قبل التحسين</div>
-          </div>
-
-          <div class="weak-prompt">صمم نشاطًا عن جدول الضرب للطلبة.</div>
-
-          <div class="missing-row">
-            <div class="missing-chip">مستوى الطلبة غير محدد</div>
-            <div class="missing-chip">نوع الدعم غير محدد</div>
-            <div class="missing-chip">شكل المخرج غير واضح</div>
+        <section class="pd-lx-weak" aria-label="الأمر النصي العام قبل التحسين">
+          <span class="pd-lx-weak-title">الأمر النصي العام قبل التحسين</span>
+          <div class="pd-lx-weak-prompt">صمم نشاطًا عن جدول الضرب للطلبة.</div>
+          <div class="pd-lx-missing">
+            <span>مستوى الطلبة غير محدد</span>
+            <span>نوع الدعم غير محدد</span>
+            <span>شكل المخرج غير واضح</span>
           </div>
         </section>
 
-        <div class="task-note">
+        <div class="pd-lx-note">
           مهمتك هي ترتيب بطاقات التحسين لتكوين أمر نصي كامل وقابل للاستخدام. اتبع خريطة البناء الآتية قبل السحب.
         </div>
 
-        <section class="build-map" aria-label="خريطة بناء الأمر النصي">
-          <div class="build-step">
-            <span class="build-num">1</span>
+        <section class="pd-lx-build" aria-label="خريطة بناء الأمر النصي">
+          <div class="pd-lx-build-item">
+            <span class="pd-lx-build-num">1</span>
             <strong>الدور</strong>
             <p>من سيؤدي المهمة؟</p>
           </div>
-
-          <div class="build-step">
-            <span class="build-num">2</span>
+          <div class="pd-lx-build-item">
+            <span class="pd-lx-build-num">2</span>
             <strong>المهمة والموضوع</strong>
             <p>ماذا سيصمم؟ وعن أي موضوع؟</p>
           </div>
-
-          <div class="build-step">
-            <span class="build-num">3</span>
+          <div class="pd-lx-build-item">
+            <span class="pd-lx-build-num">3</span>
             <strong>احتياج الطلبة</strong>
             <p>لمن يوجَّه النشاط؟</p>
           </div>
-
-          <div class="build-step">
-            <span class="build-num">4</span>
+          <div class="pd-lx-build-item">
+            <span class="pd-lx-build-num">4</span>
             <strong>عناصر المخرج المطلوب</strong>
             <p>هدف واضح، مثال محلول، مسائل متدرجة، وسؤال تحقق.</p>
           </div>
         </section>
 
-        <div class="dnd-two improved-layout">
-          <div class="card">
-            <div class="card-title">بطاقات التحسين القابلة للسحب</div>
+        <div class="pd-lx-review">
+          يُراعى الرجوع إلى الدليل الإرشادي لاستخدام الذكاء الاصطناعي التوليدي في التعليم العام بالمملكة عند مراجعة النشاط والتحقق من مناسبته للاستخدام التعليمي.
+          <br>
+          المرجع: وزارة التعليم. (2025). الدليل الإرشادي لاستخدام الذكاء الاصطناعي التوليدي في التعليم العام بالمملكة.
+          <a href="https://www.moe.gov.sa/ar/mediacenter/MOEnews/DocLib/Artificial_Intelligence_Guide.pdf" target="_blank" rel="noopener">فتح المرجع</a>
+        </div>
 
-            <div class="pool" id="improvePool">
-              <div class="drag-card" draggable="true" data-mode="order" data-key="i1">تصرف كمعلم رياضيات للمرحلة الابتدائية.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="i2">صمم نشاطًا أساسيًا حول جدول الضرب.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="i3">للطلبة الذين يحتاجون إلى تنظيم خطوات حل مسائل جدول الضرب.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="i4">اجعل النشاط يتضمن هدفًا تعليميًا واضحًا.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="i5">أضف مثالًا محلولًا يوضح طريقة التفكير.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="i6">أضف ثلاث مسائل متدرجة من السهل إلى المتوسط.</div>
-              <div class="drag-card" draggable="true" data-mode="order" data-key="i7">اختم بسؤال قصير للتحقق من الفهم.</div>
+        <div class="pd-lx-note">
+          يمكن السحب والإفلات، أو النقر على البطاقة ثم النقر على صندوق الأمر النصي المحسّن.
+        </div>
+
+        <div class="pd-lx-two">
+          <div class="pd-lx-card">
+            <div class="pd-lx-card-title">بطاقات التحسين القابلة للسحب</div>
+            <div class="pd-lx-pool" id="improvePool">
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="i1">تصرف كمعلم رياضيات للمرحلة الابتدائية.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="i2">صمم نشاطًا أساسيًا حول جدول الضرب.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="i3">للطلبة الذين يحتاجون إلى تنظيم خطوات حل مسائل جدول الضرب.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="i4">اجعل النشاط يتضمن هدفًا تعليميًا واضحًا.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="i5">أضف مثالًا محلولًا يوضح طريقة التفكير.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="i6">أضف ثلاث مسائل متدرجة من السهل إلى المتوسط.</div>
+              <div class="pd-lx-drag" draggable="true" data-mode="order" data-key="i7">اختم بسؤال قصير للتحقق من الفهم.</div>
             </div>
           </div>
 
-          <div class="card">
-            <div class="card-title">الأمر النصي المحسّن</div>
-
-            <div class="order-zone" id="improveOrder">
-              <div class="zone-title">
-                رتّب البطاقات وفق التسلسل الآتي: الدور، ثم المهمة والموضوع، ثم احتياج الطلبة، ثم عناصر المخرج المطلوب: هدف واضح، مثال محلول، مسائل متدرجة، وسؤال تحقق.
+          <div class="pd-lx-card">
+            <div class="pd-lx-card-title">الأمر النصي المحسّن</div>
+            <div class="pd-lx-order" id="improveOrder">
+              <div class="pd-lx-zone-title">
+                رتّب البطاقات وفق التسلسل الآتي: الدور، ثم المهمة والموضوع، ثم احتياج الطلبة، ثم عناصر المخرج المطلوب.
               </div>
             </div>
-
-            <div class="order-status" id="improveOrderStatus">تم وضع 0 من 7 بطاقات.</div>
+            <div class="pd-lx-order-status" id="improveOrderStatus">تم وضع 0 من 7 بطاقات.</div>
           </div>
         </div>
 
-        <div id="pdImproveResult" class="result-box prompt-result improved" style="display:none;">
-          <div class="result-label">الأمر النصي المحسّن بعد التركيب الصحيح</div>
-          <div class="result-text">
-            تصرف كمعلم رياضيات للمرحلة الابتدائية. صمم نشاطًا أساسيًا حول جدول الضرب للطلبة الذين يحتاجون إلى تنظيم خطوات حل مسائل جدول الضرب. اجعل النشاط يتضمن هدفًا تعليميًا واضحًا، ومثالًا محلولًا يوضح طريقة التفكير، وثلاث مسائل متدرجة من السهل إلى المتوسط، وسؤالًا قصيرًا للتحقق من الفهم.
-          </div>
+        <div id="pdImproveResult" class="pd-lx-result">
+          الأمر النصي المحسّن بعد التركيب الصحيح:
+          تصرف كمعلم رياضيات للمرحلة الابتدائية. صمم نشاطًا أساسيًا حول جدول الضرب للطلبة الذين يحتاجون إلى تنظيم خطوات حل مسائل جدول الضرب. اجعل النشاط يتضمن هدفًا تعليميًا واضحًا، ومثالًا محلولًا يوضح طريقة التفكير، وثلاث مسائل متدرجة من السهل إلى المتوسط، وسؤالًا قصيرًا للتحقق من الفهم.
         </div>
 
-        <div id="pdFeedback6" class="feedback"></div>
+        <div id="pdFeedback6" class="pd-lx-feedback"></div>
 
-        <div class="actions">
-          <button class="btn secondary" type="button" onclick="pdPrev()">السابق</button>
-          <button class="btn secondary" type="button" onclick="pdResetOrder('improvePool','improveOrder')">إعادة ترتيب</button>
-          <button class="btn" type="button" onclick="pdCheckOrder('improve')">تحقق من الأمر المحسّن</button>
-          <button id="pdGo7Btn" class="btn" type="button" onclick="pdGo(7)" style="display:none;">التالي</button>
+        <div class="pd-lx-actions">
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdResetOrder('improvePool','improveOrder')">إعادة ترتيب</button>
+          <button class="pd-lx-btn" type="button" onclick="pdCheckOrder('improve')">تحقق من الأمر المحسّن</button>
+          <button id="pdGo7Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(7)" hidden>التالي</button>
         </div>
       </section>
 
+      <section class="pd-lx-panel" data-slide="7">
+        <h2 class="pd-lx-panel-title">ماذا أنجزت؟</h2>
 
-      <section class="panel" data-slide="7">
-        <h2 class="panel-title">ماذا أنجزت؟</h2>
+        <p class="pd-lx-text">أصبحت الآن قادرًا على:</p>
 
-        <p class="panel-text">
-          أصبحت الآن قادرًا على:
-        </p>
-
-        <div class="grid-3">
-          <div class="final-card">
+        <div class="pd-lx-grid-3">
+          <div class="pd-lx-final-card">
             <h4>حددت المستوى</h4>
             <p>داعم، أساسي، إثرائي.</p>
           </div>
-          <div class="final-card">
+          <div class="pd-lx-final-card">
             <h4>اخترت نوع الدعم</h4>
             <p>اختيار نوع الدعم المناسب لكل مستوى.</p>
           </div>
-          <div class="final-card">
+          <div class="pd-lx-final-card">
             <h4>حسّنت الأمر النصي</h4>
-            <p>تحسين أمر نصي عام قبل استخدامه في مايكروسوفت للذكاء الاصطناعي <span class="en">(Microsoft Copilot Chat)</span>.</p>
+            <p>
+              تحسين أمر نصي عام قبل استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي
+              <span class="pd-lx-en">(Microsoft Copilot Chat)</span>.
+            </p>
           </div>
         </div>
 
-        <div id="pdFinishMsg" class="feedback">تم إنهاء النشاط.</div>
+        <div id="pdFinishMsg" class="pd-lx-feedback"></div>
 
-        <div class="actions">
-          <button class="btn secondary" type="button" onclick="pdPrev()">السابق</button>
-          <button class="btn" type="button" onclick="pdFinish()">إنهاء النشاط</button>
+        <div class="pd-lx-actions">
+          <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
+          <button class="pd-lx-btn" type="button" onclick="pdFinish()">إنهاء النشاط</button>
+          <a id="pdFinalNextBtn" class="pd-lx-btn is-next" href="https://niepd.futurex.sa/learning/course/course-v1:NIEPD+T122+2026/block-v1:NIEPD+T122+2026+type@vertical+block@7aa0f684950441b5b12612d7d186e552" hidden>التالي</a>
         </div>
       </section>
-    </div>
 
-    <div class="brand-bottom" aria-label="شعارات المنصات">
-      <img class="logo logo-madrasati" src="https://lms.futurex.sa/asset-v1:NIEPD+T122+2026+type@asset+block@شعار__مدرستي.png" alt="شعار منصة مدرستي" />
-      <div class="brand-divider"></div>
-      <img class="logo logo-microsoft" src="https://lms.futurex.sa/asset-v1:NIEPD+T122+2026+type@asset+block@شعار_مايكرسوفت_2.png" alt="شعار مايكروسوفت" />
     </div>
   </main>
 
-  <div class="modal" id="pdModal" role="dialog" aria-modal="true" aria-labelledby="pdModalTitle">
-    <div class="modal-card" id="pdModalCard">
-      <div class="modal-icon" id="pdModalIcon">✓</div>
-      <h3 class="modal-title" id="pdModalTitle">رسالة</h3>
-      <p class="modal-text" id="pdModalText">نص الرسالة</p>
-      <div class="modal-actions">
-        <button class="btn" type="button" onclick="pdCloseModal()">حسنًا</button>
+  <div id="pdLxModal" class="pd-lx-modal" role="dialog" aria-modal="true" aria-labelledby="pdLxModalTitle">
+    <div id="pdLxModalCard" class="pd-lx-modal-card">
+      <div id="pdLxModalIcon" class="pd-lx-modal-icon">✓</div>
+      <h3 id="pdLxModalTitle" class="pd-lx-modal-title">تم</h3>
+      <p id="pdLxModalText" class="pd-lx-modal-text"></p>
+      <div class="pd-lx-modal-actions">
+        <button id="pdLxModalOk" class="pd-lx-btn" type="button" onclick="pdHandleModalOk()">حسنًا</button>
       </div>
     </div>
   </div>
 
   <script>
-    var pdCurrentSlide = 1;
     var pdMaxUnlocked = 1;
-    var pdDragged = null;
+    var pdIntroSeen = new Set();
     var pdSelectedDrag = null;
-    var pdModalNextSlide = 0;
+    var pdModalAction = null;
+    var pdBooted = false;
 
-    var pdExpected = {
-      support:["s1","s2","s3","s4","s5","s6","s7"],
-      improve:["i1","i2","i3","i4","i5","i6","i7"]
-    };
-
-    function pdOpenModal(title,text,type,nextSlide){
-      var modal=document.getElementById("pdModal");
-      var card=document.getElementById("pdModalCard");
-      var icon=document.getElementById("pdModalIcon");
-      var titleBox=document.getElementById("pdModalTitle");
-      var textBox=document.getElementById("pdModalText");
-      pdModalNextSlide=nextSlide||0;
-      card.classList.remove("error");
-      if(type==="error"){
-        card.classList.add("error");
-        icon.textContent="!";
-      }else{
-        icon.textContent="✓";
-      }
-      titleBox.textContent=title;
-      textBox.textContent=text;
-      modal.classList.add("show");
+    function pdSendHeight(){
+      try{
+        var wrap = document.querySelector(".pd-lx-wrap");
+        var height = wrap ? Math.ceil(wrap.getBoundingClientRect().height + 24) : document.documentElement.scrollHeight;
+        window.parent.postMessage({type:"unit2ActivityHeight", height:height}, "*");
+      }catch(e){}
     }
 
-    function pdCloseModal(){
-      var modal=document.getElementById("pdModal");
-      modal.classList.remove("show");
-      if(pdModalNextSlide>0){
-        var target=pdModalNextSlide;
-        pdModalNextSlide=0;
-        pdGo(target);
+    function pdScheduleHeight(){
+      try{
+        window.requestAnimationFrame(function(){
+          window.requestAnimationFrame(pdSendHeight);
+        });
+      }catch(e){
+        setTimeout(pdSendHeight, 80);
       }
+    }
+
+    function pdActiveSlide(){
+      var panel = document.querySelector(".pd-lx-panel.is-active");
+      return panel ? parseInt(panel.getAttribute("data-slide"), 10) : 1;
+    }
+
+    function pdRefreshSteps(){
+      var steps = document.querySelectorAll(".pd-lx-step");
+      var active = pdActiveSlide();
+
+      steps.forEach(function(step, index){
+        var num = index + 1;
+        step.classList.remove("is-active","is-done","is-locked");
+
+        if(num === active){
+          step.classList.add("is-active");
+        }else if(num < active && num <= pdMaxUnlocked){
+          step.classList.add("is-done");
+        }else if(num > pdMaxUnlocked){
+          step.classList.add("is-locked");
+        }
+      });
+
+      pdScheduleHeight();
+    }
+
+    function pdUnlock(num){
+      pdMaxUnlocked = Math.max(pdMaxUnlocked, num);
+      pdRefreshSteps();
     }
 
     function pdGo(num){
-      if(num>pdMaxUnlocked){
-        pdOpenModal("أكمل الخطوة الحالية أولًا","هذه الخطوة لم تُفتح بعد. أكمل النشاط المطلوب في الشريحة الحالية، ثم تابع إلى الخطوة التالية.","error",0);
-        return;
+      if(num > pdMaxUnlocked){ return; }
+
+      document.querySelectorAll(".pd-lx-panel").forEach(function(panel){
+        panel.classList.remove("is-active");
+      });
+
+      var target = document.querySelector('.pd-lx-panel[data-slide="' + num + '"]');
+      if(target){
+        target.classList.add("is-active");
       }
 
-      pdCurrentSlide=num;
-      var panels=document.querySelectorAll(".panel");
-      var steps=document.querySelectorAll(".step");
+      pdRefreshSteps();
 
-      for(var i=0;i<panels.length;i++){
-        panels[i].classList.remove("active");
-      }
+      try{
+        document.querySelector(".pd-lx-wrap").scrollIntoView({behavior:"smooth", block:"start"});
+      }catch(e){}
 
-      for(var j=0;j<steps.length;j++){
-        steps[j].classList.remove("active","done","locked");
-        if(j+1<num){steps[j].classList.add("done");}
-        if(j+1>pdMaxUnlocked){steps[j].classList.add("locked");}
-      }
-
-      var activePanel=document.querySelector('.panel[data-slide="'+num+'"]');
-      if(activePanel){activePanel.classList.add("active");}
-      if(steps[num-1]){steps[num-1].classList.add("active");}
+      pdScheduleHeight();
     }
 
     function pdPrev(){
-      if(pdCurrentSlide>1){pdGo(pdCurrentSlide-1);}
+      var current = pdActiveSlide();
+      if(current > 1){
+        pdGo(current - 1);
+      }
+    }
+
+    function pdOpenModal(title, message, isError, isPrompt, actionLabel, actionFn){
+      var modal = document.getElementById("pdLxModal");
+      var card = document.getElementById("pdLxModalCard");
+      var icon = document.getElementById("pdLxModalIcon");
+      var modalTitle = document.getElementById("pdLxModalTitle");
+      var modalText = document.getElementById("pdLxModalText");
+      var okBtn = document.getElementById("pdLxModalOk");
+
+      if(!modal || !card || !icon || !modalTitle || !modalText || !okBtn){ return; }
+
+      card.classList.toggle("is-error", !!isError);
+      modalText.classList.toggle("is-prompt", !!isPrompt);
+
+      icon.textContent = isError ? "!" : "✓";
+      modalTitle.textContent = title || (isError ? "إجابة غير صحيحة" : "أحسنت، إجابة صحيحة");
+      modalText.textContent = message || "";
+      okBtn.textContent = actionLabel || "حسنًا";
+
+      pdModalAction = typeof actionFn === "function" ? actionFn : null;
+
+      modal.classList.add("is-show");
+      pdScheduleHeight();
+    }
+
+    function pdCloseModal(){
+      var modal = document.getElementById("pdLxModal");
+      if(modal){
+        modal.classList.remove("is-show");
+      }
+      pdModalAction = null;
+    }
+
+    function pdHandleModalOk(){
+      var action = pdModalAction;
+      pdCloseModal();
+
+      if(typeof action === "function"){
+        action();
+      }
+    }
+
+    function pdCorrect(message, isPrompt, actionLabel, actionFn){
+      pdOpenModal(
+        "أحسنت، إجابة صحيحة",
+        message,
+        false,
+        !!isPrompt,
+        actionLabel || "حسنًا",
+        actionFn || null
+      );
+    }
+
+    function pdWrong(message){
+      pdOpenModal(
+        "إجابة غير صحيحة",
+        message,
+        true,
+        false,
+        "حاول مرة أخرى",
+        null
+      );
+    }
+
+    function pdHideFeedback(id){
+      var box = document.getElementById(id);
+      if(!box){ return; }
+
+      box.classList.remove("is-show","is-error");
+      box.textContent = "";
     }
 
     function pdIntroSelect(card){
-      card.classList.add("active");
-      var selectedCards=document.querySelectorAll(".flip-card.active");
-      var status=document.getElementById("pdIntroStatus");
-      var startBtn=document.getElementById("pdStartBtn");
+      card.classList.toggle("is-active");
+      pdIntroSeen.add(card);
 
-      if(status){status.textContent="تم الاطلاع على "+selectedCards.length+" من 3 بطاقات.";}
+      var count = pdIntroSeen.size;
+      var status = document.getElementById("pdIntroStatus");
+      var startBtn = document.getElementById("pdStartBtn");
 
-      if(selectedCards.length===3){
+      if(status){
+        status.textContent = "تم الاطلاع على " + count + " من 3 بطاقات.";
+      }
+
+      if(count >= 3){
         if(status){
-          status.textContent="أصبحت جاهزًا لبدء النشاط.";
-          status.classList.add("ready");
+          status.textContent = "تم العرض. يمكنك بدء النشاط الآن.";
+          status.classList.add("is-ready");
         }
+
         if(startBtn){
-          startBtn.disabled=false;
-          startBtn.classList.remove("disabled");
+          startBtn.disabled = false;
+          startBtn.classList.remove("is-disabled");
         }
       }
+
+      pdScheduleHeight();
     }
 
     function pdStartActivity(){
-      var selectedCards=document.querySelectorAll(".flip-card.active");
-      if(selectedCards.length<3){
-        pdOpenModal("اطلع على البطاقات أولًا","اضغط على البطاقات الثلاث قبل بدء النشاط.","error",0);
-        return;
-      }
-      pdMaxUnlocked=Math.max(pdMaxUnlocked,2);
-      pdOpenModal("جاهز للبدء","انتقل الآن إلى عناصر الأمر النصي الجيد.","success",2);
-    }
-
-    function pdShowFeedback(id,text,isError){
-      var box=document.getElementById(id);
-      if(!box){return;}
-      box.textContent=text;
-      box.classList.add("show");
-      if(isError){box.classList.add("error");}
-      else{box.classList.remove("error");}
+      pdOpenModal(
+        "ابدأ النشاط",
+        "ستنتقل الآن إلى خطوات بناء الأمر النصي. اقرأ التعليمات في كل خطوة، ثم نفّذ المطلوب قبل الضغط على زر التحقق.",
+        false,
+        false,
+        "ابدأ الآن",
+        function(){
+          pdUnlock(2);
+          pdGo(2);
+        }
+      );
     }
 
     function pdToggleSelect(card){
-      card.classList.toggle("selected");
-      card.classList.remove("correct","wrong");
-      var feedback=document.getElementById("pdFeedback2");
-      if(feedback){feedback.classList.remove("show");}
+      card.classList.toggle("is-selected");
+      card.classList.remove("is-correct","is-wrong");
+      pdHideFeedback("pdFeedback2");
+
+      var nextBtn = document.getElementById("pdGo3Btn");
+      if(nextBtn){
+        nextBtn.hidden = true;
+      }
     }
 
     function pdCheckElements(){
-      var cards=document.querySelectorAll('.panel[data-slide="2"] .select-card');
-      var allGood=true;
-      var selectedCount=0;
+      var cards = document.querySelectorAll(".pd-lx-select");
+      var allCorrect = true;
+      var selectedCount = 0;
 
-      for(var i=0;i<cards.length;i++){
-        var isCorrect=cards[i].getAttribute("data-correct")==="true";
-        var isSelected=cards[i].classList.contains("selected");
-        cards[i].classList.remove("correct","wrong");
-        if(isSelected){selectedCount++;}
-        if(isCorrect&&isSelected){cards[i].classList.add("correct");}
-        if(!isCorrect&&isSelected){cards[i].classList.add("wrong");}
-        if((isCorrect&&!isSelected)||(!isCorrect&&isSelected)){allGood=false;}
-      }
+      cards.forEach(function(card){
+        var shouldSelect = card.getAttribute("data-correct") === "true";
+        var selected = card.classList.contains("is-selected");
 
-      if(selectedCount===0){
-        pdOpenModal("لم يتم اختيار أي بطاقة","اختر العناصر التي يجب أن تظهر في الأمر النصي، ثم اضغط تحقق من الاختيار.","error",0);
+        card.classList.remove("is-correct","is-wrong");
+
+        if(selected){ selectedCount++; }
+
+        if(selected && shouldSelect){
+          card.classList.add("is-correct");
+        }
+
+        if(selected && !shouldSelect){
+          card.classList.add("is-wrong");
+        }
+
+        if(selected !== shouldSelect){
+          allCorrect = false;
+        }
+      });
+
+      if(selectedCount === 0){
+        pdWrong("السبب: لم يتم اختيار أي عنصر بعد. اختر عناصر بناء الأمر النصي الأساسية، ثم اضغط تحقق من الاختيار.");
         return;
       }
 
-      if(allGood){
-        pdShowFeedback("pdFeedback2","اختيار مناسب. الأمر النصي الجيد يوضح الدور، ومستوى الطلبة، ونوع الاستخدام، والموضوع، وشكل المخرج المطلوب.",false);
-        pdMaxUnlocked=Math.max(pdMaxUnlocked,3);
-        pdOpenModal("اختيار صحيح","انتقل الآن إلى كتابة أمر نصي للمستوى الداعم.","success",3);
+      if(allCorrect){
+        pdCorrect("الشرح: الأمر النصي الجيد يوضح الدور، ومستوى الطلبة، ونوع الاستخدام، والموضوع، وشكل المخرج، ومعيار المراجعة. هذه العناصر تجعل المخرج أكثر دقة وقابلًا للمراجعة.");
+        pdUnlock(3);
+
+        var nextBtn = document.getElementById("pdGo3Btn");
+        if(nextBtn){
+          nextBtn.hidden = false;
+        }
       }else{
-        pdShowFeedback("pdFeedback2","راجع العناصر التي تساعد مساعد مايكروسوفت للذكاء الاصطناعي على فهم المهمة التعليمية. العناصر الشكلية مثل لون الواجهة أو عدد الكلمات لا تكفي لتحسين جودة المخرج.",true);
-        pdOpenModal("اختيار غير صحيح","راجع البطاقات مرة أخرى. ركّز على عناصر المهمة التعليمية، وليس العناصر الشكلية.","error",0);
+        pdWrong("السبب: تم اختيار عنصر غير أساسي أو ترك عنصر أساسي. لون الواجهة وعدد الكلمات فقط لا يمثلان عناصر أساسية في بناء الأمر النصي، بينما الدور والمستوى ونوع الاستخدام والموضوع وشكل المخرج ومعيار المراجعة عناصر مهمة.");
       }
     }
 
-    document.addEventListener("dragstart",function(e){
-      var card=e.target.closest(".drag-card");
-      if(!card){return;}
-      pdDragged=card;
-      e.dataTransfer.effectAllowed="move";
-    });
+    function pdGetDropTarget(element){
+      if(!element){ return null; }
+      return element.closest(".pd-lx-pool, .pd-lx-order, .pd-lx-drop");
+    }
 
-    document.addEventListener("dragover",function(e){
-      var zone=e.target.closest(".drop-zone,.order-zone");
-      if(!zone){return;}
-      e.preventDefault();
-    });
+    function pdMoveCardToZone(card, zone){
+      if(!card || !zone){ return; }
 
-    document.addEventListener("drop",function(e){
-      var zone=e.target.closest(".drop-zone,.order-zone");
-      if(!zone||!pdDragged){return;}
-      e.preventDefault();
-      zone.appendChild(pdDragged);
-      pdDragged.classList.remove("selected");
-      pdDragged=null;
+      zone.appendChild(card);
+      card.classList.remove("is-selected","is-dragging");
+      pdSelectedDrag = null;
+
+      document.querySelectorAll(".pd-lx-pool, .pd-lx-order, .pd-lx-drop").forEach(function(item){
+        item.classList.remove("is-hover");
+      });
+
       pdUpdateAllOrderStatus();
-    });
+      pdClearZoneState(zone);
+      pdScheduleHeight();
+    }
 
-    document.addEventListener("click",function(e){
-      var dragCard=e.target.closest(".drag-card");
-      var zone=e.target.closest(".drop-zone");
+    function pdInitDragDelegation(){
+      document.addEventListener("dragstart", function(e){
+        var card = e.target.closest(".pd-lx-drag");
+        if(!card){ return; }
 
-      if(dragCard){
-        var mode=dragCard.getAttribute("data-mode");
+        pdSelectedDrag = card;
+        card.classList.add("is-dragging");
 
-        if(mode==="order"){
-          var panel=dragCard.closest(".panel");
-          var orderZone=panel.querySelector(".order-zone");
-          var pool=panel.querySelector(".pool");
+        try{
+          e.dataTransfer.effectAllowed = "move";
+          e.dataTransfer.setData("text/plain", card.getAttribute("data-key") || card.textContent.trim());
+        }catch(err){}
+      });
 
-          if(dragCard.parentElement.classList.contains("order-zone")){
-            pool.appendChild(dragCard);
-          }else{
-            orderZone.appendChild(dragCard);
-          }
-          pdUpdateAllOrderStatus();
+      document.addEventListener("dragend", function(e){
+        var card = e.target.closest(".pd-lx-drag");
+        if(card){
+          card.classList.remove("is-dragging");
+        }
+
+        document.querySelectorAll(".pd-lx-pool, .pd-lx-order, .pd-lx-drop").forEach(function(zone){
+          zone.classList.remove("is-hover");
+        });
+      });
+
+      document.addEventListener("dragover", function(e){
+        var zone = pdGetDropTarget(e.target);
+        if(!zone){ return; }
+
+        e.preventDefault();
+
+        try{
+          e.dataTransfer.dropEffect = "move";
+        }catch(err){}
+
+        zone.classList.add("is-hover");
+      });
+
+      document.addEventListener("dragleave", function(e){
+        var zone = pdGetDropTarget(e.target);
+        if(zone && !zone.contains(e.relatedTarget)){
+          zone.classList.remove("is-hover");
+        }
+      });
+
+      document.addEventListener("drop", function(e){
+        var zone = pdGetDropTarget(e.target);
+        if(!zone){ return; }
+
+        e.preventDefault();
+        zone.classList.remove("is-hover");
+
+        if(pdSelectedDrag){
+          pdMoveCardToZone(pdSelectedDrag, zone);
+        }
+      });
+
+      document.addEventListener("click", function(e){
+        var dragCard = e.target.closest(".pd-lx-drag");
+
+        if(dragCard){
+          e.preventDefault();
+          e.stopPropagation();
+
+          document.querySelectorAll(".pd-lx-drag").forEach(function(card){
+            if(card !== dragCard){
+              card.classList.remove("is-selected");
+            }
+          });
+
+          dragCard.classList.toggle("is-selected");
+          pdSelectedDrag = dragCard.classList.contains("is-selected") ? dragCard : null;
+
           return;
         }
 
-        if(mode==="classify"||mode==="match"){
-          var selected=document.querySelector(".drag-card.selected");
-          if(selected&&selected!==dragCard){selected.classList.remove("selected");}
-          dragCard.classList.toggle("selected");
-          pdSelectedDrag=dragCard.classList.contains("selected")?dragCard:null;
-          return;
+        var zone = pdGetDropTarget(e.target);
+
+        if(zone && pdSelectedDrag){
+          e.preventDefault();
+          pdMoveCardToZone(pdSelectedDrag, zone);
         }
-      }
+      });
+    }
 
-      if(zone&&pdSelectedDrag){
-        zone.appendChild(pdSelectedDrag);
-        pdSelectedDrag.classList.remove("selected");
-        pdSelectedDrag=null;
-      }
-    });
+    function pdClearZoneState(zone){
+      var parent = zone.closest(".pd-lx-zones");
 
-    function pdUpdateOrderStatus(zoneId){
-      var zone=document.getElementById(zoneId);
-      var status=document.getElementById(zoneId+"Status");
-      if(!zone||!status){return;}
-      var count=zone.querySelectorAll(".drag-card").length;
-      status.textContent="تم وضع "+count+" من 7 بطاقات.";
-      if(count===7){status.classList.add("complete");}
-      else{status.classList.remove("complete");}
+      if(parent){
+        parent.querySelectorAll(".pd-lx-drop").forEach(function(drop){
+          drop.classList.remove("is-good","is-bad");
+        });
+      }
+    }
+
+    function pdOrderKeys(zoneId){
+      return Array.prototype.slice.call(document.querySelectorAll("#" + zoneId + " .pd-lx-drag")).map(function(card){
+        return card.getAttribute("data-key");
+      });
+    }
+
+    function pdUpdateOrderStatus(zoneId, statusId, total){
+      var status = document.getElementById(statusId);
+      var count = document.querySelectorAll("#" + zoneId + " .pd-lx-drag").length;
+
+      if(!status){ return; }
+
+      status.textContent = "تم وضع " + count + " من " + total + " بطاقات.";
+      status.classList.toggle("is-complete", count === total);
     }
 
     function pdUpdateAllOrderStatus(){
-      pdUpdateOrderStatus("supportOrder");
-      pdUpdateOrderStatus("improveOrder");
-    }
-
-    function pdGetOrder(zoneId){
-      var zone=document.getElementById(zoneId);
-      var cards=zone.querySelectorAll(".drag-card");
-      var keys=[];
-      for(var i=0;i<cards.length;i++){
-        keys.push(cards[i].getAttribute("data-key"));
-      }
-      return keys;
-    }
-
-    function pdSameSet(actual, expected){
-      if(actual.length !== expected.length){return false;}
-      var a = actual.slice().sort().join("|");
-      var b = expected.slice().sort().join("|");
-      return a === b;
+      pdUpdateOrderStatus("supportOrder","supportOrderStatus",7);
+      pdUpdateOrderStatus("improveOrder","improveOrderStatus",7);
     }
 
     function pdCheckOrder(type){
-      var zoneId=type==="support"?"supportOrder":"improveOrder";
-      var resultId=type==="support"?"pdSupportResult":"pdImproveResult";
-      var feedbackId=type==="support"?"pdFeedback3":"pdFeedback6";
-      var nextSlide=type==="support"?4:7;
-      var keys=pdGetOrder(zoneId);
-      var correct=false;
-
-      if(keys.length===0){
-        pdOpenModal("صندوق التركيب فارغ","انقل أجزاء الأمر النصي إلى صندوق التركيب أولًا، ثم تحقق من الترتيب.","error",0);
-        return;
-      }
-
-      if(keys.length<7){
-        pdOpenModal("الأمر النصي غير مكتمل","ما زالت هناك أجزاء لم تُنقل إلى صندوق التركيب. أكمل نقل جميع الأجزاء ثم تحقق مرة أخرى.","error",0);
-        return;
-      }
-
-      if(type==="support"){
-        var firstPart = keys.slice(0,3);
-        var detailsPart = keys.slice(3);
-        var firstCorrect = firstPart[0]==="s1" && firstPart[1]==="s2" && firstPart[2]==="s3";
-        var detailsCorrect = pdSameSet(detailsPart, ["s4","s5","s6","s7"]);
-        correct = firstCorrect && detailsCorrect;
-      }else{
-        var expected=pdExpected[type];
-        correct=keys.length===expected.length;
-        if(correct){
-          for(var i=0;i<expected.length;i++){
-            if(keys[i]!==expected[i]){correct=false;}
-          }
+      var config = {
+        support:{
+          zone:"supportOrder",
+          result:"pdSupportResult",
+          next:"pdGo4Btn",
+          correct:["s1","s2","s3","s4","s5","s6","s7"],
+          unlock:4,
+          wrong:"السبب: ترتيب بداية الأمر النصي غير مناسب. يجب أن يبدأ الأمر بالدور، ثم مستوى الطلبة، ثم نوع الشرح، وبعد ذلك تفاصيل المخرج المطلوبة."
+        },
+        improve:{
+          zone:"improveOrder",
+          result:"pdImproveResult",
+          next:"pdGo7Btn",
+          correct:["i1","i2","i3","i4","i5","i6","i7"],
+          unlock:7,
+          wrong:"السبب: التسلسل غير مكتمل أو غير مناسب. الترتيب الأفضل هو: الدور، ثم المهمة والموضوع، ثم احتياج الطلبة، ثم عناصر المخرج المطلوب."
         }
+      };
+
+      var item = config[type];
+      var keys = pdOrderKeys(item.zone);
+      var resultBox = document.getElementById(item.result);
+      var nextBtn = document.getElementById(item.next);
+
+      if(nextBtn){
+        nextBtn.hidden = true;
       }
+
+      if(keys.length < item.correct.length){
+        pdWrong("السبب: لم يتم ترتيب جميع البطاقات بعد. ضع جميع البطاقات داخل الصندوق، ثم اضغط زر التحقق.");
+        return;
+      }
+
+      var correct = item.correct.every(function(key, index){
+        return keys[index] === key;
+      });
 
       if(correct){
-        document.getElementById(resultId).style.display="block";
+        var resultText = resultBox ? resultBox.textContent.trim().replace(/\s+/g," ") : "";
 
-        if(type==="support"){
-          pdShowFeedback(feedbackId,"الأمر النصي مناسب للمستوى الداعم؛ لأنه يبدأ بالدور، ثم يحدد مستوى الطلبة، ثم يوضح طريقة الشرح، ثم يضيف تفاصيل مخرج مناسبة.",false);
-          pdMaxUnlocked=Math.max(pdMaxUnlocked,4);
-          pdOpenModal("تركيب صحيح","أحسنت. في هذا النشاط قبلنا أكثر من ترتيب منطقي لتفاصيل المخرج ما دام بدأ الأمر بالدور ثم مستوى الطلبة ثم نوع الشرح.", "success", nextSlide);
-        }else{
-          pdShowFeedback(feedbackId,"أصبح الأمر النصي أوضح؛ لأنه حدد الدور، ومستوى الطلبة، ونوع الدعم، وعناصر المخرج المطلوب. اقرأ الأمر النصي المحسّن في الصندوق، ثم اضغط التالي للمتابعة.",false);
-          pdMaxUnlocked=Math.max(pdMaxUnlocked,7);
-          var nextBtn=document.getElementById("pdGo7Btn");
-          if(nextBtn){nextBtn.style.display="inline-flex";}
-          pdOpenModal("تحسين صحيح","تم تكوين الأمر النصي المحسّن. اقرأ الصياغة النهائية أولًا، ثم اضغط زر التالي للانتقال إلى ختام النشاط.", "success", 0);
+        pdCorrect(
+          "الشرح: تم ترتيب مكونات الأمر النصي بشكل منطقي، وهذا يساعد مساعد مايكروسوفت للذكاء الاصطناعي على إنتاج مخرج أوضح وأكثر مناسبة لمستوى الطلبة.\n\n" + resultText,
+          true
+        );
+
+        pdUnlock(item.unlock);
+
+        if(nextBtn){
+          nextBtn.hidden = false;
         }
       }else{
-        document.getElementById(resultId).style.display="none";
-
-        if(type==="support"){
-          pdShowFeedback(feedbackId,"راجع ترتيب بداية الأمر النصي. يجب أن يبدأ بالدور، ثم مستوى الطلبة، ثم نوع الشرح. أما تفاصيل المخرج مثل المثال والتدريب وسؤال التحقق واللغة فيمكن ترتيبها بمرونة.",true);
-          pdOpenModal("الترتيب يحتاج إلى مراجعة","ابدأ بهذه الثلاثة بالترتيب: الدور ← مستوى الطلبة ← نوع الشرح. بعد ذلك رتّب تفاصيل المخرج بطريقة منطقية.","error",0);
-        }else{
-          pdShowFeedback(feedbackId,"راجع ترتيب الأمر النصي. ابدأ بالدور، ثم المهمة والموضوع، ثم احتياج الطلبة. بعد ذلك أضف عناصر المخرج المطلوب: هدف واضح، مثال محلول، مسائل متدرجة، وسؤال تحقق.",true);
-          pdOpenModal("الترتيب غير صحيح","راجع التسلسل: الدور ← المهمة والموضوع ← احتياج الطلبة ← عناصر المخرج المطلوب.","error",0);
-        }
+        pdWrong(item.wrong);
       }
+
+      pdScheduleHeight();
     }
 
-    function pdResetOrder(poolId,zoneId){
-      var pool=document.getElementById(poolId);
-      var zone=document.getElementById(zoneId);
-      var cards=zone.querySelectorAll(".drag-card");
-      for(var i=0;i<cards.length;i++){
-        cards[i].classList.remove("placed-good");
-        pool.appendChild(cards[i]);
+    function pdResetOrder(poolId, zoneId){
+      var pool = document.getElementById(poolId);
+      var zone = document.getElementById(zoneId);
+      if(!pool || !zone){ return; }
+
+      var cards = Array.prototype.slice.call(zone.querySelectorAll(".pd-lx-drag"));
+
+      cards.forEach(function(card){
+        card.classList.remove("is-selected","is-dragging");
+        pool.appendChild(card);
+      });
+
+      if(zoneId === "supportOrder"){
+        var btn4 = document.getElementById("pdGo4Btn");
+        if(btn4){ btn4.hidden = true; }
       }
-      if(zoneId==="supportOrder"){document.getElementById("pdSupportResult").style.display="none";}
-      if(zoneId==="improveOrder"){document.getElementById("pdImproveResult").style.display="none";}
+
+      if(zoneId === "improveOrder"){
+        var btn7 = document.getElementById("pdGo7Btn");
+        if(btn7){ btn7.hidden = true; }
+      }
+
+      pdSelectedDrag = null;
       pdUpdateAllOrderStatus();
+      pdScheduleHeight();
+    }
+
+    function pdCheckDropActivity(activityName, nextBtnId, unlockNum, correctExplanation, wrongReason){
+      var wrapper = document.querySelector('.pd-lx-zones[data-activity="' + activityName + '"]');
+      if(!wrapper){ return; }
+
+      var zones = wrapper.querySelectorAll(".pd-lx-drop");
+      var count = 0;
+      var allCorrect = true;
+
+      zones.forEach(function(zone){
+        zone.classList.remove("is-good","is-bad");
+
+        var cards = zone.querySelectorAll(".pd-lx-drag");
+        count += cards.length;
+
+        cards.forEach(function(card){
+          if(card.getAttribute("data-answer") === zone.getAttribute("data-zone")){
+            zone.classList.add("is-good");
+          }else{
+            zone.classList.add("is-bad");
+            allCorrect = false;
+          }
+        });
+      });
+
+      var nextBtn = document.getElementById(nextBtnId);
+      if(nextBtn){
+        nextBtn.hidden = true;
+      }
+
+      if(count === 0){
+        pdWrong("السبب: لم يتم وضع أي بطاقة بعد. اسحب البطاقات إلى المناطق المناسبة، أو انقر على البطاقة ثم انقر على منطقة الإفلات.");
+        return;
+      }
+
+      if(count < 3){
+        pdWrong("السبب: النشاط لم يكتمل بعد. يجب وضع البطاقات الثلاث كلها قبل التحقق من الإجابة.");
+        return;
+      }
+
+      if(allCorrect){
+        pdCorrect(correctExplanation);
+        pdUnlock(unlockNum);
+
+        if(nextBtn){
+          nextBtn.hidden = false;
+        }
+      }else{
+        pdWrong(wrongReason);
+      }
+
+      pdScheduleHeight();
     }
 
     function pdCheckClassify(){
-      var zones=document.querySelectorAll('.zones-3[data-activity="classify"] .drop-zone');
-      var allCorrect=true;
-      var count=0;
-
-      for(var i=0;i<zones.length;i++){
-        zones[i].classList.remove("good","bad");
-        var cards=zones[i].querySelectorAll(".drag-card");
-        count+=cards.length;
-        for(var j=0;j<cards.length;j++){
-          if(cards[j].getAttribute("data-answer")===zones[i].getAttribute("data-zone")){
-            zones[i].classList.add("good");
-            cards[j].classList.add("placed-good");
-          }else{
-            zones[i].classList.add("bad");
-            allCorrect=false;
-          }
-        }
-      }
-
-      if(count<3){allCorrect=false;}
-
-      if(count===0){
-        pdOpenModal("لم يتم التصنيف بعد","اسحب الأوامر النصية إلى مستويات الدعم المناسبة، ثم اضغط تحقق من التصنيف.","error",0);
-        return;
-      }
-
-      if(count<3){
-        pdOpenModal("التصنيف غير مكتمل","يجب تصنيف الأوامر النصية الثلاثة قبل التحقق.","error",0);
-        return;
-      }
-
-      if(allCorrect){
-        pdShowFeedback("pdFeedback4","إجابة صحيحة. الأمر الداعم يبسّط المفهوم، والأمر الأساسي ينظّم التدريب، والأمر الإثرائي يوسّع التفكير من خلال تطبيق أو تفسير.",false);
-        pdMaxUnlocked=Math.max(pdMaxUnlocked,5);
-        pdOpenModal("تصنيف صحيح","إجابة صحيحة.", "success", 5);
-      }else{
-        pdShowFeedback("pdFeedback4","راجع التصنيف. الأمر الداعم يبسّط المفهوم، والأمر الأساسي ينظّم التدريب، والأمر الإثرائي يوسّع التفكير من خلال تطبيق أو تفسير.",true);
-        pdOpenModal("تصنيف غير صحيح","راجع خصائص كل مستوى، ثم أعد المحاولة.","error",0);
-      }
+      pdCheckDropActivity(
+        "classify",
+        "pdGo5Btn",
+        5,
+        "الشرح: التصنيف صحيح؛ الأمر الداعم يبسّط المفهوم، والأمر الأساسي ينظّم التدريب في خطوات، والأمر الإثرائي يوسّع التفكير من خلال موقف تطبيقي أو تفسير.",
+        "السبب: يوجد أمر نصي في مستوى غير مناسب. الأمر الداعم يركز على التبسيط والمثال، والأمر الأساسي يركز على خطوات وتدريب متدرج، والأمر الإثرائي يركز على تطبيق وتفسير أعمق."
+      );
     }
 
     function pdCheckMatch(){
-      var zones=document.querySelectorAll('.zones-3[data-activity="match"] .drop-zone');
-      var allCorrect=true;
-      var count=0;
+      pdCheckDropActivity(
+        "match",
+        "pdGo6Btn",
+        6,
+        "الشرح: الربط صحيح؛ نوع الدعم داخل الأمر النصي يتغير بحسب مستوى الطلبة واحتياجهم، فالداعم يحتاج تبسيطًا، والأساسي يحتاج تنظيمًا، والإثرائي يحتاج تطبيقًا وتفكيرًا أعمق.",
+        "السبب: يوجد نوع دعم في مستوى غير مناسب. راجع وصف كل مستوى؛ الداعم يحتاج إلى توضيح ومثال، والأساسي يحتاج إلى تدريب منظم، والإثرائي يحتاج إلى تطبيق وتبرير."
+      );
+    }
 
-      for(var i=0;i<zones.length;i++){
-        zones[i].classList.remove("good","bad");
-        var cards=zones[i].querySelectorAll(".drag-card");
-        count+=cards.length;
-        for(var j=0;j<cards.length;j++){
-          if(cards[j].getAttribute("data-answer")===zones[i].getAttribute("data-zone")){
-            zones[i].classList.add("good");
-            cards[j].classList.add("placed-good");
-          }else{
-            zones[i].classList.add("bad");
-            allCorrect=false;
-          }
-        }
+    function pdResetDropActivity(activityName, poolId, nextBtnId){
+      var pool = document.getElementById(poolId);
+      var wrapper = document.querySelector('.pd-lx-zones[data-activity="' + activityName + '"]');
+
+      if(!pool || !wrapper){ return; }
+
+      var cards = wrapper.querySelectorAll(".pd-lx-drag");
+
+      cards.forEach(function(card){
+        card.classList.remove("is-selected","is-dragging");
+        pool.appendChild(card);
+      });
+
+      wrapper.querySelectorAll(".pd-lx-drop").forEach(function(zone){
+        zone.classList.remove("is-good","is-bad","is-hover");
+      });
+
+      var nextBtn = document.getElementById(nextBtnId);
+      if(nextBtn){
+        nextBtn.hidden = true;
       }
 
-      if(count<3){allCorrect=false;}
-
-      if(count===0){
-        pdOpenModal("لم يتم الربط بعد","ضع بطاقات الدعم داخل المستويات المناسبة، ثم اضغط تحقق من الربط.","error",0);
-        return;
-      }
-
-      if(count<3){
-        pdOpenModal("الربط غير مكتمل","يجب ربط بطاقات الدعم الثلاثة بالمستويات المناسبة قبل الانتقال.","error",0);
-        return;
-      }
-
-      if(allCorrect){
-        pdShowFeedback("pdFeedback5","اختيار مناسب. نوع الدعم داخل الأمر النصي يتغير بحسب مستوى الطلبة واحتياجهم.",false);
-        pdMaxUnlocked=Math.max(pdMaxUnlocked,6);
-        pdOpenModal("ربط صحيح","اختيار مناسب.", "success", 6);
-      }else{
-        pdShowFeedback("pdFeedback5","راجع وصف المستوى؛ الداعم يحتاج إلى توضيح ومثال، والأساسي يحتاج إلى تدريب منظم، والإثرائي يحتاج إلى تطبيق وتفكير أعمق.",true);
-        pdOpenModal("الربط غير صحيح","راجع وصف المستوى، ثم أعد المحاولة.","error",0);
-      }
+      pdSelectedDrag = null;
+      pdScheduleHeight();
     }
 
     function pdResetClassify(){
-      var pool=document.getElementById("classifyPool");
-      var cards=document.querySelectorAll('.zones-3[data-activity="classify"] .drag-card');
-      for(var i=0;i<cards.length;i++){
-        cards[i].classList.remove("placed-good");
-        pool.appendChild(cards[i]);
-      }
-      var zones=document.querySelectorAll('.zones-3[data-activity="classify"] .drop-zone');
-      for(var j=0;j<zones.length;j++){
-        zones[j].classList.remove("good","bad");
-      }
+      pdResetDropActivity("classify","classifyPool","pdGo5Btn");
     }
 
     function pdResetMatch(){
-      var pool=document.getElementById("matchPool");
-      var cards=document.querySelectorAll('.zones-3[data-activity="match"] .drag-card');
-      for(var i=0;i<cards.length;i++){
-        cards[i].classList.remove("placed-good");
-        pool.appendChild(cards[i]);
-      }
-      var zones=document.querySelectorAll('.zones-3[data-activity="match"] .drop-zone');
-      for(var j=0;j<zones.length;j++){
-        zones[j].classList.remove("good","bad");
-      }
+      pdResetDropActivity("match","matchPool","pdGo6Btn");
     }
 
     function pdFinish(){
-      pdShowFeedback("pdFinishMsg","تم إنهاء النشاط بنجاح.",false);
-      pdOpenModal("تم إنهاء النشاط","أحسنت. تم إكمال النشاط بنجاح.", "success", 0);
+      pdCorrect(
+        "الشرح: تم إنهاء النشاط بنجاح. أصبحت الآن قادرًا على تحديد مستوى الطلبة، واختيار نوع الدعم المناسب، وتحسين الأمر النصي قبل استخدامه في مساعد مايكروسوفت للذكاء الاصطناعي.",
+        false
+      );
+
+      var finalBtn = document.getElementById("pdFinalNextBtn");
+      if(finalBtn){
+        finalBtn.hidden = false;
+      }
+
+      pdScheduleHeight();
+    }
+
+    function pdGlobalEvents(){
+      document.addEventListener("click", function(e){
+        var modal = document.getElementById("pdLxModal");
+        var card = document.getElementById("pdLxModalCard");
+
+        if(modal && card && modal.classList.contains("is-show")){
+          if(e.target === modal){
+            pdCloseModal();
+          }
+        }
+      });
+
+      document.addEventListener("keydown", function(e){
+        if(e.key === "Escape"){
+          pdCloseModal();
+        }
+      });
+    }
+
+    function pdBoot(){
+      if(pdBooted){ return; }
+      pdBooted = true;
+
+      document.querySelectorAll(".pd-lx-drag").forEach(function(card){
+        card.setAttribute("draggable","true");
+        card.setAttribute("role","button");
+        card.setAttribute("tabindex","0");
+        card.setAttribute("aria-label","بطاقة قابلة للسحب أو النقر");
+      });
+
+      pdInitDragDelegation();
+      pdGlobalEvents();
+      pdRefreshSteps();
+      pdUpdateAllOrderStatus();
+      pdScheduleHeight();
+
+      setTimeout(pdScheduleHeight, 300);
+      setTimeout(pdScheduleHeight, 900);
+    }
+
+    if(document.readyState === "loading"){
+      document.addEventListener("DOMContentLoaded", pdBoot);
+    }else{
+      pdBoot();
+    }
+
+    window.addEventListener("load", pdBoot);
+    window.addEventListener("resize", pdScheduleHeight);
+
+    if("MutationObserver" in window){
+      var pdObserver = new MutationObserver(function(){
+        pdScheduleHeight();
+      });
+
+      pdObserver.observe(document.body,{
+        childList:true,
+        subtree:true,
+        attributes:true,
+        attributeFilter:["class","style","hidden"]
+      });
     }
   </script>
-
-  <script>
-    (function () {
-      function getActivityHeight() {
-        var activity = document.querySelector(".activity");
-        if (!activity) return document.documentElement.scrollHeight;
-        return Math.ceil(activity.getBoundingClientRect().height + 12);
-      }
-
-      function sendHeight() {
-        var height = getActivityHeight();
-        try {
-          window.parent.postMessage({
-            type: "unit2ActivityHeight",
-            height: height
-          }, "*");
-        } catch (e) {}
-      }
-
-      window.unit2SendHeight = sendHeight;
-
-      function scheduleHeight() {
-        window.requestAnimationFrame(function () {
-          window.requestAnimationFrame(sendHeight);
-        });
-      }
-
-      var oldGo = window.pdGo;
-      if (typeof oldGo === "function" && !window.__unit2GoWrapped) {
-        window.pdGo = function (num) {
-          oldGo(num);
-          try { window.scrollTo(0, 0); } catch (e) {}
-          scheduleHeight();
-        };
-        window.__unit2GoWrapped = true;
-      }
-
-      var oldOpenModal = window.pdOpenModal;
-      if (typeof oldOpenModal === "function" && !window.__unit2ModalWrapped) {
-        window.pdOpenModal = function () {
-          oldOpenModal.apply(this, arguments);
-          scheduleHeight();
-        };
-        window.__unit2ModalWrapped = true;
-      }
-
-      var oldCloseModal = window.pdCloseModal;
-      if (typeof oldCloseModal === "function" && !window.__unit2CloseModalWrapped) {
-        window.pdCloseModal = function () {
-          oldCloseModal.apply(this, arguments);
-          scheduleHeight();
-        };
-        window.__unit2CloseModalWrapped = true;
-      }
-
-      window.addEventListener("load", scheduleHeight);
-      window.addEventListener("resize", scheduleHeight);
-      document.addEventListener("click", function () {
-        setTimeout(scheduleHeight, 80);
-      });
-      document.addEventListener("drop", function () {
-        setTimeout(scheduleHeight, 80);
-      });
-
-      if ("MutationObserver" in window) {
-        var observer = new MutationObserver(function () {
-          scheduleHeight();
-        });
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-          attributeFilter: ["class", "style"]
-        });
-      }
-    })();
-  </script>
-
-
-  <script>
-    (function () {
-      function sendUnit2Height() {
-        var activity = document.querySelector(".activity");
-        var height = activity ? Math.ceil(activity.getBoundingClientRect().height + 24) : document.documentElement.scrollHeight;
-        try {
-          window.parent.postMessage({
-            type: "unit2ActivityHeight",
-            height: height
-          }, "*");
-        } catch (e) {}
-      }
-
-      window.unit2SendHeight = sendUnit2Height;
-
-      function scheduleUnit2Height() {
-        requestAnimationFrame(function () {
-          requestAnimationFrame(sendUnit2Height);
-        });
-      }
-
-      var oldGo = window.pdGo;
-      if (typeof oldGo === "function" && !window.__unit2NoCutGoWrapped) {
-        window.pdGo = function (num) {
-          oldGo(num);
-          try { window.scrollTo(0, 0); } catch (e) {}
-          scheduleUnit2Height();
-        };
-        window.__unit2NoCutGoWrapped = true;
-      }
-
-      window.addEventListener("load", scheduleUnit2Height);
-      window.addEventListener("resize", scheduleUnit2Height);
-      document.addEventListener("click", function () { setTimeout(scheduleUnit2Height, 100); });
-      document.addEventListener("drop", function () { setTimeout(scheduleUnit2Height, 100); });
-
-      if ("MutationObserver" in window) {
-        var observer = new MutationObserver(function () {
-          scheduleUnit2Height();
-        });
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-          attributes: true,
-          attributeFilter: ["class", "style"]
-        });
-      }
-    })();
-  </script>
-
 </body>
 </html>
