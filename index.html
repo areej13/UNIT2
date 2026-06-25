@@ -1187,6 +1187,21 @@
       }
     }
 
+  
+    /* زر التالي في شاشة 5 يظهر دائمًا لكنه يتفعّل بعد الإجابة الصحيحة */
+    #pdGo6Btn.is-disabled {
+      opacity: .55 !important;
+      cursor: not-allowed !important;
+      pointer-events: none !important;
+      box-shadow: none !important;
+    }
+
+    #pdGo6Btn:not(.is-disabled) {
+      opacity: 1 !important;
+      cursor: pointer !important;
+      pointer-events: auto !important;
+    }
+
   </style>
 </head>
 
@@ -1540,7 +1555,7 @@
           <button class="pd-lx-btn is-secondary" type="button" onclick="pdPrev()">السابق</button>
           <button class="pd-lx-btn is-secondary" type="button" onclick="pdResetOrder('improvePool','improveOrder')">إعادة ترتيب</button>
           <button class="pd-lx-btn" type="button" onclick="pdCheckOrder('improve')">تحقق من الأمر المحسّن</button>
-          <button id="pdGo6Btn" class="pd-lx-btn is-next" type="button" onclick="pdGo(6)" hidden>التالي</button>
+          <button id="pdGo6Btn" class="pd-lx-btn is-next is-disabled" type="button" onclick="pdGo(6)" disabled aria-disabled="true">التالي</button>
         </div>
       </section>
 
@@ -1602,6 +1617,8 @@
         btn.removeAttribute("hidden");
         btn.classList.remove("is-disabled");
         btn.disabled = false;
+        btn.removeAttribute("disabled");
+        btn.removeAttribute("aria-disabled");
         btn.style.display = "inline-flex";
       }
     }
@@ -1801,7 +1818,16 @@
 
       var nextBtn = document.getElementById("pdGo3Btn");
       if(nextBtn){
-        nextBtn.hidden = true;
+        if(item.next === "pdGo6Btn"){
+          nextBtn.hidden = false;
+          nextBtn.removeAttribute("hidden");
+          nextBtn.disabled = true;
+          nextBtn.setAttribute("aria-disabled","true");
+          nextBtn.classList.add("is-disabled");
+          nextBtn.style.display = "inline-flex";
+        }else{
+          nextBtn.hidden = true;
+        }
       }
     }
 
@@ -2060,9 +2086,12 @@
       if(zoneId === "improveOrder"){
         var btn6 = document.getElementById("pdGo6Btn");
         if(btn6){
-          btn6.hidden = true;
-          btn6.setAttribute("hidden", "");
-          btn6.style.display = "none";
+          btn6.hidden = false;
+          btn6.removeAttribute("hidden");
+          btn6.disabled = true;
+          btn6.setAttribute("aria-disabled","true");
+          btn6.classList.add("is-disabled");
+          btn6.style.display = "inline-flex";
         }
       }
 
