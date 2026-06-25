@@ -1997,9 +1997,9 @@
         improve:{
           zone:"improveOrder",
           result:"pdImproveResult",
-          next:"pdGo7Btn",
+          next:"pdGo6Btn",
           correct:["i1","i2","i3","i4","i5","i6","i7"],
-          unlock:7,
+          unlock:6,
           wrong:"السبب: التسلسل غير مكتمل أو غير مناسب. الترتيب الأفضل هو: الدور، ثم المهمة والموضوع، ثم احتياج الطلبة، ثم عناصر المخرج المطلوب."
         }
       };
@@ -2032,9 +2032,7 @@
 
         pdUnlock(item.unlock);
 
-        if(nextBtn){
-          nextBtn.hidden = false;
-        }
+        pdRevealNextButton(item.next);
       }else{
         pdWrong(item.wrong);
       }
@@ -2060,8 +2058,12 @@
       }
 
       if(zoneId === "improveOrder"){
-        var btn7 = document.getElementById("pdGo6Btn");
-        if(btn7){ btn7.hidden = true; }
+        var btn6 = document.getElementById("pdGo6Btn");
+        if(btn6){
+          btn6.hidden = true;
+          btn6.setAttribute("hidden", "");
+          btn6.style.display = "none";
+        }
       }
 
       pdSelectedDrag = null;
@@ -2112,9 +2114,7 @@
         pdCorrect(correctExplanation);
         pdUnlock(unlockNum);
 
-        if(nextBtn){
-          nextBtn.hidden = false;
-        }
+        pdRevealNextButton(item.next);
       }else{
         pdWrong(wrongReason);
       }
